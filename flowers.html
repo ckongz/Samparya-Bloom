@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowers - Samparyá Bloom</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f5f0;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background-color: #5a5a4a;
+            color: white;
+            text-align: center;
+            padding: 8px 20px;
+            font-size: 11px;
+        }
+
+        /* Header */
+        header {
+            background-color: #2d2d2d;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            font-style: italic;
+            color: #2d2d2d;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-right a {
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+        }
+
+        .cart-icon {
+            width: 24px;
+            height: 24px;
+            border: 1px solid white;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            background-color: white;
+            padding: 15px 40px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .category-nav a {
+            display: inline-block;
+            padding: 8px 20px;
+            margin: 0 5px;
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .category-nav a:hover {
+            color: #8b2e3e;
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section with Background Image */
+        .hero-image {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-image h1 {
+            position: relative;
+            z-index: 1;
+            font-size: 56px;
+            font-weight: normal;
+            color: #4a4a3a;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            height: fit-content;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .sidebar h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: #999;
+        }
+
+        .sidebar h2 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2d2d2d;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: #555;
+            text-decoration: none;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .sidebar ul li a:hover {
+            color: #8b2e3e;
+        }
+
+        /* Main Content */
+        .main-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .collection-title {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .collection-title h2 {
+            font-size: 36px;
+            font-weight: normal;
+            color: #2d2d2d;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .collection-subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* Products Grid */
+        .products-grid-large {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .products-grid-collection {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: #fafafa;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            background-color: #e8e8e8;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: #6a6a5a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .cart-badge:hover {
+            background-color: #5a5a4a;
+        }
+
+        .product-name {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: #2d2d2d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .product-price {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Collection Product Cards */
+        .collection-product {
+            background: white;
+            border: 1px solid #d0d0d0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 350px;
+            background-color: #e8e8e8;
+            position: relative;
+        }
+
+        .collection-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .collection-content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .collection-content h3 {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            color: #2d2d2d;
+        }
+
+        .collection-content .cart-badge {
+            position: relative;
+            bottom: auto;
+            right: auto;
+            margin: 15px auto 10px;
+        }
+
+        .collection-content p {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Pagination Dots */
+        .pagination-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 40px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #d0d0d0;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background-color: #6a6a5a;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d2d2d;
+            color: white;
+            padding: 50px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links h5 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .newsletter {
+            background-color: #3d3d3d;
+            padding: 35px;
+            border-radius: 8px;
+        }
+
+        .newsletter h4 {
+            font-size: 26px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            font-size: 12px;
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            background-color: white;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .newsletter-form button {
+            padding: 12px 30px;
+            background-color: white;
+            color: #2d2d2d;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 11px;
+            color: #888;
+        }
+
+        @media (max-width: 968px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content,
+            .products-grid-collection {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .hero-image h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        We offer free delivery in Angeles City for orders Php 6,000 and up.
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#contact">CONTACT US</a>
+        </nav>
+        <div class="logo">SB</div>
+        <div class="header-right">
+            <a href="#signin">SIGN IN / REGISTER</a>
+            <div class="cart-icon">🛒</div>
+        </div>
+    </header>
+
+    <!-- Category Navigation -->
+    <div class="category-nav">
+        <a onclick="showPage('flowers')">FLOWERS</a>
+        <a href="#occasions">OCCASIONS</a>
+    </div>
+
+    <!-- PAGE 1: FLOWERS BESTSELLERS -->
+    <div id="flowers" class="page active">
+        <!-- Hero Section -->
+        <div class="hero-image" style="background-image: linear-gradient(rgba(245,245,240,0.3), rgba(245,245,240,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23e8d5c4%22/%3E%3C/svg%3E')">
+            <h1>FLOWERS</h1>
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('peonies')">Peonies</a></li>
+                    <li><a onclick="showPage('carnation')">Carnation Bouquet</a></li>
+                    <li><a onclick="showPage('lilies')">Lilies Bouquet</a></li>
+                    <li><a onclick="showPage('roses')">Roses Bouquet</a></li>
+                    <li><a onclick="showPage('tulips')">Tulips</a></li>
+                    <li><a onclick="showPage('sunflower')">Sunflower Flower Bouquet</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="collection-title">
+                    <h2>Bestsellers</h2>
+                </div>
+                <p class="collection-subtitle">Our most popular blooms, handpicked for you.</p>
+
+                <div class="products-grid-large">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 1%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">LEA</p>
+                        <p class="product-price">Starts at ₱4,832.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23d4c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 2%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">LEE</p>
+                        <p class="product-price">Starts at ₱1,232.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23f4e4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 3%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">KATELYN</p>
+                        <p class="product-price">₱5,800.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 4%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">JANET</p>
+                        <p class="product-price">Starts at ₱1,390.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e4e4c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 5%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">LEXI</p>
+                        <p class="product-price">₱2,591.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23d4e4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 6%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">KAI</p>
+                        <p class="product-price">₱3,859.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e8c4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 7%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">LOU</p>
+                        <p class="product-price">Starts at ₱2,244.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23f4d4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 8%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">REIA</p>
+                        <p class="product-price">Starts at ₱3,999.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 9%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">LEILA</p>
+                        <p class="product-price">Starts at ₱4,799.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23d4c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 10%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">PRIYA</p>
+                        <p class="product-price">Starts at ₱1,500.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23c4d4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 11%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">FREYA</p>
+                        <p class="product-price">Starts at ₱3,359.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e4d4c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 12%3C/text%3E%3C/svg%3E" alt="Flower">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">KIMBERLY</p>
+                        <p class="product-price">₱4,299.00</p>
+                    </div>
+                </div>
+
+                <div class="pagination-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- PAGE 2: PEONIES -->
+    <div id="peonies" class="page">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23f4d4e4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3EPeonies Background%3C/text%3E%3C/svg%3E')">
+            <h1>PEONIES</h1>
+        </div>
+
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('peonies')">Peonies</a></li>
+                    <li><a onclick="showPage('carnation')">Carnation Bouquet</a></li>
+                    <li><a onclick="showPage('lilies')">Lilies Bouquet</a></li>
+                    <li><a onclick="showPage('roses')">Roses Bouquet</a></li>
+                    <li><a onclick="showPage('tulips')">Tulips</a></li>
+                    <li><a onclick="showPage('sunflower')">Sunflower Flower Bouquet</a></li>
+                </ul>
+            </aside>
+
+            <main class="main-content">
+                <div class="collection-title">
+                    <h2>Peony Collection</h2>
+                </div>
+                <p class="collection-subtitle">Soft, lush, and timelessly romantic—our peonies bring elegance and charm to any occasion.</p>
+
+                <div class="products-grid-collection">
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EREGINA%3C/text%3E%3C/svg%3E" alt="Regina">
+                        </div>
+                        <div class="collection-content">
+                            <h3>REGINA</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱4,993.00</p>
+                        </div>
+                    </div>
+
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4d4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ELINA%3C/text%3E%3C/svg%3E" alt="Lina">
+                        </div>
+                        <div class="collection-content">
+                            <h3>LINA</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱1,993.00</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- PAGE 3: CARNATION BOUQUET -->
+    <div id="carnation" class="page">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23e8d4d4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3ECarnation Background%3C/text%3E%3C/svg%3E')">
+            <h1>Carnation Bouquet</h1>
+        </div>
+
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('peonies')">Peonies</a></li>
+                    <li><a onclick="showPage('carnation')">Carnation Bouquet</a></li>
+                    <li><a onclick="showPage('lilies')">Lilies Bouquet</a></li>
+                    <li><a onclick="showPage('roses')">Roses Bouquet</a></li>
+                    <li><a onclick="showPage('tulips')">Tulips</a></li>
+                    <li><a onclick="showPage('sunflower')">Sunflower Flower Bouquet</a></li>
+                </ul>
+            </aside>
+
+            <main class="main-content">
+                <div class="collection-title">
+                    <h2>Captivating Carnations</h2>
+                </div>
+                <p class="collection-subtitle">Delicate and vibrant, our carnation bouquets symbolize love, admiration, and lasting beauty—perfect for any heartfelt celebration.</p>
+
+                <div class="products-grid-collection">
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4e4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ESAM%3C/text%3E%3C/svg%3E" alt="Sam">
+                        </div>
+                        <div class="collection-content">
+                            <h3>SAM</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱4,993.00</p>
+                        </div>
+                    </div>
+
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23e8d4c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ELUNA%3C/text%3E%3C/svg%3E" alt="Luna">
+                        </div>
+                        <div class="collection-content">
+                            <h3>LUNA</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱1,693.00</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- PAGE 4: LILIES BOUQUET -->
+    <div id="lilies" class="page">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23f4f4e4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3ELilies Background%3C/text%3E%3C/svg%3E')">
+            <h1>Lilies Bouquet</h1>
+        </div>
+
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('peonies')">Peonies</a></li>
+                    <li><a onclick="showPage('carnation')">Carnation Bouquet</a></li>
+                    <li><a onclick="showPage('lilies')">Lilies Bouquet</a></li>
+                    <li><a onclick="showPage('roses')">Roses Bouquet</a></li>
+                    <li><a onclick="showPage('tulips')">Tulips</a></li>
+                    <li><a onclick="showPage('sunflower')">Sunflower Flower Bouquet</a></li>
+                </ul>
+            </aside>
+
+            <main class="main-content">
+                <div class="collection-title">
+                    <h2>Pure Lily</h2>
+                </div>
+                <p class="collection-subtitle">Uncomplicated beauty, unforgettable impact. Elevate any moment with the sleek elegance of a lily bouquet.</p>
+
+                <div class="products-grid-collection">
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4e4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ENICOLE%3C/text%3E%3C/svg%3E" alt="Nicole">
+                        </div>
+                        <div class="collection-content">
+                            <h3>NICOLE</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱4,255.00</p>
+                        </div>
+                    </div>
+
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23e4f4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ELEXI%3C/text%3E%3C/svg%3E" alt="Lexi">
+                        </div>
+                        <div class="collection-content">
+                            <h3>LEXI</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱1,693.00</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- PAGE 5: ROSES BOUQUET -->
+    <div id="roses" class="page">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23e8c4c4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3ERoses Background%3C/text%3E%3C/svg%3E')">
+            <h1>Roses Bouquet</h1>
+        </div>
+
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('peonies')">Peonies</a></li>
+                    <li><a onclick="showPage('carnation')">Carnation Bouquet</a></li>
+                    <li><a onclick="showPage('lilies')">Lilies Bouquet</a></li>
+                    <li><a onclick="showPage('roses')">Roses Bouquet</a></li>
+                    <li><a onclick="showPage('tulips')">Tulips</a></li>
+                    <li><a onclick="showPage('sunflower')">Sunflower Flower Bouquet</a></li>
+                </ul>
+            </aside>
+
+            <main class="main-content">
+                <div class="collection-title">
+                    <h2>Eternal Rose</h2>
+                </div>
+                <p class="collection-subtitle">The classic language of love, spoken in perfect petals. An timeless gesture that never fails to captivate.</p>
+
+                <div class="products-grid-collection">
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23c4343c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23fff'%3EMEGAN%3C/text%3E%3C/svg%3E" alt="Megan">
+                        </div>
+                        <div class="collection-content">
+                            <h3>MEGAN</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱4,223.00</p>
+                        </div>
+                    </div>
+
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ECORELIA%3C/text%3E%3C/svg%3E" alt="Corelia">
+                        </div>
+                        <div class="collection-content">
+                            <h3>CORELIA</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱1,693.00</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- PAGE 6: TULIPS -->
+    <div id="tulips" class="page">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23e4f4e4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3ETulips Background%3C/text%3E%3C/svg%3E')">
+            <h1>Tulips</h1>
+        </div>
+
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('peonies')">Peonies</a></li>
+                    <li><a onclick="showPage('carnation')">Carnation Bouquet</a></li>
+                    <li><a onclick="showPage('lilies')">Lilies Bouquet</a></li>
+                    <li><a onclick="showPage('roses')">Roses Bouquet</a></li>
+                    <li><a onclick="showPage('tulips')">Tulips</a></li>
+                    <li><a onclick="showPage('sunflower')">Sunflower Flower Bouquet</a></li>
+                </ul>
+            </aside>
+
+            <main class="main-content">
+                <div class="collection-title">
+                    <h2>Grace of Tulips</h2>
+                </div>
+                <p class="collection-subtitle">The classic language of love, spoken in perfect petals. An timeless gesture that never fails to captivate.</p>
+
+                <div class="products-grid-collection">
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4d4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EMARIE%3C/text%3E%3C/svg%3E" alt="Marie">
+                        </div>
+                        <div class="collection-content">
+                            <h3>MARIE</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱3,255.00</p>
+                        </div>
+                    </div>
+
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4c4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ENELLA%3C/text%3E%3C/svg%3E" alt="Nella">
+                        </div>
+                        <div class="collection-content">
+                            <h3>NELLA</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱2,695.00</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- PAGE 7: SUNFLOWER -->
+    <div id="sunflower" class="page">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23f4e4a4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3ESunflower Background%3C/text%3E%3C/svg%3E')">
+            <h1>Sunflower Flower Bouquet</h1>
+        </div>
+
+        <div class="content-wrapper">
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('peonies')">Peonies</a></li>
+                    <li><a onclick="showPage('carnation')">Carnation Bouquet</a></li>
+                    <li><a onclick="showPage('lilies')">Lilies Bouquet</a></li>
+                    <li><a onclick="showPage('roses')">Roses Bouquet</a></li>
+                    <li><a onclick="showPage('tulips')">Tulips</a></li>
+                    <li><a onclick="showPage('sunflower')">Sunflower Flower Bouquet</a></li>
+                </ul>
+            </aside>
+
+            <main class="main-content">
+                <div class="collection-title">
+                    <h2>Pure Sunflower</h2>
+                </div>
+                <p class="collection-subtitle">No fillers needed. Celebrate uncomplicated, vibrant joy with the timeless beauty of a classic sunflower bouquet.</p>
+
+                <div class="products-grid-collection">
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23e4d4a4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ELILO%3C/text%3E%3C/svg%3E" alt="Lilo">
+                        </div>
+                        <div class="collection-content">
+                            <h3>LILO</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱2,500.00</p>
+                        </div>
+                    </div>
+
+                    <div class="collection-product">
+                        <div class="collection-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4e4b4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ENEX%3C/text%3E%3C/svg%3E" alt="Nex">
+                        </div>
+                        <div class="collection-content">
+                            <h3>NEX</h3>
+                            <div class="cart-badge">🛒</div>
+                            <p>Starts at ₱2,695.00</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <h5>SB PHILIPPINES</h5>
+                <ul>
+                    <li><a href="#who-we-are">Who We Are</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+                <ul style="margin-top: 25px;">
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#terms">Terms of service</a></li>
+                </ul>
+            </div>
+            <div class="newsletter">
+                <h4>Gain Exclusive Access</h4>
+                <p>Sign up today and receive exclusive discounts, early sales, style tips, and more.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button>JOIN</button>
+                </div>
+                <div class="social-icons">
+                    <a href="#instagram">📷</a>
+                    <a href="#facebook">📘</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            ©2025, Samparyá Bloom
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
