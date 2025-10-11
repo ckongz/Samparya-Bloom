@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Samparyá Bloom - Beyond Blooms</title>
+    <title>Samparyá Bloom - Petals at Your Doorstep</title>
     <style>
         * {
             margin: 0;
@@ -15,38 +15,41 @@
             font-family: 'Georgia', serif;
             color: #333;
             line-height: 1.6;
+            background-color: #fafafa;
         }
 
         /* Top Banner */
         .top-banner {
-            background-color: #4a4a3a;
+            background-color: #5a5a4a;
             color: white;
             text-align: center;
             padding: 8px 20px;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         /* Header */
         header {
-            background-color: #3d3d2e;
+            background-color: #2d2d2d;
             padding: 15px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 40px;
         }
-
         .logo {
-            width: 50px;
+            width: 100px;
             height: 50px;
-            background-color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Georgia', serif;
-            font-size: 24px;
-            font-style: italic;
-            color: #3d3d2e;
+            overflow: hidden; /* ensures logo fits cleanly inside the circle */
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         nav {
@@ -57,7 +60,7 @@
         nav a {
             color: white;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -71,7 +74,7 @@
         .header-right a {
             color: white;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 11px;
         }
 
         .cart-icon {
@@ -82,133 +85,346 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 14px;
         }
 
-        /* Secondary Nav */
-        .secondary-nav {
-            background-color: #f5f5f0;
-            padding: 12px 40px;
+        /* Category Navigation */
+        .category-nav {
+            background-color: white;
+            padding: 15px 40px;
             text-align: center;
+            border-bottom: 1px solid #e0e0e0;
         }
 
-        .secondary-nav a {
-            color: #333;
+        .category-nav a {
+            display: inline-block;
+            padding: 8px 20px;
+            margin: 0 5px;
             text-decoration: none;
-            margin: 0 20px;
-            font-size: 13px;
+            color: #333;
+            font-size: 12px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 60px 20px 40px;
-            background-color: #fafaf8;
+        .category-nav a:hover {
+            color: #8b2e3e;
         }
 
-        .hero h1 {
-            font-size: 42px;
-            font-weight: normal;
-            margin-bottom: 10px;
-            color: #2d2d2d;
+        /* Hero Banner */
+        .hero-banner {
+            position: relative;
+            height: 500px;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1400" height="500"%3E%3Crect width="1400" height="500" fill="%23f5f0e8"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="serif" font-size="20" fill="%23999"%3EHero Image - Flowers%3C/text%3E%3C/svg%3E');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
         }
 
-        .hero h2 {
-            font-size: 36px;
-            font-weight: normal;
-            color: #2d2d2d;
+        .hero-content {
+            max-width: 600px;
+            padding: 60px 80px;
+            background-color: rgba(255, 255, 255, 0.95);
         }
 
-        /* Main Content */
-        .content-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 60px 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
-        }
-
-        .text-content h3 {
-            font-size: 14px;
-            color: #666;
+        .hero-label {
+            font-size: 11px;
+            color: #888;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 30px;
-        }
-
-        .text-content h4 {
-            font-size: 32px;
-            font-weight: normal;
             margin-bottom: 15px;
-            color: #2d2d2d;
         }
 
-        .text-content h5 {
-            font-size: 24px;
+        .hero-content h1 {
+            font-size: 42px;
             font-weight: normal;
+            color: #8b2e3e;
             margin-bottom: 20px;
-            color: #2d2d2d;
+            line-height: 1.2;
         }
 
-        .text-content h6 {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            margin-top: 30px;
-            color: #2d2d2d;
-        }
-
-        .text-content p {
-            font-size: 14px;
-            line-height: 1.8;
-            margin-bottom: 15px;
+        .hero-content p {
+            font-size: 13px;
             color: #555;
+            line-height: 1.7;
+            margin-bottom: 12px;
         }
 
-        .image-container {
-            position: relative;
+        .hero-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 30px;
+            background-color: #8b2e3e;
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
         }
 
-        .image-container img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .hero-btn:hover {
+            background-color: #6b1e2e;
         }
 
-        /* Commitment Section */
-        .commitment-section {
-            background-color: #f5f5f0;
-            padding: 50px 40px;
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
         }
 
-        .commitment-content {
-            max-width: 1200px;
+        /* Bestsellers Section */
+        .bestsellers {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .section-label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .bestsellers h2 {
+            font-size: 36px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: #2d2d2d;
+        }
+
+        .bestsellers-subtitle {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 40px;
+        }
+
+        .products-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
-        .commitment-content h4 {
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background-color: #e8e8e8;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-info h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: #2d2d2d;
+        }
+
+        .product-info p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Our Story Section */
+        .our-story {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            margin: 60px 0;
+            align-items: center;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 500px;
+            background-color: #d4c4b0;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .story-content {
+            padding: 60px 80px;
+            background-color: #f5f5f0;
+        }
+
+        .story-content .section-label {
+            margin-bottom: 15px;
+        }
+
+        .story-content h2 {
+            font-size: 38px;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            font-weight: normal;
+            color: #2d2d2d;
+        }
+
+        .story-content p {
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            padding: 60px 0;
+            text-align: center;
+            background-color: white;
+        }
+
+        .reviews h2 {
             font-size: 32px;
             font-weight: normal;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: #2d2d2d;
         }
 
-        .commitment-content h6 {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #2d2d2d;
+        .reviews-subtitle {
+            font-size: 12px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 40px;
         }
 
-        .commitment-content p {
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 25px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .review-image {
+            width: 80px;
+            height: 80px;
+            background-color: #e8e8e8;
+            margin: 0 auto 15px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .review-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .stars {
+            color: #8b2e3e;
             font-size: 14px;
-            line-height: 1.8;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+        }
+
+        .review-text {
+            font-size: 12px;
+            line-height: 1.6;
             color: #555;
-            max-width: 900px;
+            margin-bottom: 12px;
+        }
+
+        .review-author {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+        }
+
+        /* Instagram Section */
+        .instagram-section {
+            padding: 60px 0;
+            background-color: #f5f5f0;
+            text-align: center;
+        }
+
+        .instagram-handle {
+            font-size: 11px;
+            color: #888;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .instagram-section h2 {
+            font-size: 32px;
+            margin-bottom: 40px;
+            font-weight: normal;
+            color: #2d2d2d;
+        }
+
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .instagram-post {
+            position: relative;
+            height: 300px;
+            background-color: #d4c4b0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .instagram-post img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .instagram-overlay {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            color: white;
+            font-size: 11px;
+            background-color: rgba(0,0,0,0.6);
+            padding: 5px 10px;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
 
         /* Footer */
@@ -228,9 +444,11 @@
         }
 
         .footer-links h5 {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
             margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .footer-links ul {
@@ -244,7 +462,7 @@
         .footer-links a {
             color: #ccc;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 12px;
         }
 
         .footer-links a:hover {
@@ -253,7 +471,8 @@
 
         .newsletter {
             background-color: #3d3d3d;
-            padding: 30px;
+            padding: 35px;
+            border-radius: 8px;
         }
 
         .newsletter h4 {
@@ -263,9 +482,10 @@
         }
 
         .newsletter p {
-            font-size: 13px;
+            font-size: 12px;
             color: #ccc;
             margin-bottom: 20px;
+            line-height: 1.6;
         }
 
         .newsletter-form {
@@ -276,10 +496,11 @@
 
         .newsletter-form input {
             flex: 1;
-            padding: 12px;
+            padding: 12px 15px;
             border: none;
             background-color: white;
-            font-size: 13px;
+            font-size: 12px;
+            border-radius: 4px;
         }
 
         .newsletter-form button {
@@ -288,9 +509,11 @@
             color: #2d2d2d;
             border: none;
             cursor: pointer;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
         }
 
         .newsletter-form button:hover {
@@ -300,12 +523,11 @@
         .social-icons {
             display: flex;
             gap: 15px;
-            margin-top: 15px;
         }
 
         .social-icons a {
             color: white;
-            font-size: 18px;
+            font-size: 16px;
             text-decoration: none;
         }
 
@@ -313,12 +535,18 @@
             text-align: center;
             padding-top: 20px;
             border-top: 1px solid #444;
-            font-size: 12px;
+            font-size: 11px;
             color: #888;
         }
 
-        @media (max-width: 768px) {
-            .content-section,
+        @media (max-width: 968px) {
+            .products-row,
+            .reviews-grid,
+            .instagram-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .our-story,
             .footer-content {
                 grid-template-columns: 1fr;
             }
@@ -334,20 +562,24 @@
                 text-align: center;
             }
 
-            .hero h1 {
+            .hero-content {
+                padding: 40px 30px;
+            }
+
+            .hero-content h1 {
                 font-size: 32px;
             }
 
-            .hero h2 {
-                font-size: 28px;
+            .story-content {
+                padding: 40px 30px;
             }
-        }
+        } 
     </style>
 </head>
 <body>
     <!-- Top Banner -->
     <div class="top-banner">
-        We offer free delivery in Angeles City for orders Php 5,000 and up
+        We offer free delivery in Angeles City for orders Php 6,000 and up.
     </div>
 
     <!-- Header -->
@@ -356,47 +588,153 @@
             <a href="#home">HOME</a>
             <a href="#contact">CONTACT US</a>
         </nav>
-        <div class="logo">SB</div>
-        <div class="header-right">
-            <a href="#signin">Sign In / Register</a>
-            <div class="cart-icon">🛒</div>
+        <div class="logo">
+            <img src="images/Logo.png" alt="Samparyá Bloom Logo">
         </div>
+        <div class="header-right">
+            <a href="#signin">SIGN IN / REGISTER</a>
+            <div class="cart-icon">🛒</div>
+        </div> 
     </header>
 
-    <!-- Secondary Navigation -->
-    <div class="secondary-nav">
+    <!-- Category Navigation -->
+    <div class="category-nav">
         <a href="#flowers">FLOWERS</a>
         <a href="#occasions">OCCASIONS</a>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Beyond Blooms: Experience</h1>
-        <h2>Samparyá Bloom</h2>
-    </section>
-
-    <!-- Main Content Section -->
-    <section class="content-section">
-        <div class="text-content">
-            <h3>SAMPARYÁ BLOOM PHILIPPINES</h3>
-            <h4>Who We Are</h4>
-            <h5>Our Business</h5>
-            <h6>Samparyá Bloom</h6>
-            <p>What started as a small family-run flower shop in Angeles City, Pampanga, has now blossomed into a trusted name in the region. We're known not just for our premium flowers and home decor selections.</p>
-            <p>Over the years, we've decorated everything from homes and intimate gatherings to large-scale celebrations and corporate events. We don't just sell flowers but unforgettable memories. Our carefully selected products include high-end, imported blooms and handpicked home accents that elevate any space.</p>
-        </div>
-        <div class="image-container">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500'%3E%3Crect width='400' height='500' fill='%23d4c4b0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='18' fill='%23666'%3EFlower Arrangement Image%3C/text%3E%3C/svg%3E" alt="Flower arrangement">
+    <!-- Hero Banner -->
+    <section class="hero-banner">
+        <div class="hero-content">
+            <p class="hero-label">FIND ELEGANT STYLES FROM US</p>
+            <h1>Petals at Your Doorstep</h1>
+            <p>Same day delivery available in Angeles City and nearby areas. Place your order before 9 AM to receive it the same day.</p>
+            <p>Orders after the cut-off will arrive the next day or on your chosen date.</p>
+            <a href="#flowers" class="hero-btn">FLOWERS</a>
         </div>
     </section>
 
-    <!-- Commitment Section -->
-    <section class="commitment-section">
-        <div class="commitment-content">
-            <h4>Our Commitment</h4>
-            <h6>RESPONSIBLE SOURCING</h6>
-            <p>At Samparyá Bloom, our commitment goes beyond creating stunning floral arrangements — it's about doing right by both people and the world around us. We take pride in ensuring that every flower and material we use is ethically and sustainably obtained.</p>
-            <p>From partnering with trusted growers who practice eco-friendly farming to sourcing supplies who share our values, we work to minimize our environmental impact while supporting local communities. This approach allows us to deliver premium, meaningful blooms that not only brighten someone's day but also respect the planet and the people behind every petal.</p>
+    <!-- Bestsellers Section -->
+    <section class="bestsellers">
+        <div class="container">
+            <p class="section-label">CHECK OUT OUR</p>
+            <h2>Bestsellers</h2>
+            <p class="bestsellers-subtitle">Our most popular blooms, handpicked for you.</p>
+
+            <div class="products-row">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='250'%3E%3Crect width='350' height='250' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ETulips Bouquet%3C/text%3E%3C/svg%3E" alt="Tulips Bouquet">
+                    </div>
+                    <div class="product-info">
+                        <h3>Tulips Bouquet</h3>
+                        <p>Elegant tulip bouquet with soft, delicate hues. Perfect for any occasion.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='250'%3E%3Crect width='350' height='250' fill='%23d4e8d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EFlower Crate%3C/text%3E%3C/svg%3E" alt="Flower Crate">
+                    </div>
+                    <div class="product-info">
+                        <h3>Flower Crate</h3>
+                        <p>Rustic flower crate arrangement with vibrant blooms and greenery.</p>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='250'%3E%3Crect width='350' height='250' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EMoney Bouquet%3C/text%3E%3C/svg%3E" alt="Money Bouquet">
+                    </div>
+                    <div class="product-info">
+                        <h3>Money Bouquet</h3>
+                        <p>Creative money bouquet arrangement. Perfect for celebrations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="our-story">
+        <div class="story-content">
+            <p class="section-label">OUR STORY</p>
+            <h2>Where Timeless Elegance Blooms</h2>
+            <p>At Samparyá Bloom, we celebrate a heritage built on elegance and passion for flowers. Discover our journey of crafting timeless floral experiences, where every bloom tells a story of love, tradition, and artistry.</p>
+        </div>
+        <div class="story-image">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='500'%3E%3Crect width='700' height='500' fill='%23d4c4b0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='18' fill='%23666'%3EFlower Shop Interior%3C/text%3E%3C/svg%3E" alt="Flower Shop">
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews">
+        <div class="container">
+            <h2>Love Notes From Our Customers</h2>
+            <p class="reviews-subtitle">Trusted by Bloom Lovers</p>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23d4c4b0' rx='4'/%3E%3C/svg%3E" alt="Review">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">The flowers were absolutely stunning! Fresh, beautiful, and perfectly arranged.</p>
+                    <p class="review-author">Maria Santos</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23d4c4b0' rx='4'/%3E%3C/svg%3E" alt="Review">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">Excellent service and beautiful arrangements. Highly recommended!</p>
+                    <p class="review-author">John Reyes</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23d4c4b0' rx='4'/%3E%3C/svg%3E" alt="Review">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">Amazing quality and attention to detail. Every bouquet is a work of art.</p>
+                    <p class="review-author">Sarah Cruz</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-image">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23d4c4b0' rx='4'/%3E%3C/svg%3E" alt="Review">
+                    </div>
+                    <div class="stars">★★★★★</div>
+                    <p class="review-text">Professional service and gorgeous flowers. They made my event extra special!</p>
+                    <p class="review-author">Robert Lopez</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instagram Section -->
+    <section class="instagram-section">
+        <div class="container">
+            <p class="instagram-handle">📷 @samparyabloom</p>
+            <h2>Celeb Blooms</h2>
+
+            <div class="instagram-grid">
+                <div class="instagram-post">
+                    <div class="instagram-overlay">📷 @julidelaicruz</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='300'%3E%3Crect width='350' height='300' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EInstagram Post 1%3C/text%3E%3C/svg%3E" alt="Instagram">
+                </div>
+
+                <div class="instagram-post">
+                    <div class="instagram-overlay">📷 @julidelaicruz</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='300'%3E%3Crect width='350' height='300' fill='%23d4e8d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EInstagram Post 2%3C/text%3E%3C/svg%3E" alt="Instagram">
+                </div>
+
+                <div class="instagram-post">
+                    <div class="instagram-overlay">📷 @samparyabloom500</div>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='300'%3E%3Crect width='350' height='300' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EInstagram Post 3%3C/text%3E%3C/svg%3E" alt="Instagram">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -408,19 +746,19 @@
                 <ul>
                     <li><a href="#who-we-are">Who We Are</a></li>
                     <li><a href="#story">Our Story</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#locations">Locations</a></li>
                     <li><a href="#privacy">Privacy Policy</a></li>
                 </ul>
-                <ul style="margin-top: 20px;">
+                <ul style="margin-top: 25px;">
                     <li><a href="#feedback">Feedback</a></li>
                     <li><a href="#terms">Terms of service</a></li>
                 </ul>
             </div>
             <div class="newsletter">
                 <h4>Gain Exclusive Access</h4>
-                <p>Sign up today and receive exclusive discounts, early access to new collections, and more!</p>
+                <p>Sign up today and receive exclusive discounts, early sales, style tips, and more.</p>
                 <div class="newsletter-form">
-                    <input type="email" placeholder="Enter your email">
+                    <input type="email" placeholder="Your email">
                     <button>JOIN</button>
                 </div>
                 <div class="social-icons">
@@ -430,7 +768,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            © 2025, Samparyá Bloom
+            ©2025, Samparyá Bloom
         </div>
     </footer>
 </body>
