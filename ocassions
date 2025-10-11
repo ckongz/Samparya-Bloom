@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Occasions - Samparyá Bloom</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f5f5f0;
+        }
+
+        /* Top Banner */
+        .top-banner {
+            background-color: #5a5a4a;
+            color: white;
+            text-align: center;
+            padding: 8px 20px;
+            font-size: 11px;
+        }
+
+        /* Header */
+        header {
+            background-color: #2d2d2d;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            font-style: italic;
+            color: #2d2d2d;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-right a {
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+        }
+
+        .cart-icon {
+            width: 24px;
+            height: 24px;
+            border: 1px solid white;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            background-color: white;
+            padding: 15px 40px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .category-nav a {
+            display: inline-block;
+            padding: 8px 20px;
+            margin: 0 5px;
+            text-decoration: none;
+            color: #333;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+        }
+
+        .category-nav a:hover {
+            color: #8b2e3e;
+        }
+
+        /* Page Container */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #d4c4b0;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: normal;
+            color: #2d2d2d;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .hero p {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Sidebar + Content Layout */
+        .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 40px;
+            padding: 40px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            height: fit-content;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .sidebar h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            color: #999;
+        }
+
+        .sidebar h2 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2d2d2d;
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+        .sidebar ul li a {
+            color: #555;
+            text-decoration: none;
+            font-size: 13px;
+            cursor: pointer;
+        }
+
+        .sidebar ul li a:hover {
+            color: #8b2e3e;
+        }
+
+        /* Main Content */
+        .main-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        /* Bestsellers Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: normal;
+            color: #2d2d2d;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: #fafafa;
+            border-radius: 8px;
+            overflow: hidden;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 180px;
+            background-color: #e8e8e8;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cart-badge {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            width: 35px;
+            height: 35px;
+            background-color: #6a6a5a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .cart-badge:hover {
+            background-color: #5a5a4a;
+        }
+
+        .product-name {
+            font-size: 13px;
+            margin-bottom: 5px;
+            color: #2d2d2d;
+        }
+
+        .product-price {
+            font-size: 14px;
+            font-weight: bold;
+            color: #8b2e3e;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background-color: #b8b89a;
+            padding: 30px;
+            text-align: center;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+
+        .promo-banner h3 {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2d2d2d;
+        }
+
+        .promo-banner p {
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* Product Detail Cards */
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .product-detail-card {
+            background: white;
+            border: 1px solid #d0d0d0;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .product-detail-image {
+            width: 100%;
+            height: 250px;
+            background-color: #e8e8e8;
+        }
+
+        .product-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-detail-content {
+            padding: 25px;
+        }
+
+        .product-detail-content h3 {
+            font-size: 22px;
+            font-weight: normal;
+            margin-bottom: 10px;
+            color: #2d2d2d;
+        }
+
+        .product-detail-content p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .product-detail-content ul {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        .product-detail-content ul li {
+            font-size: 12px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: #6a6a5a;
+            color: white;
+            border: none;
+            font-family: 'Georgia', serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #5a5a4a;
+        }
+
+        /* Size/Options Selection */
+        .options-group {
+            margin-bottom: 20px;
+        }
+
+        .options-group h4 {
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #2d2d2d;
+        }
+
+        .option-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .option-btn {
+            padding: 8px 16px;
+            background-color: #f5f5f0;
+            border: 1px solid #d0d0d0;
+            font-family: 'Georgia', serif;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .option-btn:hover,
+        .option-btn.active {
+            background-color: #6a6a5a;
+            color: white;
+            border-color: #6a6a5a;
+        }
+
+        /* Need More Details Section */
+        .more-details {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: white;
+            margin: 40px 0;
+            border-radius: 8px;
+        }
+
+        .more-details h3 {
+            font-size: 24px;
+            font-weight: normal;
+            margin-bottom: 15px;
+            color: #2d2d2d;
+        }
+
+        .more-details p {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .social-links a {
+            font-size: 20px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2d2d2d;
+            color: white;
+            padding: 50px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links h5 {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .newsletter {
+            background-color: #3d3d3d;
+            padding: 35px;
+            border-radius: 8px;
+        }
+
+        .newsletter h4 {
+            font-size: 26px;
+            font-weight: normal;
+            margin-bottom: 10px;
+        }
+
+        .newsletter p {
+            font-size: 12px;
+            color: #ccc;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            background-color: white;
+            font-size: 12px;
+            border-radius: 4px;
+        }
+
+        .newsletter-form button {
+            padding: 12px 30px;
+            background-color: white;
+            color: #2d2d2d;
+            border: none;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 4px;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            color: white;
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 11px;
+            color: #888;
+        }
+
+        @media (max-width: 968px) {
+            .content-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content,
+            .product-detail-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        We offer free delivery in Angeles City for orders Php 6,000 and up.
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#contact">CONTACT US</a>
+        </nav>
+        <div class="logo">SB</div>
+        <div class="header-right">
+            <a href="#signin">SIGN IN / REGISTER</a>
+            <div class="cart-icon">🛒</div>
+        </div>
+    </header>
+
+    <!-- Category Navigation -->
+    <div class="category-nav">
+        <a href="#flowers">FLOWERS</a>
+        <a onclick="showPage('occasions')">OCCASIONS</a>
+    </div>
+
+    <!-- PAGE 1: OCCASIONS BESTSELLERS -->
+    <div id="occasions" class="page active">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>OCCASIONS</h1>
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('flower-coffee')">Flower with Coffee</a></li>
+                    <li><a onclick="showPage('flower-cake')">Flower Cake</a></li>
+                    <li><a onclick="showPage('flower-money')">Flower Money</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="section-title">
+                    <h2>Bestsellers</h2>
+                </div>
+                <p class="section-subtitle">Our most popular blooms, handpicked for you.</p>
+
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 1%3C/text%3E%3C/svg%3E" alt="Product">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">Bloom Bundle</p>
+                        <p class="product-price">₱ 2,500.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 2%3C/text%3E%3C/svg%3E" alt="Product">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">Tulips at ₱3,500.00</p>
+                        <p class="product-price">₱ 3,500.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23d4e8d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 3%3C/text%3E%3C/svg%3E" alt="Product">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">Jar Flower</p>
+                        <p class="product-price">₱ 1,800.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 4%3C/text%3E%3C/svg%3E" alt="Product">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">Money Bouquet</p>
+                        <p class="product-price">₱ 4,200.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 5%3C/text%3E%3C/svg%3E" alt="Product">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">Roses</p>
+                        <p class="product-price">₱ 3,000.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23d4e8d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 6%3C/text%3E%3C/svg%3E" alt="Product">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">Sunflower Bouquet</p>
+                        <p class="product-price">₱ 2,800.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 7%3C/text%3E%3C/svg%3E" alt="Product">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">Grand at ₱7,500.00</p>
+                        <p class="product-price">₱ 7,500.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 8%3C/text%3E%3C/svg%3E" alt="Product">
+                            <div class="cart-badge">🛒</div>
+                        </div>
+                        <p class="product-name">Modern at ₱3,500.00</p>
+                        <p class="product-price">₱ 3,500.00</p>
+                    </div>
+                </div>
+
+                <div class="more-details">
+                    <h3>Need More Details About Our Bundles?</h3>
+                    <p>For our bundles – including flowers with coffee, money bouquets, bento and flowers with cakes – please message us on our social media accounts</p>
+                    <div class="social-links">
+                        <a href="#">📷</a>
+                        <a href="#">📘</a>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- PAGE 2: FLOWER COFFEE -->
+    <div id="flower-coffee" class="page">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Flower Coffee</h1>
+            <p>Premium coffee served with beautiful fresh flowers</p>
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('flower-coffee')">Flower Coffee</a></li>
+                    <li><a onclick="showPage('flower-cake')">Flower Cake</a></li>
+                    <li><a onclick="showPage('flower-money')">Flower Money</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="promo-banner">
+                    <h3>FREE FLOWERS WITH EVERY COFFEE ORDER!</h3>
+                    <p>Enjoy a complimentary bouquet with each coffee purchase to brighten your day!</p>
+                </div>
+
+                <div class="product-detail-grid">
+                    <!-- Vanilla Latte -->
+                    <div class="product-detail-card">
+                        <div class="product-detail-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EVanilla Latte%3C/text%3E%3C/svg%3E" alt="Vanilla Latte">
+                        </div>
+                        <div class="product-detail-content">
+                            <h3>Vanilla Latte</h3>
+                            <p>Smooth espresso blended with silky steamed milk and a touch of vanilla. Creamy, sweet, and satisfying.</p>
+                            <p><strong>Includes: Red Rose Bouquet</strong><br>
+                            <em>Arrangement paired with daily fresh red roses</em></p>
+
+                            <div class="options-group">
+                                <h4>Size:</h4>
+                                <div class="option-buttons">
+                                    <button class="option-btn active">Small</button>
+                                    <button class="option-btn">Medium</button>
+                                    <button class="option-btn">Large</button>
+                                </div>
+                            </div>
+
+                            <div class="options-group">
+                                <h4>Milk Type:</h4>
+                                <div class="option-buttons">
+                                    <button class="option-btn active">Whole Milk</button>
+                                    <button class="option-btn">2% Milk</button>
+                                    <button class="option-btn">Oat Milk</button>
+                                </div>
+                            </div>
+
+                            <div class="options-group">
+                                <h4>Sweetness:</h4>
+                                <div class="option-buttons">
+                                    <button class="option-btn">Regular</button>
+                                    <button class="option-btn active">Sweet</button>
+                                    <button class="option-btn">Light</button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Caramel Macchiato -->
+                    <div class="product-detail-card">
+                        <div class="product-detail-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23d4c4b0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ECaramel Macchiato%3C/text%3E%3C/svg%3E" alt="Caramel Macchiato">
+                        </div>
+                        <div class="product-detail-content">
+                            <h3>Caramel Macchiato</h3>
+                            <p>Espresso marked with steamed milk and finished with caramel drizzle for sweetness.</p>
+                            <p><strong>Includes: Sunflower Bouquet</strong><br>
+                            <em>A cheerful arrangement with vibrant sunflowers</em></p>
+
+                            <div class="options-group">
+                                <h4>Size:</h4>
+                                <div class="option-buttons">
+                                    <button class="option-btn">Small</button>
+                                    <button class="option-btn active">Medium</button>
+                                    <button class="option-btn">Large</button>
+                                </div>
+                            </div>
+
+                            <div class="options-group">
+                                <h4>Milk Type:</h4>
+                                <div class="option-buttons">
+                                    <button class="option-btn active">Whole Milk</button>
+                                    <button class="option-btn">2% Milk</button>
+                                    <button class="option-btn">Almond</button>
+                                </div>
+                            </div>
+
+                            <div class="options-group">
+                                <h4>Caramel:</h4>
+                                <div class="option-buttons">
+                                    <button class="option-btn">Regular</button>
+                                    <button class="option-btn active">Extra</button>
+                                    <button class="option-btn">Light</button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Hazelnut Cappuccino -->
+                    <div class="product-detail-card">
+                        <div class="product-detail-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23c4b4a0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EHazelnut Cappuccino%3C/text%3E%3C/svg%3E" alt="Hazelnut Cappuccino">
+                        </div>
+                        <div class="product-detail-content">
+                            <h3>Hazelnut Cappuccino</h3>
+                            <p>Rich espresso with velvety microfoam and a nutty hazelnut twist.</p>
+                            <p><strong>Includes: Mixed Pink Bouquet</strong><br>
+                            <em>Elegant mix with Pink Roses</em></p>
+
+                            <div class="options-group">
+                                <h4>Size:</h4>
+                                <div class="option-buttons">
+                                    <button class="option-btn">Small</button>
+                                    <button class="option-btn active">Medium</button>
+                                    <button class="option-btn">Large</button>
+                                </div>
+                            </div>
+
+                            <div class="options-group">
+                                <h4>Foam Level:</h4>
+                                <div class="option-buttons">
+                                    <button class="option-btn">Regular</button>
+                                    <button class="option-btn active">Decadent</button>
+                                    <button class="option-btn">Light Foam</button>
+                                </div>
+                            </div>
+
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- PAGE 3: FLOWER MONEY -->
+    <div id="flower-money" class="page">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Flower Money</h1>
+            <p>Premium Peso Money Bouquets for Every Celebration</p>
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('flower-coffee')">Flower Coffee</a></li>
+                    <li><a onclick="showPage('flower-cake')">Flower Cake</a></li>
+                    <li><a onclick="show('flower-money')">Flower Money</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="product-detail-grid">
+                    <!-- Graduation Success -->
+                    <div class="product-detail-card">
+                        <div class="product-detail-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23d4c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EGraduation Success%3C/text%3E%3C/svg%3E" alt="Graduation Success">
+                        </div>
+                        <div class="product-detail-content">
+                            <h3>Graduation Success</h3>
+                            <p>Celebrate their achievement with this elegant money bouquet paired with graduation-themed decorations.</p>
+                            <ul>
+                                <li>50 pieces of crisp ₱100 bills</li>
+                                <li>Elegant rose and gala flower wrapping</li>
+                                <li>Personalized ribbon</li>
+                                <li>Congratulations card included</li>
+                                <li>Comes with gift box packaging</li>
+                            </ul>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Anniversary Love -->
+                    <div class="product-detail-card">
+                        <div class="product-detail-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23c4d4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EAnniversary Love%3C/text%3E%3C/svg%3E" alt="Anniversary Love">
+                        </div>
+                        <div class="product-detail-content">
+                            <h3>Anniversary Love</h3>
+                            <p>Express your love with this romantic money bouquet designed for anniversaries and special moments</p>
+                            <ul>
+                                <li>Heart-shaped ₱1000 bills (x30 pcs)</li>
+                                <li>Arranged with pink and white roses</li>
+                                <li>Tied all with satin ribbon</li>
+                                <li>Personalized love message</li>
+                                <li>Surprise gift wrap</li>
+                            </ul>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Birthday Surprise -->
+                    <div class="product-detail-card">
+                        <div class="product-detail-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23e4d4c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EBirthday Surprise%3C/text%3E%3C/svg%3E" alt="Birthday Surprise">
+                        </div>
+                        <div class="product-detail-content">
+                            <h3>Birthday Surprise</h3>
+                            <p>Make their birthday unforgettable with this colorful and festive money bouquet arrangement!</p>
+                            <ul>
+                                <li>Mixed denominations (₱500, ₱200, ₱100)</li>
+                                <li>Colorful rose arrangements</li>
+                                <li>Birthday-themed decorations</li>
+                                <li>Party balloons attachment</li>
+                                <li>Happy birthday card</li>
+                            </ul>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- PAGE 4: FLOWER CAKE -->
+    <div id="flower-cake" class="page">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Flower Cake</h1>
+            <p>Adorable Bento Cakes & Flower Bundle Combinations</p>
+        </div>
+
+        <!-- Content Wrapper -->
+        <div class="content-wrapper">
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>REFINE</h3>
+                <h2>SEARCH</h2>
+                <ul>
+                    <li><a onclick="showPage('flower-coffee')">Flower Coffee</a></li>
+                    <li><a onclick="showPage('flower-cake')">Flower Cake</a></li>
+                    <li><a onclick="showPage('flower-money')">Flower Money</a></li>
+                </ul>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="product-detail-grid">
+                    <!-- Love Note Bento -->
+                    <div class="product-detail-card">
+                        <div class="product-detail-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ELove Note Bento%3C/text%3E%3C/svg%3E" alt="Love Note Bento">
+                        </div>
+                        <div class="product-detail-content">
+                            <h3>Love Note Bento</h3>
+                            <p>Mini heart-decorated bento cake with a sweet rose arrangement</p>
+                            <ul>
+                                <li>4-inch strawberry bento cake</li>
+                                <li>Handpiped love message</li>
+                                <li>5 pcs of roses with bouquet</li>
+                                <li>Cake gift box with bag/tag</li>
+                            </ul>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Birthday Mini -->
+                    <div class="product-detail-card">
+                        <div class="product-detail-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23f4e4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EBirthday Mini%3C/text%3E%3C/svg%3E" alt="Birthday Mini">
+                        </div>
+                        <div class="product-detail-content">
+                            <h3>Birthday Mini</h3>
+                            <p>Personalized bento cake with colorful flower accents</p>
+                            <ul>
+                                <li>4-inch party-themed cake</li>
+                                <li>Mini cake decoration</li>
+                                <li>Mixed petite flower bouquet</li>
+                                <li>Birthday cake greeting card</li>
+                            </ul>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Kawaii Garden -->
+                    <div class="product-detail-card">
+                        <div class="product-detail-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23fce4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EKawaii Garden%3C/text%3E%3C/svg%3E" alt="Kawaii Garden">
+                        </div>
+                        <div class="product-detail-content">
+                            <h3>Kawaii Garden</h3>
+                            <p>Adorable character-themed bento with cheerful flowers</p>
+                            <ul>
+                                <li>4-inch vanilla bento cake</li>
+                                <li>Cute animal decoration</li>
+                                <li>White daisy mini bouquet</li>
+                                <li>Keepsake packaging</li>
+                            </ul>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+
+                    <!-- Thank You Bento -->
+                    <div class="product-detail-card">
+                        <div class="product-detail-image">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23e4e4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EThank You Bento%3C/text%3E%3C/svg%3E" alt="Thank You Bento">
+                        </div>
+                        <div class="product-detail-content">
+                            <h3>Thank You Bento</h3>
+                            <p>Grateful-themed mini cake with sunflower charm</p>
+                            <ul>
+                                <li>4-inch chocolate bento cake</li>
+                                <li>Thank you typed message</li>
+                                <li>Single sunflower or gerbera</li>
+                                <li>Elegant paper you card</li>
+                            </ul>
+                            <button class="add-to-cart-btn">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <h5>SB PHILIPPINES</h5>
+                <ul>
+                    <li><a href="#who-we-are">Who We Are</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                </ul>
+                <ul style="margin-top: 25px;">
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#terms">Terms of service</a></li>
+                </ul>
+            </div>
+            <div class="newsletter">
+                <h4>Gain Exclusive Access</h4>
+                <p>Sign up today and receive exclusive discounts, early sales, style tips, and more.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button>JOIN</button>
+                </div>
+                <div class="social-icons">
+                    <a href="#instagram">📷</a>
+                    <a href="#facebook">📘</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            ©2025, Samparyá Bloom
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Option button interactions
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('option-btn')) {
+                // Remove active class from siblings
+                const siblings = e.target.parentElement.querySelectorAll('.option-btn');
+                siblings.forEach(btn => btn.classList.remove('active'));
+                // Add active class to clicked button
+                e.target.classList.add('active');
+            }
+        });
+    </script>
+</body>
+</html>
