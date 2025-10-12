@@ -20,7 +20,7 @@
 
         /* Top Banner */
         .top-banner {
-            background-color: #5a5a4a;
+            background-color: #434A3E;
             color: white;
             text-align: center;
             padding: 8px 20px;
@@ -29,63 +29,73 @@
 
         /* Header */
         header {
-            background-color: #2d2d2d;
-            padding: 15px 40px;
             display: flex;
+            align-items: center;       
             justify-content: space-between;
-            align-items: center;
-            height: 40px;
+            padding: 15px 40px;
+            background-color: #2d2d2d;
         }
-        .logo {
-            width: 100px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden; /* ensures logo fits cleanly inside the circle */
-        }
+
+
+        /* Logo */
 
         .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            max-height: 80px; 
+            width: auto;      
+            object-fit: contain;
+            display: block;   
         }
 
+
+        /* Main Navigation */
         nav {
             display: flex;
-            gap: 30px;
+            gap: 40px; 
+            align-items: center;
         }
 
         nav a {
             color: white;
             text-decoration: none;
-            font-size: 12px;
+            font-size: 14px; 
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #8b2e3e;
         }
 
         .header-right {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 25px; 
         }
 
         .header-right a {
             color: white;
             text-decoration: none;
-            font-size: 11px;
+            font-size: 13px;
         }
 
+        /* Cart Icon */
         .cart-icon {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             border: 1px solid white;
-            border-radius: 3px;
+            border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .cart-icon:hover {
+            background-color: white;
+            color: #8b2e3e;
         }
 
         /* Category Navigation */
@@ -98,13 +108,14 @@
 
         .category-nav a {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 10px 25px; 
             margin: 0 5px;
             text-decoration: none;
             color: #333;
-            font-size: 12px;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.2px;
+            transition: color 0.3s;
         }
 
         .category-nav a:hover {
@@ -115,50 +126,58 @@
         .hero-banner {
             position: relative;
             height: 500px;
-            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1400" height="500"%3E%3Crect width="1400" height="500" fill="%23f5f0e8"/%3E%3Ctext x="50%25" y="50%25" dominant-baseline="middle" text-anchor="middle" font-family="serif" font-size="20" fill="%23999"%3EHero Image - Flowers%3C/text%3E%3C/svg%3E');
+            display: flex;
+            align-items: center;       
+            padding-left: 80px;       
+            background-image: url('images/hero-index.png');
             background-size: cover;
             background-position: center;
-            display: flex;
-            align-items: center;
+            background-repeat: no-repeat;
         }
 
+
+        /* Hero Content */
         .hero-content {
-            max-width: 600px;
-            padding: 60px 80px;
-            background-color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            max-width: 600px; 
+            padding: 50px 40px; 
+            border-radius: 8px;
+            text-align: left;
+            z-index: 2; 
+            color: #3b0a1e; 
         }
 
         .hero-label {
-            font-size: 11px;
+            font-size: 14px; 
             color: #888;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .hero-content h1 {
-            font-size: 42px;
+            font-size: 60px;
             font-weight: normal;
             color: #8b2e3e;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.2;
         }
 
         .hero-content p {
-            font-size: 13px;
+            font-size: 16px; 
             color: #555;
-            line-height: 1.7;
-            margin-bottom: 12px;
+            line-height: 1.8;
+            margin-bottom: 15px;
         }
 
         .hero-btn {
             display: inline-block;
-            margin-top: 15px;
-            padding: 12px 30px;
+            margin-top: 20px;
+            padding: 15px 40px; 
             background-color: #8b2e3e;
             color: white;
             text-decoration: none;
-            font-size: 11px;
+            font-size: 13px; 
             text-transform: uppercase;
             letter-spacing: 1px;
             font-weight: bold;
@@ -174,6 +193,7 @@
             margin: 0 auto;
             padding: 0 40px;
         }
+
 
         /* Bestsellers Section */
         .bestsellers {
@@ -594,7 +614,7 @@
         <div class="header-right">
             <a href="#signin">SIGN IN / REGISTER</a>
             <div class="cart-icon">🛒</div>
-        </div> 
+        </div>
     </header>
 
     <!-- Category Navigation -->
