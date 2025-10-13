@@ -4,108 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Share Your Experience - Samparyá Bloom</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #fafafa;
-        }
-
-        /* Top Banner */
-        .top-banner {
-            background-color: #5a5a4a;
-            color: white;
-            text-align: center;
-            padding: 8px 20px;
-            font-size: 11px;
-        }
-
-        /* Header */
-        header {
-            background-color: #2d2d2d;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Georgia', serif;
-            font-size: 24px;
-            font-style: italic;
-            color: #2d2d2d;
-            font-weight: bold;
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .header-right a {
-            color: white;
-            text-decoration: none;
-            font-size: 11px;
-        }
-
-        .cart-icon {
-            width: 24px;
-            height: 24px;
-            border: 1px solid white;
-            border-radius: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        /* Category Navigation */
-        .category-nav {
-            background-color: white;
-            padding: 15px 40px;
-            text-align: center;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .category-nav a {
-            display: inline-block;
-            padding: 8px 20px;
-            margin: 0 5px;
-            text-decoration: none;
-            color: #333;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         /* Hero Section */
         .hero {
             text-align: center;
@@ -181,18 +81,17 @@
 
         select {
             appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath fill='%23333' d='M0 0l6 8 6-8z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
             background-position: right 12px center;
             cursor: pointer;
         }
 
         /* Rating Section */
         .rating-section {
-            background-color: #f5f5f0;
+            background: linear-gradient(135deg, #f8f8f0 0%, #f5f5f0 50%, #f0f0e8 100%);
             padding: 25px;
             margin-bottom: 25px;
             border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
         .rating-section h3 {
@@ -284,7 +183,7 @@
         .submit-btn {
             width: 100%;
             padding: 15px;
-            background-color: #6a6a5a;
+            background: linear-gradient(135deg, #b2b1a0 0%, #8a8a7a 25%, #6a6a5a 50%, #525242 75%, #3a3a2a 100%);
             color: white;
             border: none;
             font-family: 'Georgia', serif;
@@ -293,197 +192,21 @@
             letter-spacing: 1px;
             cursor: pointer;
             font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
 
         .submit-btn:hover {
-            background-color: #5a5a4a;
-        }
-
-        /* Modal Overlay */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 9999;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        /* Modal Box */
-        .modal-box {
-            background-color: #6a6a5a;
-            padding: 40px 50px;
-            border-radius: 4px;
-            text-align: center;
-            max-width: 450px;
-            width: 90%;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-box h3 {
-            color: white;
-            font-size: 18px;
-            font-weight: normal;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        .modal-btn {
-            background-color: white;
-            color: #2d2d2d;
-            padding: 12px 35px;
-            border: none;
-            cursor: pointer;
-            font-family: 'Georgia', serif;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
-            border-radius: 3px;
-        }
-
-        .modal-btn:hover {
-            background-color: #f0f0f0;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2d2d2d;
-            color: white;
-            padding: 50px 40px 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-
-        .footer-links h5 {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 12px;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .newsletter {
-            background-color: #3d3d3d;
-            padding: 35px;
-            border-radius: 8px;
-        }
-
-        .newsletter h4 {
-            font-size: 26px;
-            font-weight: normal;
-            margin-bottom: 10px;
-        }
-
-        .newsletter p {
-            font-size: 12px;
-            color: #ccc;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            background-color: white;
-            font-size: 12px;
-            border-radius: 4px;
-        }
-
-        .newsletter-form button {
-            padding: 12px 30px;
-            background-color: white;
-            color: #2d2d2d;
-            border: none;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-        }
-
-        .newsletter-form button:hover {
-            background-color: #f0f0f0;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 16px;
-            text-decoration: none;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            font-size: 11px;
-            color: #888;
+            background: linear-gradient(135deg, #c2c1b0 0%, #9a9a8a 25%, #7a7a6a 50%, #626252 75%, #4a4a3a 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         @media (max-width: 768px) {
             .form-row,
             .rating-row,
-            .checkbox-grid,
-            .footer-content {
+            .checkbox-grid {
                 grid-template-columns: 1fr;
-            }
-
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
             }
 
             .hero h1 {
@@ -499,7 +222,7 @@
 <body>
     <!-- Top Banner -->
     <div class="top-banner">
-        We offer free delivery in Angeles City for orders Php 5,000 and up
+        We offer free delivery in Angeles City for orders Php 6,000 and up.
     </div>
 
     <!-- Header -->
@@ -508,9 +231,11 @@
             <a href="#home">HOME</a>
             <a href="#contact">CONTACT US</a>
         </nav>
-        <div class="logo">SB</div>
+        <div class="logo">
+            <img src="images/Logo.png" alt="Samparyá Bloom Logo">
+        </div>
         <div class="header-right">
-            <a href="#signin">Sign In / Register</a>
+            <a href="#signin">SIGN IN / REGISTER</a>
             <div class="cart-icon">🛒</div>
         </div>
     </header>
@@ -664,8 +389,6 @@
                     <li><a href="#story">Our Story</a></li>
                     <li><a href="#locations">Locations</a></li>
                     <li><a href="#privacy">Privacy Policy</a></li>
-                </ul>
-                <ul style="margin-top: 25px;">
                     <li><a href="#feedback">Feedback</a></li>
                     <li><a href="#terms">Terms of service</a></li>
                 </ul>
@@ -674,17 +397,21 @@
                 <h4>Gain Exclusive Access</h4>
                 <p>Sign up today and receive exclusive discounts, early sales, style tips, and more.</p>
                 <div class="newsletter-form">
-                    <input type="email" placeholder="Enter email">
+                    <input type="email" placeholder="Your email">
                     <button>JOIN</button>
                 </div>
                 <div class="social-icons">
-                    <a href="#instagram">📷</a>
-                    <a href="#facebook">📘</a>
+                    <a href="#instagram">
+                        <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
+                    <a href="#facebook">
+                        <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
                 </div>
             </div>
-        </div>
+        </div>                                
         <div class="footer-bottom">
-            ©2025, Samparya Bloom
+           ©2025 Samparyá Bloom — Designed and created with grace by Sophia Ong
         </div>
     </footer>
 </body>
