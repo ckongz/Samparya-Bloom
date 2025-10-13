@@ -4,342 +4,278 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samparyá Bloom - Beyond Blooms</title>
+    <link rel="stylesheet" href="styles.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* Top Banner */
-        .top-banner {
-            background-color: #4a4a3a;
-            color: white;
-            text-align: center;
-            padding: 8px 20px;
-            font-size: 12px;
-        }
-
-        /* Header */
-        header {
-            background-color: #3d3d2e;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Georgia', serif;
-            font-size: 24px;
-            font-style: italic;
-            color: #3d3d2e;
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .header-right a {
-            color: white;
-            text-decoration: none;
-            font-size: 12px;
-        }
-
-        .cart-icon {
-            width: 24px;
-            height: 24px;
-            border: 1px solid white;
-            border-radius: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Secondary Nav */
-        .secondary-nav {
-            background-color: #f5f5f0;
-            padding: 12px 40px;
-            text-align: center;
-        }
-
-        .secondary-nav a {
-            color: #333;
-            text-decoration: none;
-            margin: 0 20px;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         /* Hero Section */
         .hero {
             text-align: center;
-            padding: 60px 20px 40px;
-            background-color: #fafaf8;
+            padding: 60px 20px 50px;
+            background:#f5f5f0;
+            position: relative;
+            overflow: hidden;
         }
 
         .hero h1 {
-            font-size: 42px;
-            font-weight: normal;
-            margin-bottom: 10px;
-            color: #2d2d2d;
+            font-size: 43px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1F211E;
+            letter-spacing: -0.5px;
+            position: relative;
         }
 
         .hero h2 {
-            font-size: 36px;
-            font-weight: normal;
-            color: #2d2d2d;
+            font-size: 28px;
+            font-weight: 500;
+            color: #434A3E;
+            letter-spacing: -0.3px;
+            position: relative;
         }
 
         /* Main Content */
         .content-section {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 40px;
+            padding: 80px 40px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: start;
+            gap: 80px;
+            align-items: center;
+            background: #FFFFFF;
         }
 
         .text-content h3 {
             font-size: 14px;
-            color: #666;
+            color: #534948;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .text-content h3::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 12px;
+            height: 2px;
+            background: linear-gradient(90deg, #534948, #434A3E);
         }
 
         .text-content h4 {
-            font-size: 32px;
-            font-weight: normal;
-            margin-bottom: 15px;
-            color: #2d2d2d;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1F211E;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
         }
 
         .text-content h5 {
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 20px;
-            color: #2d2d2d;
+            font-size: 28px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: #434A3E;
+            line-height: 1.3;
         }
 
         .text-content h6 {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            margin-top: 30px;
-            color: #2d2d2d;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-top: 35px;
+            color: #1F211E;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .text-content h6::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #534948;
+            font-size: 14px;
         }
 
         .text-content p {
-            font-size: 14px;
+            font-size: 16px;
             line-height: 1.8;
-            margin-bottom: 15px;
-            color: #555;
+            margin-bottom: 20px;
+            color: #534948;
+            font-weight: 500;
         }
 
+        /*  Image Container */
         .image-container {
             position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(31, 33, 30, 0.1);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(135deg, #F8F7F5, #F0EFEC);
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(83, 73, 72, 0.05), transparent);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .image-container:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
+            box-shadow: 0 25px 50px rgba(31, 33, 30, 0.15);
         }
 
         .image-container img {
             width: 100%;
-            height: auto;
+            height: 500px;
+            object-fit: cover;
             display: block;
+            transition: all 0.5s ease;
+            border-radius: 20px;
         }
+
 
         /* Commitment Section */
         .commitment-section {
-            background-color: #f5f5f0;
-            padding: 50px 40px;
+            background: linear-gradient(135deg, #fcfbfa99 0%, #F0EFEC 100%);
+            padding: 80px 40px;
+            position: relative;
+            border-top: 4px solid #f1f0ee;
         }
 
         .commitment-content {
             max-width: 1200px;
             margin: 0 auto;
+            position: relative;
         }
 
         .commitment-content h4 {
-            font-size: 32px;
-            font-weight: normal;
-            margin-bottom: 15px;
-            color: #2d2d2d;
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #1F211E;
+            text-align: center;
+            letter-spacing: -0.5px;
         }
 
         .commitment-content h6 {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            color: #2d2d2d;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: #434A3E;
+            text-align: center;
+            position: relative;
         }
+
 
         .commitment-content p {
-            font-size: 14px;
-            line-height: 1.8;
-            margin-bottom: 15px;
-            color: #555;
-            max-width: 900px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2d2d2d;
-            color: white;
-            padding: 50px 40px 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-
-        .footer-links h5 {
             font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .newsletter {
-            background-color: #3d3d3d;
-            padding: 30px;
-        }
-
-        .newsletter h4 {
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 10px;
-        }
-
-        .newsletter p {
-            font-size: 13px;
-            color: #ccc;
+            line-height: 1.8;
             margin-bottom: 20px;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            background-color: white;
-            font-size: 13px;
-        }
-
-        .newsletter-form button {
-            padding: 12px 30px;
-            background-color: white;
-            color: #2d2d2d;
-            border: none;
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .newsletter-form button:hover {
-            background-color: #f0f0f0;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 18px;
-            text-decoration: none;
-        }
-
-        .footer-bottom {
+            color: #0a0a0aa2;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            font-size: 12px;
-            color: #888;
+            font-weight: 500;
+        }
+
+
+        /*  Responsive Design */
+        @media (max-width: 968px) {
+            .content-section {
+                gap: 60px;
+                padding: 60px 30px;
+            }
+            
+            .hero {
+                padding: 60px 20px 40px;
+            }
+            
+            .hero h1 {
+                font-size: 38px;
+            }
+            
+            .hero h2 {
+                font-size: 30px;
+            }
+            
+            .text-content h4 {
+                font-size: 30px;
+            }
+            
+            .text-content h5 {
+                font-size: 24px;
+            }
         }
 
         @media (max-width: 768px) {
-            .content-section,
-            .footer-content {
+            .content-section {
                 grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px 20px;
             }
-
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-
+            
             .hero h1 {
                 font-size: 32px;
             }
-
+            
             .hero h2 {
+                font-size: 26px;
+            }
+            
+            .image-container {
+                transform: none;
+                order: -1;
+            }
+            
+            .image-container:hover {
+                transform: scale(1.02);
+            }
+            
+            .image-container img {
+                height: 400px;
+            }
+            
+            .commitment-section {
+                padding: 60px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 50px 20px 30px;
+            }
+            
+            .hero h1 {
                 font-size: 28px;
+            }
+            
+            .hero h2 {
+                font-size: 22px;
+            }
+            
+            .text-content h4 {
+                font-size: 26px;
+            }
+            
+            .text-content h5 {
+                font-size: 20px;
+            }
+            
+            .image-container img {
+                height: 300px;
             }
         }
     </style>
@@ -347,7 +283,7 @@
 <body>
     <!-- Top Banner -->
     <div class="top-banner">
-        We offer free delivery in Angeles City for orders Php 5,000 and up
+        We offer free delivery in Angeles City for orders Php 6,000 and up.
     </div>
 
     <!-- Header -->
@@ -356,15 +292,17 @@
             <a href="#home">HOME</a>
             <a href="#contact">CONTACT US</a>
         </nav>
-        <div class="logo">SB</div>
+        <div class="logo">
+            <img src="images/Logo.png" alt="Samparyá Bloom Logo">
+        </div>
         <div class="header-right">
-            <a href="#signin">Sign In / Register</a>
+            <a href="#signin">SIGN IN / REGISTER</a>
             <div class="cart-icon">🛒</div>
         </div>
     </header>
 
-    <!-- Secondary Navigation -->
-    <div class="secondary-nav">
+    <!-- Category Navigation -->
+    <div class="category-nav">
         <a href="#flowers">FLOWERS</a>
         <a href="#occasions">OCCASIONS</a>
     </div>
@@ -386,7 +324,7 @@
             <p>Over the years, we've decorated everything from homes and intimate gatherings to large-scale celebrations and corporate events. We don't just sell flowers but unforgettable memories. Our carefully selected products include high-end, imported blooms and handpicked home accents that elevate any space.</p>
         </div>
         <div class="image-container">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='500'%3E%3Crect width='400' height='500' fill='%23d4c4b0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='18' fill='%23666'%3EFlower Arrangement Image%3C/text%3E%3C/svg%3E" alt="Flower arrangement">
+            <img src="images/who-we-are-girl.png" alt="Flower arrangement">
         </div>
     </section>
 
@@ -408,29 +346,31 @@
                 <ul>
                     <li><a href="#who-we-are">Who We Are</a></li>
                     <li><a href="#story">Our Story</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#locations">Locations</a></li>
                     <li><a href="#privacy">Privacy Policy</a></li>
-                </ul>
-                <ul style="margin-top: 20px;">
                     <li><a href="#feedback">Feedback</a></li>
                     <li><a href="#terms">Terms of service</a></li>
                 </ul>
             </div>
             <div class="newsletter">
                 <h4>Gain Exclusive Access</h4>
-                <p>Sign up today and receive exclusive discounts, early access to new collections, and more!</p>
+                <p>Sign up today and receive exclusive discounts, early sales, style tips, and more.</p>
                 <div class="newsletter-form">
-                    <input type="email" placeholder="Enter your email">
+                    <input type="email" placeholder="Your email">
                     <button>JOIN</button>
                 </div>
                 <div class="social-icons">
-                    <a href="#instagram">📷</a>
-                    <a href="#facebook">📘</a>
+                    <a href="#instagram">
+                        <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
+                    <a href="#facebook">
+                        <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
                 </div>
             </div>
-        </div>
+        </div>                                
         <div class="footer-bottom">
-            © 2025, Samparyá Bloom
+           ©2025 Samparyá Bloom — Designed and created with grace by Sophia Ong
         </div>
     </footer>
 </body>
