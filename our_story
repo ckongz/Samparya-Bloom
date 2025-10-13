@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Roots - Samparyá Bloom</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 50px;
+            background-color: #f5f5f0;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #1F211E;
+            letter-spacing: -0.5px;
+            position: relative;
+        }
+
+        /* Main Content */
+        .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .shop-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            background: #f9f9f9;
+        }
+
+        .shop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+
+        /* Hover Elevation & Glow */
+        .shop-image:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(139,46,62,0.25);
+        }
+
+        /* Smooth Zoom & Soft Blur on Hover */
+        .shop-image:hover img {
+            transform: scale(1.08);
+            filter: brightness(0.95);
+        }
+
+        /* Gradient Overlay */
+        .shop-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(139,46,62,0.3) 0%, rgba(169,68,86,0.15) 40%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .shop-image:hover::before {
+            opacity: 1;
+        }
+
+        .text-content h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #4a4a3a;
+            letter-spacing: -0.5px;
+        }
+
+        .text-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #0a0a0aa2;
+            max-width: 900px;
+        }
+
+        /* Our Story Section */
+        .story-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+        }
+
+        .story-label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .story-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #4a4a3a;
+        }
+
+        .story-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #0a0a0aa2;
+            max-width: 1100px;
+        }
+
+        @media (max-width: 968px) {
+            .content-section {
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .story-section {
+                padding: 30px 30px 60px;
+            }
+
+            .text-content h2 {
+                font-size: 28px;
+            }
+
+            .story-section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        We offer free delivery in Angeles City for orders Php 6,000 and up.
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#contact">CONTACT US</a>
+        </nav>
+        <div class="logo">
+            <img src="images/Logo.png" alt="Samparyá Bloom Logo">
+        </div>
+        <div class="header-right">
+            <a href="#signin">SIGN IN / REGISTER</a>
+            <div class="cart-icon">🛒</div>
+        </div>
+    </header>
+
+    <!-- Category Navigation -->
+    <div class="category-nav">
+        <a href="#flowers">FLOWERS</a>
+        <a href="#occasions">OCCASIONS</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Our Roots: A Legacy in Bloom</h1>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="content-section">
+        <div class="shop-image">
+            <img src="images/out-story-girl-flower.png" alt="Samparya Bloom Shop">
+        </div>
+
+        <div class="text-content">
+            <h2>Samparya Bloom</h2>
+            <p>For over three decades, Samparyá Bloom has remained a beloved symbol of timeless beauty and craftsmanship in the Philippines. Established with a passion for elegance and an eye for detail, our flower shop has grown from a humble local boutique into a trusted destination for those who appreciate premium floral artistry. Each arrangement we create is more than just a bouquet—it’s a story of grace, care, and connection, designed to bring warmth and sophistication to every moment.</p>
+            
+            <p>Our commitment to excellence goes beyond beautiful blooms. Whether you’re ordering online for same-day delivery in select cities or visiting one of our boutiques in person, we ensure that every experience with Samparyá Bloom feels personal, seamless, and inspiring. From our friendly florists to our refined presentation, every step is infused with a deep understanding of how flowers can transform ordinary spaces into extraordinary expressions of emotion.</p>
+
+            <p>Through the years, we’ve had the honor of creating floral designs for homes, weddings, corporate events, and meaningful celebrations of life. From adding charm to intimate spaces to elevating grand venues, our artistry captures the essence of every story we touch. Our curated collection includes fresh, dried, and artificial flowers, alongside elegant home décor pieces that add warmth, character, and luxury to any environment.</p>
+        </div>
+    </section>
+
+    <!-- Our Story Section -->
+    <section class="story-section">
+        <p class="story-label">PURPOSE</p>
+        <h2>Our story</h2>
+        
+        <p>Founded in Angeles City, Pampanga, Samparya Bloom has been dedicated to bringing people together through the beauty of flowers for near 30 years. The name "Samparya" comes from the Kapampangan word meaning "to gather" or "to bring together," perfectly reflecting our mission to create bonds, celebrate moments, and share joy through stunning floral artistry.</p>
+        
+        <p>What began as a small family-run flower shop has grown into a well-loved brand known for premium floral arrangements and decor. Over the years, we've expanded from crafting lovely bouquets for intimate occasions to styling large-scale events and transforming spaces with our unique designs.</p>
+        
+        <p>In 2008, we launched our online store to make our flowers accessible to everyone, offering same-day delivery and a seamless way to send love and beauty straight to someone's doorstep.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <h5>SB PHILIPPINES</h5>
+                <ul>
+                    <li><a href="#who-we-are">Who We Are</a></li>
+                    <li><a href="#story">Our Story</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#privacy">Privacy Policy</a></li>
+                    <li><a href="#feedback">Feedback</a></li>
+                    <li><a href="#terms">Terms of service</a></li>
+                </ul>
+            </div>
+            <div class="newsletter">
+                <h4>Gain Exclusive Access</h4>
+                <p>Sign up today and receive exclusive discounts, early sales, style tips, and more.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button>JOIN</button>
+                </div>
+                <div class="social-icons">
+                    <a href="#instagram">
+                        <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
+                    <a href="#facebook">
+                        <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
+                </div>
+            </div>
+        </div>                                
+        <div class="footer-bottom">
+           ©2025 Samparyá Bloom — Designed and created with grace by Sophia Ong
+        </div>
+    </footer>
+</body>
+</html>
