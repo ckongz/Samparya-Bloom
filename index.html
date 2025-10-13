@@ -4,359 +4,485 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Samparyá Bloom - Petals at Your Doorstep</title>
+    <link rel="stylesheet" href="styles.css">
+    
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #fafafa;
-        }
-
-        /* Top Banner */
-        .top-banner {
-            background-color: #434A3E;
-            color: white;
-            text-align: center;
-            padding: 8px 20px;
-            font-size: 11px;
-        }
-
-        /* Header */
-        header {
-            display: flex;
-            align-items: center;       
-            justify-content: space-between;
-            padding: 15px 40px;
-            background-color: #2d2d2d;
-        }
-
-
-        /* Logo */
-
-        .logo img {
-            max-height: 80px; 
-            width: auto;      
-            object-fit: contain;
-            display: block;   
-        }
-
-
-        /* Main Navigation */
-        nav {
-            display: flex;
-            gap: 40px; 
-            align-items: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 14px; 
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #8b2e3e;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 25px; 
-        }
-
-        .header-right a {
-            color: white;
-            text-decoration: none;
-            font-size: 13px;
-        }
-
-        /* Cart Icon */
-        .cart-icon {
-            width: 28px;
-            height: 28px;
-            border: 1px solid white;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        .cart-icon:hover {
-            background-color: white;
-            color: #8b2e3e;
-        }
-
-        /* Category Navigation */
-        .category-nav {
-            background-color: white;
-            padding: 15px 40px;
-            text-align: center;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .category-nav a {
-            display: inline-block;
-            padding: 10px 25px; 
-            margin: 0 5px;
-            text-decoration: none;
-            color: #333;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1.2px;
-            transition: color 0.3s;
-        }
-
-        .category-nav a:hover {
-            color: #8b2e3e;
-        }
-
         /* Hero Banner */
         .hero-banner {
             position: relative;
-            height: 500px;
+            height: 600px;
             display: flex;
             align-items: center;       
-            padding-left: 80px;       
+            padding-left: 100px;       
             background-image: url('images/hero-index.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            overflow: hidden;
         }
 
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.05) 100%);
+            pointer-events: none;
+        }
 
         /* Hero Content */
         .hero-content {
             position: relative;
-            max-width: 600px; 
-            padding: 50px 40px; 
-            border-radius: 8px;
+            max-width: 650px;
+            padding: 60px 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
             text-align: left;
-            z-index: 2; 
-            color: #3b0a1e; 
+            z-index: 2;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .hero-label {
-            font-size: 14px; 
-            color: #888;
+            font-size: 11px; 
+            color: #8b2e3e;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            font-weight: 600;
         }
 
         .hero-content h1 {
-            font-size: 60px;
-            font-weight: normal;
-            color: #8b2e3e;
+            font-size: 54px;
+            font-weight: 500;
+            background: linear-gradient(135deg, #8b2e3e 0%, #a83d51 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 25px;
             line-height: 1.2;
         }
 
         .hero-content p {
-            font-size: 16px; 
+            font-size: 15px; 
             color: #555;
             line-height: 1.8;
             margin-bottom: 15px;
+            max-width: 550px;
         }
 
         .hero-btn {
             display: inline-block;
             margin-top: 20px;
-            padding: 15px 40px; 
-            background-color: #8b2e3e;
+            padding: 15px 45px; 
+            background: linear-gradient(135deg, #8b2e3e 0%, #a83d51 100%);
             color: white;
             text-decoration: none;
-            font-size: 13px; 
+            font-size: 12px; 
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             font-weight: bold;
+            border-radius: 30px;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(139, 46, 62, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .hero-btn:hover::before {
+            left: 100%;
         }
 
         .hero-btn:hover {
-            background-color: #6b1e2e;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 46, 62, 0.5);
         }
 
         /* Container */
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 50px;
         }
-
 
         /* Bestsellers Section */
         .bestsellers {
-            padding: 60px 0;
+            padding: 100px 0;
             text-align: center;
+            background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
         }
 
         .section-label {
-            font-size: 11px;
-            color: #888;
+            font-size: 11px; 
+            color: #8b2e3e;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             margin-bottom: 10px;
+            font-weight: 600;
         }
 
         .bestsellers h2 {
-            font-size: 36px;
-            font-weight: normal;
-            margin-bottom: 10px;
+            font-size: 42px;
+            font-weight: 500;
+            margin-bottom: 15px;
             color: #2d2d2d;
+            background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .bestsellers-subtitle {
-            font-size: 13px;
+            font-size: 15px; 
             color: #666;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            line-height: 1.6;
         }
 
         .products-row {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1000px;
+            gap: 35px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
         .product-card {
             background: white;
-            border-radius: 8px;
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
             text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 46, 62, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .product-card:hover::before {
+            opacity: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(139, 46, 62, 0.2);
         }
 
         .product-image {
             width: 100%;
-            height: 250px;
-            background-color: #e8e8e8;
+            height: 280px; 
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
             overflow: hidden;
+            position: relative;
+        }
+
+        .product-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .product-card:hover .product-image::after {
+            opacity: 1;
         }
 
         .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.15);
         }
 
         .product-info {
-            padding: 20px;
+            padding: 30px 25px;
+            position: relative;
+            z-index: 2;
         }
 
         .product-info h3 {
-            font-size: 14px;
+            font-size: 16px; 
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
             color: #2d2d2d;
+            font-weight: 600;
         }
 
         .product-info p {
-            font-size: 12px;
+            font-size: 13px; 
             color: #666;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         /* Our Story Section */
         .our-story {
+            max-width: 1300px;
+            margin: 100px auto;
+            padding: 0 50px;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0;
-            margin: 60px 0;
+            gap: 60px;
             align-items: center;
+        }
+
+        .story-content {
+            padding: 50px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .story-content .section-label {
+            margin-bottom: 12px;
+            font-size: 11px;
+            letter-spacing: 3px;
+        }
+
+        .story-content h2 {
+            font-size: 42px;
+            line-height: 1.3;
+            margin-bottom: 25px;
+            font-weight: 500;
+            background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .story-content p {
+            font-size: 15px;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .story-btn {
+            display: inline-block;
+            align-self: flex-start;
+            margin-top: 15px;
+            padding: 14px 35px;
+            background: linear-gradient(135deg, #8b2e3e 0%, #a83d51 100%);
+            color: white;
+            text-decoration: none;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            transition: all 0.4s ease;
+            border-radius: 30px;
+            box-shadow: 0 4px 15px rgba(139, 46, 62, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .story-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .story-btn:hover::before {
+            left: 100%;
+        }
+
+        .story-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 46, 62, 0.5);
         }
 
         .story-image {
             width: 100%;
             height: 500px;
-            background-color: #d4c4b0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            position: relative;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .story-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 46, 62, 0.1) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.5s;
+            z-index: 1;
+        }
+
+        .story-image:hover::before {
+            opacity: 1;
         }
 
         .story-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.6s ease;
         }
 
-        .story-content {
-            padding: 60px 80px;
-            background-color: #f5f5f0;
-        }
-
-        .story-content .section-label {
-            margin-bottom: 15px;
-        }
-
-        .story-content h2 {
-            font-size: 38px;
-            line-height: 1.3;
-            margin-bottom: 25px;
-            font-weight: normal;
-            color: #2d2d2d;
-        }
-
-        .story-content p {
-            font-size: 13px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #555;
+        .our-story:hover .story-image img {
+            transform: scale(1.1);
         }
 
         /* Reviews Section */
         .reviews {
-            padding: 60px 0;
+            padding: 100px 0;
             text-align: center;
-            background-color: white;
+            background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%);
         }
 
         .reviews h2 {
-            font-size: 32px;
-            font-weight: normal;
-            margin-bottom: 10px;
-            color: #2d2d2d;
+            font-size: 42px;
+            font-weight: 500;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .reviews-subtitle {
-            font-size: 12px;
-            color: #888;
+            font-size: 11px;
+            color: #8b2e3e;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 40px;
+            letter-spacing: 3px;
+            margin-bottom: 60px;
+            font-weight: 600;
         }
 
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
+            gap: 30px;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 50px;
         }
 
         .review-card {
             background: white;
-            padding: 25px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 35px 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(139, 46, 62, 0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .review-card:hover::before {
+            opacity: 1;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(139, 46, 62, 0.15);
         }
 
         .review-image {
-            width: 80px;
-            height: 80px;
-            background-color: #e8e8e8;
-            margin: 0 auto 15px;
-            border-radius: 4px;
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            margin: 0 auto 20px;
+            border-radius: 50%;
             overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.4s;
+        }
+
+        .review-card:hover .review-image {
+            transform: scale(1.1) rotate(5deg);
         }
 
         .review-image img {
@@ -366,197 +492,158 @@
         }
 
         .stars {
-            color: #8b2e3e;
+            color: #FFD700;
             font-size: 14px;
-            margin-bottom: 12px;
+            margin-bottom: 15px;
+            letter-spacing: 3px;
+            text-shadow: 0 2px 5px rgba(255, 215, 0, 0.3);
         }
 
         .review-text {
-            font-size: 12px;
-            line-height: 1.6;
-            color: #555;
-            margin-bottom: 12px;
+            font-size: 13px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 15px;
+            min-height: 80px;
+            font-style: italic;
         }
 
         .review-author {
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #888;
+            letter-spacing: 2px;
+            color: #8b2e3e;
+            font-weight: 700;
         }
 
         /* Instagram Section */
         .instagram-section {
-            padding: 60px 0;
-            background-color: #f5f5f0;
+            padding: 100px 0;
+            background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
             text-align: center;
+            position: relative;
+        }
+
+        .instagram-section::before {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent 0%, #8b2e3e 20%, #8b2e3e 80%, transparent 100%);
+            border-radius: 2px;
+            box-shadow: 0 2px 10px rgba(139, 46, 62, 0.4);
         }
 
         .instagram-handle {
             font-size: 11px;
-            color: #888;
-            margin-bottom: 10px;
+            color: #8b2e3e;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 3px;
+            font-weight: 600;
+            margin-top: 30px;
         }
 
         .instagram-section h2 {
-            font-size: 32px;
-            margin-bottom: 40px;
-            font-weight: normal;
-            color: #2d2d2d;
+            font-size: 42px;
+            margin-bottom: 60px;
+            font-weight: 500;
+            background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .instagram-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            max-width: 1000px;
+            gap: 30px;
+            max-width: 1300px;
             margin: 0 auto;
+            padding: 0 50px;
         }
 
         .instagram-post {
             position: relative;
-            height: 300px;
-            background-color: #d4c4b0;
-            border-radius: 8px;
+            height: 380px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            border-radius: 20px;
             overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .instagram-post::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 1;
+        }
+
+        .instagram-post:hover::before {
+            opacity: 1;
+        }
+
+        .instagram-post:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 60px rgba(139, 46, 62, 0.2);
         }
 
         .instagram-post img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .instagram-post:hover img {
+            transform: scale(1.15);
         }
 
         .instagram-overlay {
             position: absolute;
-            top: 15px;
-            left: 15px;
+            bottom: 20px;
+            left: 20px;
             color: white;
-            font-size: 11px;
-            background-color: rgba(0,0,0,0.6);
-            padding: 5px 10px;
-            border-radius: 3px;
+            font-size: 10px;
+            background: linear-gradient(135deg, rgba(139, 46, 62, 0.9) 0%, rgba(168, 61, 81, 0.9) 100%);
+            padding: 10px 20px;
+            border-radius: 30px;
             display: flex;
             align-items: center;
-            gap: 5px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2d2d2d;
-            color: white;
-            padding: 50px 40px 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-
-        .footer-links h5 {
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 15px;
+            gap: 8px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            transition: all 0.4s ease;
+            z-index: 2;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
         }
 
-        .footer-links ul {
-            list-style: none;
+        .instagram-overlay::before {
+            content: '📷';
+            font-size: 13px;
         }
 
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 12px;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .newsletter {
-            background-color: #3d3d3d;
-            padding: 35px;
-            border-radius: 8px;
-        }
-
-        .newsletter h4 {
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 10px;
-        }
-
-        .newsletter p {
-            font-size: 12px;
-            color: #ccc;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            background-color: white;
-            font-size: 12px;
-            border-radius: 4px;
-        }
-
-        .newsletter-form button {
-            padding: 12px 30px;
-            background-color: white;
-            color: #2d2d2d;
-            border: none;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-        }
-
-        .newsletter-form button:hover {
-            background-color: #f0f0f0;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 16px;
-            text-decoration: none;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            font-size: 11px;
-            color: #888;
+        .instagram-post:hover .instagram-overlay {
+            bottom: 25px;
+            left: 25px;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
         }
 
         @media (max-width: 968px) {
@@ -566,20 +653,13 @@
                 grid-template-columns: 1fr;
             }
 
-            .our-story,
-            .footer-content {
+            .our-story {
                 grid-template-columns: 1fr;
             }
 
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
+            .hero-banner {
+                padding-left: 30px;
+                height: 500px;
             }
 
             .hero-content {
@@ -587,13 +667,22 @@
             }
 
             .hero-content h1 {
-                font-size: 32px;
+                font-size: 36px;
             }
 
             .story-content {
                 padding: 40px 30px;
             }
-        } 
+
+            .container {
+                padding: 0 30px;
+            }
+
+            header {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -626,7 +715,7 @@
     <!-- Hero Banner -->
     <section class="hero-banner">
         <div class="hero-content">
-            <p class="hero-label">FIND ELEGANT STYLES FROM US</p>
+            <p class="hero-label">SHOP ELEGANT PETALS TODAY!</p>
             <h1>Petals at Your Doorstep</h1>
             <p>Same day delivery available in Angeles City and nearby areas. Place your order before 9 AM to receive it the same day.</p>
             <p>Orders after the cut-off will arrive the next day or on your chosen date.</p>
@@ -639,36 +728,36 @@
         <div class="container">
             <p class="section-label">CHECK OUT OUR</p>
             <h2>Bestsellers</h2>
-            <p class="bestsellers-subtitle">Our most popular blooms, handpicked for you.</p>
+            <p class="bestsellers-subtitle">Best-loved picks, made for you</p>
 
             <div class="products-row">
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='250'%3E%3Crect width='350' height='250' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ETulips Bouquet%3C/text%3E%3C/svg%3E" alt="Tulips Bouquet">
+                        <img src="images/tulips-bestseller.jpg" alt="Tulips Bouquet">
                     </div>
                     <div class="product-info">
                         <h3>Tulips Bouquet</h3>
-                        <p>Elegant tulip bouquet with soft, delicate hues. Perfect for any occasion.</p>
+                        <p>Discover the elegance of our Tulip Collection, admired for their vibrant colors and timeless beauty.</p>
                     </div>
                 </div>
 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='250'%3E%3Crect width='350' height='250' fill='%23d4e8d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EFlower Crate%3C/text%3E%3C/svg%3E" alt="Flower Crate">
+                        <img src="images/flower-cake-bestseller.jpg" alt="Flower Cake">
                     </div>
                     <div class="product-info">
-                        <h3>Flower Crate</h3>
-                        <p>Rustic flower crate arrangement with vibrant blooms and greenery.</p>
+                        <h3>Flower Cakes</h3>
+                        <p>A sweet blend of bento cakes and fresh blooms—beautifully packaged, the perfect gift for birthdays, anniversaries.</p>
                     </div>
                 </div>
 
                 <div class="product-card">
                     <div class="product-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='250'%3E%3Crect width='350' height='250' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EMoney Bouquet%3C/text%3E%3C/svg%3E" alt="Money Bouquet">
+                        <img src="images/money-bouquet.png" alt="Money Bouquet">
                     </div>
                     <div class="product-info">
                         <h3>Money Bouquet</h3>
-                        <p>Creative money bouquet arrangement. Perfect for celebrations.</p>
+                        <p>An extraordinary arrangement of beautifully folded bills paired with fresh blooms.</p>
                     </div>
                 </div>
             </div>
@@ -681,9 +770,10 @@
             <p class="section-label">OUR STORY</p>
             <h2>Where Timeless Elegance Blooms</h2>
             <p>At Samparyá Bloom, we celebrate a heritage built on elegance and passion for flowers. Discover our journey of crafting timeless floral experiences, where every bloom tells a story of love, tradition, and artistry.</p>
+            <a href="#story" class="story-btn">LEARN MORE</a>
         </div>
         <div class="story-image">
-            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='700' height='500'%3E%3Crect width='700' height='500' fill='%23d4c4b0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='18' fill='%23666'%3EFlower Shop Interior%3C/text%3E%3C/svg%3E" alt="Flower Shop">
+            <img src="images/our_story_feauture.png" alt="Flower Shop Interior">
         </div>
     </section>
 
@@ -691,43 +781,43 @@
     <section class="reviews">
         <div class="container">
             <h2>Love Notes From Our Customers</h2>
-            <p class="reviews-subtitle">Trusted by Bloom Lovers</p>
+            <p class="reviews-subtitle">TRUSTED BY BLOOM LOVERS</p>
 
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="review-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23d4c4b0' rx='4'/%3E%3C/svg%3E" alt="Review">
+                        <img src="images/reviews-red.png" alt="Review">
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">The flowers were absolutely stunning! Fresh, beautiful, and perfectly arranged.</p>
-                    <p class="review-author">Maria Santos</p>
+                    <div class="stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text">"The bouquet was absolutely stunning! Delivery was prompt, and the flowers arrived in perfect condition. I'll definitely be ordering again."</p>
+                    <p class="review-author">ROSES BOUQUET</p>
                 </div>
 
                 <div class="review-card">
                     <div class="review-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23d4c4b0' rx='4'/%3E%3C/svg%3E" alt="Review">
+                        <img src="images/reviews-pink.png" alt="Review">
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">Excellent service and beautiful arrangements. Highly recommended!</p>
-                    <p class="review-author">John Reyes</p>
+                    <div class="stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text">"Smooth checkout, easy delivery tracking, and the flowers arrived fresh with care instructions. The whole process was seamless."</p>
+                    <p class="review-author">LILIES BOUQUET</p>
                 </div>
 
                 <div class="review-card">
                     <div class="review-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23d4c4b0' rx='4'/%3E%3C/svg%3E" alt="Review">
+                        <img src="images/reviews-cake.png" alt="Review">
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">Amazing quality and attention to detail. Every bouquet is a work of art.</p>
-                    <p class="review-author">Sarah Cruz</p>
+                    <div class="stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text"> "Perfect combo! The cake was delicious and the flowers were fresh—it made the birthday celebration extra special."</p>
+                    <p class="review-author">FLOWER CAKE</p>
                 </div>
 
                 <div class="review-card">
                     <div class="review-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='%23d4c4b0' rx='4'/%3E%3C/svg%3E" alt="Review">
+                        <img src="images/reviews-ballon.png" alt="Review">
                     </div>
-                    <div class="stars">★★★★★</div>
-                    <p class="review-text">Professional service and gorgeous flowers. They made my event extra special!</p>
-                    <p class="review-author">Robert Lopez</p>
+                    <div class="stars">★ ★ ★ ★ ★</div>
+                    <p class="review-text">"Beautifully packaged and so thoughtful. Everything came together perfectly, and my best friend loved it. Such a memorable gift!"</p>
+                    <p class="review-author">BIRTHDAY BUNDLE</p>
                 </div>
             </div>
         </div>
@@ -736,23 +826,23 @@
     <!-- Instagram Section -->
     <section class="instagram-section">
         <div class="container">
-            <p class="instagram-handle">📷 @samparyabloom</p>
+            <p class="instagram-handle">@SAMPARYABLOOM</p>
             <h2>Celeb Blooms</h2>
 
             <div class="instagram-grid">
                 <div class="instagram-post">
-                    <div class="instagram-overlay">📷 @julidelaicruz</div>
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='300'%3E%3Crect width='350' height='300' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EInstagram Post 1%3C/text%3E%3C/svg%3E" alt="Instagram">
+                    <div class="instagram-overlay">@LILYCOLLINES</div>
+                    <img src="images/celeb-lily.jpg" alt="Instagram">
                 </div>
 
                 <div class="instagram-post">
-                    <div class="instagram-overlay">📷 @julidelaicruz</div>
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='300'%3E%3Crect width='350' height='300' fill='%23d4e8d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EInstagram Post 2%3C/text%3E%3C/svg%3E" alt="Instagram">
+                    <div class="instagram-overlay">@LISAMANOBAN</div>
+                    <img src="images/celeb-lisa.jpg" alt="Instagram">
                 </div>
 
                 <div class="instagram-post">
-                    <div class="instagram-overlay">📷 @samparyabloom500</div>
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='350' height='300'%3E%3Crect width='350' height='300' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EInstagram Post 3%3C/text%3E%3C/svg%3E" alt="Instagram">
+                    <div class="instagram-overlay">@KATHRYNBERNARDO</div>
+                    <img src="images/celeb-kat.jpg" alt="Instagram">
                 </div>
             </div>
         </div>
@@ -768,8 +858,6 @@
                     <li><a href="#story">Our Story</a></li>
                     <li><a href="#locations">Locations</a></li>
                     <li><a href="#privacy">Privacy Policy</a></li>
-                </ul>
-                <ul style="margin-top: 25px;">
                     <li><a href="#feedback">Feedback</a></li>
                     <li><a href="#terms">Terms of service</a></li>
                 </ul>
@@ -782,13 +870,17 @@
                     <button>JOIN</button>
                 </div>
                 <div class="social-icons">
-                    <a href="#instagram">📷</a>
-                    <a href="#facebook">📘</a>
+                    <a href="#instagram">
+                        <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
+                    <a href="#facebook">
+                        <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
                 </div>
             </div>
-        </div>
+        </div>                                
         <div class="footer-bottom">
-            ©2025, Samparyá Bloom
+           ©2025 Samparyá Bloom — Designed and created with grace by Sophia Ong
         </div>
     </footer>
 </body>
