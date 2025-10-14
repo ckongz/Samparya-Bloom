@@ -1,178 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Ocassions - Samparya Bloom</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Occasions - Samparyá Bloom</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #f5f5f0;
-        }
-
-        /* Top Banner */
-        .top-banner {
-            background-color: #5a5a4a;
-            color: white;
-            text-align: center;
-            padding: 8px 20px;
-            font-size: 11px;
-        }
-
-        /* Header */
-        header {
-            background-color: #2d2d2d;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Georgia', serif;
-            font-size: 24px;
-            font-style: italic;
-            color: #2d2d2d;
-            font-weight: bold;
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .header-right a {
-            color: white;
-            text-decoration: none;
-            font-size: 11px;
-        }
-
-        .cart-icon {
-            width: 24px;
-            height: 24px;
-            border: 1px solid white;
-            border-radius: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        /* Category Navigation */
-        .category-nav {
-            background-color: white;
-            padding: 15px 40px;
-            text-align: center;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .category-nav a {
-            display: inline-block;
-            padding: 8px 20px;
-            margin: 0 5px;
-            text-decoration: none;
-            color: #333;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-
-        .category-nav a:hover {
-            color: #8b2e3e;
-        }
-
-        /* Page Container */
+        /* Page Management */
         .page {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
 
         .page.active {
             display: block;
         }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Hero Section */
         .hero {
-            background-color: #d4c4b0;
-            padding: 60px 20px;
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 100%);
+            padding: 80px 20px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
-            font-size: 48px;
-            font-weight: normal;
+            font-size: 56px;
+            font-weight: 400;
             color: #2d2d2d;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
         }
 
         .hero p {
-            font-size: 14px;
-            color: #555;
-            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
             font-style: italic;
         }
 
-        /* Sidebar + Content Layout */
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .breadcrumb a {
+            color: #8b2e3e;
+            text-decoration: none;
+        }
+
+        /* Content Layout */
         .content-wrapper {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 40px;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
             padding: 40px;
         }
 
         /* Sidebar */
         .sidebar {
             background-color: white;
-            padding: 25px;
-            border-radius: 8px;
+            padding: 30px;
+            border-radius: 0;
             height: fit-content;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 20px;
         }
 
         .sidebar h3 {
-            font-size: 14px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-            color: #999;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            color: #888;
         }
 
         .sidebar h2 {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 25px;
             color: #2d2d2d;
         }
 
@@ -181,67 +116,79 @@
         }
 
         .sidebar ul li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .sidebar ul li a {
             color: #555;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 14px;
             cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid transparent;
         }
 
         .sidebar ul li a:hover {
             color: #8b2e3e;
+            padding-left: 10px;
+            border-bottom-color: #8b2e3e;
         }
 
         /* Main Content */
         .main-content {
             background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 50px;
+            border-radius: 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
         }
 
-        /* Bestsellers Section */
         .section-title {
             text-align: center;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .section-title h2 {
-            font-size: 36px;
-            font-weight: normal;
+            font-size: 42px;
+            font-weight: 400;
             color: #2d2d2d;
         }
 
         .section-subtitle {
             text-align: center;
-            font-size: 13px;
+            font-size: 14px;
             color: #888;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
+        /* Products Grid */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 35px;
         }
 
         .product-card {
-            background: #fafafa;
-            border-radius: 8px;
+            background: white;
+            border-radius: 0;
             overflow: hidden;
             text-align: center;
-            padding: 15px;
+            transition: all 0.4s ease;
+            border: 1px solid #e8e8e8;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         }
 
         .product-image {
             width: 100%;
-            height: 180px;
-            background-color: #e8e8e8;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            height: 280px;
+            background-color: #f5f5f5;
             position: relative;
             overflow: hidden;
         }
@@ -250,144 +197,188 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
         }
 
         .cart-badge {
             position: absolute;
-            bottom: 10px;
-            right: 10px;
-            width: 35px;
-            height: 35px;
-            background-color: #6a6a5a;
+            bottom: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            background-color: #434A3E;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0;
+        }
+
+        .product-card:hover .cart-badge {
+            opacity: 1;
+            transform: scale(1.1);
         }
 
         .cart-badge:hover {
-            background-color: #5a5a4a;
+            background-color: #8b2e3e;
+        }
+
+        .product-info {
+            padding: 25px 20px;
         }
 
         .product-name {
-            font-size: 13px;
-            margin-bottom: 5px;
+            font-size: 15px;
+            margin-bottom: 10px;
             color: #2d2d2d;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
         .product-price {
-            font-size: 14px;
-            font-weight: bold;
+            font-size: 16px;
+            font-weight: 400;
             color: #8b2e3e;
         }
 
         /* Promo Banner */
         .promo-banner {
-            background-color: #b8b89a;
-            padding: 30px;
+            background: linear-gradient(135deg, #8b2e3e 0%, #6b1e2e 100%);
+            padding: 50px;
             text-align: center;
-            margin: 40px 0;
-            border-radius: 8px;
+            margin: 60px 0;
+            border-radius: 0;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .promo-banner::before {
+            content: '🌸';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            top: -20px;
+            left: -20px;
+        }
+
+        .promo-banner::after {
+            content: '🌸';
+            position: absolute;
+            font-size: 120px;
+            opacity: 0.1;
+            bottom: -20px;
+            right: -20px;
         }
 
         .promo-banner h3 {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #2d2d2d;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
         }
 
         .promo-banner p {
-            font-size: 13px;
-            color: #555;
+            font-size: 15px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Product Detail Cards */
+        /* Product Detail Grid */
         .product-detail-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
         }
 
         .product-detail-card {
             background: white;
-            border: 1px solid #d0d0d0;
-            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            border-radius: 0;
             overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .product-detail-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         }
 
         .product-detail-image {
             width: 100%;
-            height: 250px;
-            background-color: #e8e8e8;
+            height: 320px;
+            background-color: #f5f5f5;
+            overflow: hidden;
         }
 
         .product-detail-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-detail-card:hover .product-detail-image img {
+            transform: scale(1.08);
         }
 
         .product-detail-content {
-            padding: 25px;
+            padding: 35px;
         }
 
         .product-detail-content h3 {
-            font-size: 22px;
-            font-weight: normal;
-            margin-bottom: 10px;
+            font-size: 26px;
+            font-weight: 400;
+            margin-bottom: 15px;
             color: #2d2d2d;
         }
 
         .product-detail-content p {
-            font-size: 13px;
+            font-size: 14px;
             color: #666;
-            line-height: 1.7;
-            margin-bottom: 15px;
+            line-height: 1.8;
+            margin-bottom: 20px;
         }
 
         .product-detail-content ul {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             padding-left: 20px;
         }
 
         .product-detail-content ul li {
-            font-size: 12px;
+            font-size: 13px;
             color: #555;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            line-height: 1.6;
         }
 
-        .add-to-cart-btn {
-            width: 100%;
-            padding: 12px;
-            background-color: #6a6a5a;
-            color: white;
-            border: none;
-            font-family: 'Georgia', serif;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-            font-weight: bold;
+        .product-detail-content ul li::marker {
+            color: #8b2e3e;
         }
 
-        .add-to-cart-btn:hover {
-            background-color: #5a5a4a;
-        }
-
-        /* Size/Options Selection */
+        /* Options */
         .options-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .options-group h4 {
             font-size: 13px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            font-weight: 600;
+            margin-bottom: 12px;
             color: #2d2d2d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .option-buttons {
@@ -397,166 +388,76 @@
         }
 
         .option-btn {
-            padding: 8px 16px;
-            background-color: #f5f5f0;
+            padding: 10px 20px;
+            background-color: #fafafa;
             border: 1px solid #d0d0d0;
             font-family: 'Georgia', serif;
             font-size: 12px;
             cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .option-btn:hover,
-        .option-btn.active {
-            background-color: #6a6a5a;
+        .option-btn:hover {
+            background-color: #8b2e3e;
             color: white;
-            border-color: #6a6a5a;
+            border-color: #8b2e3e;
+            transform: translateY(-2px);
         }
 
-        /* Need More Details Section */
+        .option-btn.active {
+            background-color: #434A3E;
+            color: white;
+            border-color: #434A3E;
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #434A3E;
+            color: white;
+            border: none;
+            font-family: 'Georgia', serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #8b2e3e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 46, 62, 0.3);
+        }
+
+        /* More Details Section */
         .more-details {
             text-align: center;
-            padding: 40px 20px;
-            background-color: white;
-            margin: 40px 0;
-            border-radius: 8px;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 100%);
+            margin: 60px 0 0 0;
+            border-radius: 0;
         }
 
         .more-details h3 {
-            font-size: 24px;
-            font-weight: normal;
-            margin-bottom: 15px;
+            font-size: 30px;
+            font-weight: 400;
+            margin-bottom: 20px;
             color: #2d2d2d;
         }
 
         .more-details p {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-        }
-
-        .social-links a {
-            font-size: 20px;
-            color: #333;
-            text-decoration: none;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2d2d2d;
-            color: white;
-            padding: 50px 40px 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-
-        .footer-links h5 {
             font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 12px;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .newsletter {
-            background-color: #3d3d3d;
-            padding: 35px;
-            border-radius: 8px;
-        }
-
-        .newsletter h4 {
-            font-size: 26px;
-            font-weight: normal;
-            margin-bottom: 10px;
-        }
-
-        .newsletter p {
-            font-size: 12px;
-            color: #ccc;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            background-color: white;
-            font-size: 12px;
-            border-radius: 4px;
-        }
-
-        .newsletter-form button {
-            padding: 12px 30px;
-            background-color: white;
-            color: #2d2d2d;
-            border: none;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-        }
-
-        .newsletter-form button:hover {
-            background-color: #f0f0f0;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 16px;
-            text-decoration: none;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            font-size: 11px;
-            color: #888;
+            color: #666;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
         }
 
         @media (max-width: 968px) {
@@ -564,24 +465,17 @@
                 grid-template-columns: 1fr;
             }
 
-            .footer-content,
+            .products-grid,
             .product-detail-grid {
                 grid-template-columns: 1fr;
             }
 
-            header {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            nav {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-
             .hero h1 {
                 font-size: 36px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -595,20 +489,24 @@
     <!-- Header -->
     <header>
         <nav>
-            <a href="#home">HOME</a>
-            <a href="#contact">CONTACT US</a>
+            <a href="index.html">HOME</a>
+            <a href="contact_location.html">CONTACT US</a>
         </nav>
-        <div class="logo">SB</div>
+        <div class="logo">
+            <a href = "index.html">
+                <img src="images/Logo.png" alt="Samparyá Bloom Logo">
+            </a>
+        </div>
         <div class="header-right">
-            <a href="#signin">SIGN IN / REGISTER</a>
+            <a href="sign_in_register.html">SIGN IN / REGISTER</a>
             <div class="cart-icon">🛒</div>
         </div>
     </header>
 
     <!-- Category Navigation -->
     <div class="category-nav">
-        <a href="#flowers">FLOWERS</a>
-        <a onclick="showPage('occasions')">OCCASIONS</a>
+        <a href="flowers.html">FLOWERS</a>
+        <a href="ocassions.html">OCCASIONS</a>
     </div>
 
     <!-- PAGE 1: OCCASIONS BESTSELLERS -->
@@ -641,83 +539,78 @@
                 <div class="products-grid">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 1%3C/text%3E%3C/svg%3E" alt="Product">
+                            <img src="images/flower-cake-bestseller.jpg" alt="Product">
                             <div class="cart-badge">🛒</div>
                         </div>
-                        <p class="product-name">Bloom Bundle</p>
-                        <p class="product-price">₱ 2,500.00</p>
+                        <p class="product-name">GREEN</p>
+                        <p class="product-price">₱ Starts at 4,995.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 2%3C/text%3E%3C/svg%3E" alt="Product">
+                            <img src="images/money-bouquet.png" alt="Product">
                             <div class="cart-badge">🛒</div>
                         </div>
-                        <p class="product-name">Tulips at ₱3,500.00</p>
-                        <p class="product-price">₱ 3,500.00</p>
+                        <p class="product-name">ROSEY</p>
+                        <p class="product-price">Starts at 1,225.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23d4e8d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 3%3C/text%3E%3C/svg%3E" alt="Product">
+                            <img src="images/ocassions-best-pink.png">
                             <div class="cart-badge">🛒</div>
                         </div>
-                        <p class="product-name">Jar Flower</p>
-                        <p class="product-price">₱ 1,800.00</p>
+                        <p class="product-name">GIRLFRIEND</p>
+                        <p class="product-price">₱ 2,995.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 4%3C/text%3E%3C/svg%3E" alt="Product">
+                            <img src="images/ocassions-best-welc.png" alt="Product">
                             <div class="cart-badge">🛒</div>
                         </div>
-                        <p class="product-name">Money Bouquet</p>
-                        <p class="product-price">₱ 4,200.00</p>
+                        <p class="product-name">PINK</p>
+                        <p class="product-price">Starts at ₱ 1,500.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 5%3C/text%3E%3C/svg%3E" alt="Product">
+                            <img src="images/ocassions-best-cup.png" alt="Product">
                             <div class="cart-badge">🛒</div>
                         </div>
-                        <p class="product-name">Roses</p>
-                        <p class="product-price">₱ 3,000.00</p>
+                        <p class="product-name">NELLY</p>
+                        <p class="product-price">₱ 3,995.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23d4e8d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 6%3C/text%3E%3C/svg%3E" alt="Product">
+                            <img src="images/ocassions-best-dollars.png" alt="Product">
                             <div class="cart-badge">🛒</div>
                         </div>
-                        <p class="product-name">Sunflower Bouquet</p>
-                        <p class="product-price">₱ 2,800.00</p>
+                        <p class="product-name">MAXINE</p>
+                        <p class="product-price">Starts at ₱ 2,995.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 7%3C/text%3E%3C/svg%3E" alt="Product">
+                            <img src="images/ocassions-best-box.png" alt="Product">
                             <div class="cart-badge">🛒</div>
                         </div>
-                        <p class="product-name">Grand at ₱7,500.00</p>
-                        <p class="product-price">₱ 7,500.00</p>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='180'%3E%3Crect width='220' height='180' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EProduct 8%3C/text%3E%3C/svg%3E" alt="Product">
-                            <div class="cart-badge">🛒</div>
-                        </div>
-                        <p class="product-name">Modern at ₱3,500.00</p>
-                        <p class="product-price">₱ 3,500.00</p>
+                        <p class="product-name">CHANNEL</p>
+                        <p class="product-price">Starts at ₱ 1,100.00</p>
                     </div>
                 </div>
 
                 <div class="more-details">
                     <h3>Need More Details About Our Bundles?</h3>
                     <p>For our bundles – including flowers with coffee, money bouquets, bento and flowers with cakes – please message us on our social media accounts</p>
-                    <div class="social-links">
-                        <a href="#">📷</a>
-                        <a href="#">📘</a>
+                    <div class="social-icons">
+                        <a href="#instagram">
+                            <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
+                        </a>
+                        <a href="#facebook">
+                            <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
+                        </a>
                     </div>
                 </div>
             </main>
@@ -756,7 +649,7 @@
                     <!-- Vanilla Latte -->
                     <div class="product-detail-card">
                         <div class="product-detail-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EVanilla Latte%3C/text%3E%3C/svg%3E" alt="Vanilla Latte">
+                            <img src="images/coffee-latte.jpg" alt="Vanilla Latte">
                         </div>
                         <div class="product-detail-content">
                             <h3>Vanilla Latte</h3>
@@ -798,7 +691,7 @@
                     <!-- Caramel Macchiato -->
                     <div class="product-detail-card">
                         <div class="product-detail-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23d4c4b0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ECaramel Macchiato%3C/text%3E%3C/svg%3E" alt="Caramel Macchiato">
+                            <img src="images/coffe-caramel.jpg" alt="Caramel Macchiato">
                         </div>
                         <div class="product-detail-content">
                             <h3>Caramel Macchiato</h3>
@@ -840,7 +733,7 @@
                     <!-- Hazelnut Cappuccino -->
                     <div class="product-detail-card">
                         <div class="product-detail-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23c4b4a0'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EHazelnut Cappuccino%3C/text%3E%3C/svg%3E" alt="Hazelnut Cappuccino">
+                            <img src="images/coffee-hazelnut.jpg" alt="Hazelnut Cappuccino">
                         </div>
                         <div class="product-detail-content">
                             <h3>Hazelnut Cappuccino</h3>
@@ -901,7 +794,7 @@
                     <!-- Graduation Success -->
                     <div class="product-detail-card">
                         <div class="product-detail-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23d4c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EGraduation Success%3C/text%3E%3C/svg%3E" alt="Graduation Success">
+                            <img src="images/money-100.png" alt="Graduation Success">
                         </div>
                         <div class="product-detail-content">
                             <h3>Graduation Success</h3>
@@ -920,7 +813,7 @@
                     <!-- Anniversary Love -->
                     <div class="product-detail-card">
                         <div class="product-detail-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23c4d4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EAnniversary Love%3C/text%3E%3C/svg%3E" alt="Anniversary Love">
+                            <img src="images/money-1000.png" alt="Anniversary Love">
                         </div>
                         <div class="product-detail-content">
                             <h3>Anniversary Love</h3>
@@ -939,7 +832,7 @@
                     <!-- Birthday Surprise -->
                     <div class="product-detail-card">
                         <div class="product-detail-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23e4d4c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EBirthday Surprise%3C/text%3E%3C/svg%3E" alt="Birthday Surprise">
+                            <img src="images/money-500.png" alt="Birthday Surprise">
                         </div>
                         <div class="product-detail-content">
                             <h3>Birthday Surprise</h3>
@@ -986,7 +879,7 @@
                     <!-- Love Note Bento -->
                     <div class="product-detail-card">
                         <div class="product-detail-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ELove Note Bento%3C/text%3E%3C/svg%3E" alt="Love Note Bento">
+                            <img src="images/cake-heart.png" alt="Love Note Bento">
                         </div>
                         <div class="product-detail-content">
                             <h3>Love Note Bento</h3>
@@ -1004,7 +897,7 @@
                     <!-- Birthday Mini -->
                     <div class="product-detail-card">
                         <div class="product-detail-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23f4e4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EBirthday Mini%3C/text%3E%3C/svg%3E" alt="Birthday Mini">
+                            <img src="images/cake-happy.png" alt="Birthday Mini">
                         </div>
                         <div class="product-detail-content">
                             <h3>Birthday Mini</h3>
@@ -1022,7 +915,7 @@
                     <!-- Kawaii Garden -->
                     <div class="product-detail-card">
                         <div class="product-detail-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23fce4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EKawaii Garden%3C/text%3E%3C/svg%3E" alt="Kawaii Garden">
+                            <img src="images/cake-kawaii.png" alt="Kawaii Garden">
                         </div>
                         <div class="product-detail-content">
                             <h3>Kawaii Garden</h3>
@@ -1040,7 +933,7 @@
                     <!-- Thank You Bento -->
                     <div class="product-detail-card">
                         <div class="product-detail-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='250'%3E%3Crect width='400' height='250' fill='%23e4e4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EThank You Bento%3C/text%3E%3C/svg%3E" alt="Thank You Bento">
+                            <img src="images/cake-ty.png" alt="Thank You Bento">
                         </div>
                         <div class="product-detail-content">
                             <h3>Thank You Bento</h3>
@@ -1065,14 +958,12 @@
             <div class="footer-links">
                 <h5>SB PHILIPPINES</h5>
                 <ul>
-                    <li><a href="#who-we-are">Who We Are</a></li>
-                    <li><a href="#story">Our Story</a></li>
-                    <li><a href="#locations">Locations</a></li>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                </ul>
-                <ul style="margin-top: 25px;">
-                    <li><a href="#feedback">Feedback</a></li>
-                    <li><a href="#terms">Terms of service</a></li>
+                    <li><a href="who_we_are.html">Who We Are</a></li>
+                    <li><a href="our_story.html">Our Story</a></li>
+                    <li><a href="contact_location.html">Locations</a></li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="terms_of_service.html">Terms of service</a></li>
                 </ul>
             </div>
             <div class="newsletter">
@@ -1083,13 +974,21 @@
                     <button>JOIN</button>
                 </div>
                 <div class="social-icons">
-                    <a href="#instagram">📷</a>
-                    <a href="#facebook">📘</a>
+                    <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
+                        <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
+
+                    </a>
+                   <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
+                        <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
                 </div>
             </div>
-        </div>
+        </div>                                
         <div class="footer-bottom">
-            ©2025, Samparyá Bloom
+               &copy; ©2025 Samparyá Bloom. All rights reserved — Designed and created with grace by Sophia Ong
+              <p class="footer-mail">
+                 <a href="mailto:sbphilippines.net">sbphilippines.net</a>
+              </p>
         </div>
     </footer>
 
