@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Feedback - Samparya Bloom</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share Your Experience - Samparyá Bloom</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel = "shortcun icon" href = "images/favicon.ico.jpg"/>
+    <link rel = "icon"  type = "image/png" sizes = "32x32" href = "images/favicon-32.png" />
+    <link rel = "apple-touch-icon" sizes = "180x180" href = "images/apple-touch-icon.png" />
+    <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
     <style>
         /* Hero Section */
         .hero {
@@ -22,36 +26,37 @@
         }
 
         .hero p {
-            font-size: 13px;
+            font-size: 15px;
             color: #666;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            line-height: 1.7;
+            line-height: 1.8;
         }
 
         /* Form Section */
         .form-section {
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 50px 40px 80px;
         }
 
         .form-group {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-bottom: 25px;
+            gap: 25px;
+            margin-bottom: 20px;
         }
 
         label {
             display: block;
-            font-size: 13px;
+            font-size: 14px;
             margin-bottom: 8px;
             color: #333;
+            font-weight: 500;
         }
 
         input[type="text"],
@@ -60,12 +65,23 @@
         textarea,
         select {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 16px;
             border: 1px solid #d0d0d0;
             background-color: #f5f5f0;
             font-family: 'Georgia', serif;
-            font-size: 13px;
+            font-size: 14px;
             color: #333;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #8a8a7a;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(138, 138, 122, 0.1);
         }
 
         input::placeholder,
@@ -75,37 +91,46 @@
         }
 
         textarea {
-            min-height: 80px;
+            min-height: 120px;
             resize: vertical;
         }
 
         select {
             appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
             background-position: right 12px center;
             cursor: pointer;
+            padding-right: 35px;
+        }
+
+        /* Fieldset Styling */
+        fieldset {
+            border: 2px solid #d0d0d0;
+            padding: 30px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f0 100%);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        legend {
+            font-size: 18px;
+            font-weight: bold;
+            color: #3a3a2a;
+            padding: 5px 15px;
+            background-color: #ffffff;
+            border: 2px solid #d0d0d0;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         /* Rating Section */
-        .rating-section {
-            background: linear-gradient(135deg, #f8f8f0 0%, #f5f5f0 50%, #f0f0e8 100%);
-            padding: 25px;
-            margin-bottom: 25px;
-            border: 1px solid #e0e0e0;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .rating-section h3 {
-            font-size: 14px;
-            font-weight: normal;
-            margin-bottom: 20px;
-            color: #333;
-        }
-
         .rating-row {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 12px;
+            grid-template-columns: 200px 1fr;
+            gap: 20px;
+            margin-bottom: 18px;
             align-items: center;
         }
 
@@ -115,85 +140,94 @@
 
         .rating-row label {
             margin-bottom: 0;
-            font-size: 13px;
+            font-size: 14px;
         }
 
         .rating-row select {
             background-color: white;
+            max-width: 250px;
         }
 
         /* Checkbox Section */
-        .checkbox-section {
-            margin-bottom: 25px;
-        }
-
-        .checkbox-section h3 {
-            font-size: 14px;
-            font-weight: normal;
-            margin-bottom: 15px;
-            color: #333;
-        }
-
         .checkbox-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 12px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
         }
 
         .checkbox-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
 
         .checkbox-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             cursor: pointer;
+            margin: 0;
         }
 
         .checkbox-item label {
             margin-bottom: 0;
-            font-size: 13px;
+            font-size: 14px;
             cursor: pointer;
         }
 
         /* Additional Comments */
         .comments-section {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
-        .comments-section h3 {
-            font-size: 14px;
-            font-weight: normal;
-            margin-bottom: 8px;
-            color: #333;
+        .comments-section label {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #3a3a2a;
         }
 
         /* Recommendation Checkbox */
         .recommend-section {
-            margin-bottom: 25px;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f8f0;
+            border-radius: 6px;
+            border: 1px solid #e0e0d0;
         }
 
         .recommend-section .checkbox-item {
             justify-content: flex-start;
         }
 
+        .recommend-section label {
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        /* Button Container */
+        .button-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 35px;
+        }
+
         /* Submit Button */
         .submit-btn {
-            width: 100%;
-            padding: 15px;
+            flex: 1;
+            padding: 16px;
             background: linear-gradient(135deg, #b2b1a0 0%, #8a8a7a 25%, #6a6a5a 50%, #525242 75%, #3a3a2a 100%);
             color: white;
             border: none;
             font-family: 'Georgia', serif;
-            font-size: 13px;
+            font-size: 14px;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             cursor: pointer;
             font-weight: bold;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border-radius: 4px;
         }
 
         .submit-btn:hover {
@@ -202,9 +236,46 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
+        /* Reset Button */
+        .reset-btn {
+            flex: 1;
+            padding: 16px;
+            background: linear-gradient(135deg, #8b7355 0%, #6d5a45 50%, #5a4a38 100%);
+            color: white;
+            border: none;
+            font-family: 'Georgia', serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            font-weight: bold;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .reset-btn:hover {
+            background: linear-gradient(135deg, #9b8365 0%, #7d6a55 50%, #6a5a48 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
         @media (max-width: 768px) {
-            .form-row,
-            .rating-row,
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .rating-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+
+            .rating-row select {
+                max-width: 100%;
+            }
+
             .checkbox-grid {
                 grid-template-columns: 1fr;
             }
@@ -214,7 +285,38 @@
             }
 
             .form-section {
-                padding: 40px 30px 60px;
+                padding: 40px 25px 60px;
+            }
+
+            fieldset {
+                padding: 20px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            legend {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .form-section {
+                padding: 30px 20px 50px;
+            }
+
+            fieldset {
+                padding: 18px;
             }
         }
     </style>
@@ -225,25 +327,30 @@
         We offer free delivery in Angeles City for orders Php 6,000 and up.
     </div>
 
-    <!-- Header -->
+   <!-- Header -->
     <header>
         <nav>
-            <a href="#home">HOME</a>
-            <a href="#contact">CONTACT US</a>
+            <a href="index.html">HOME</a>
+            <a href="contact_location.html">CONTACT US</a>
         </nav>
         <div class="logo">
-            <img src="images/Logo.png" alt="Samparyá Bloom Logo">
+            <a href="index.html">
+                <img src="images/Logo.png" alt="Samparyá Bloom Logo">
+            </a>
         </div>
         <div class="header-right">
-            <a href="#signin">SIGN IN / REGISTER</a>
-            <div class="cart-icon">🛒</div>
+            <a href="sign_in_register.html">SIGN IN / REGISTER</a>
+            <div class="cart-icon" onclick="window.location.href='cart.html'">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
         </div>
     </header>
 
     <!-- Category Navigation -->
     <div class="category-nav">
-        <a href="#flowers">FLOWERS</a>
-        <a href="#occasions">OCCASIONS</a>
+        <a href="flowers.html">FLOWERS</a>
+        <a href="ocassions.html">OCCASIONS</a>
     </div>
 
     <!-- Hero Section -->
@@ -254,36 +361,40 @@
 
     <!-- Form Section -->
     <section class="form-section">
-        <form>
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="name">Your Name*</label>
-                    <input type="text" id="name" required>
+        <form id="feedbackForm">
+            <!-- Contact Information Fieldset -->
+            <fieldset>
+                <legend>Contact Information</legend>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Your Name*</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Purchase Date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="date">Purchase Date</label>
-                    <input type="date" id="date" placeholder="dd/mm/yyyy">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email">
                 </div>
-            </div>
 
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email">
-            </div>
+                <div class="form-group">
+                    <label for="purchase">Flower/Arrangement Purchased*</label>
+                    <input type="text" id="purchase" name="purchase" placeholder="e.g., red roses bouquet, money bouquets" required>
+                </div>
+            </fieldset>
 
-            <div class="form-group">
-                <label for="purchase">Flower/Arrangement Purchased*</label>
-                <input type="text" id="purchase" placeholder="e.g., red roses bouquet, money bouquets" required>
-            </div>
-
-            <!-- Rating Section -->
-            <div class="rating-section">
-                <h3>Rate Your Experience</h3>
+            <!-- Rating Section Fieldset -->
+            <fieldset>
+                <legend>Rate Your Experience</legend>
                 
                 <div class="rating-row">
                     <label for="overall">Overall Satisfaction</label>
-                    <select id="overall">
-                        <option value="">Rate</option>
+                    <select id="overall" name="overall">
+                        <option value="">Select Rating</option>
                         <option value="5">5 - Excellent</option>
                         <option value="4">4 - Very Good</option>
                         <option value="3">3 - Good</option>
@@ -294,8 +405,8 @@
 
                 <div class="rating-row">
                     <label for="quality">Flower Quality</label>
-                    <select id="quality">
-                        <option value="">Rate</option>
+                    <select id="quality" name="quality">
+                        <option value="">Select Rating</option>
                         <option value="5">5 - Excellent</option>
                         <option value="4">4 - Very Good</option>
                         <option value="3">3 - Good</option>
@@ -306,8 +417,8 @@
 
                 <div class="rating-row">
                     <label for="service">Customer Service</label>
-                    <select id="service">
-                        <option value="">Rate</option>
+                    <select id="service" name="service">
+                        <option value="">Select Rating</option>
                         <option value="5">5 - Excellent</option>
                         <option value="4">4 - Very Good</option>
                         <option value="3">3 - Good</option>
@@ -318,8 +429,8 @@
 
                 <div class="rating-row">
                     <label for="delivery">Delivery/Pickup Experience</label>
-                    <select id="delivery">
-                        <option value="">Rate</option>
+                    <select id="delivery" name="delivery">
+                        <option value="">Select Rating</option>
                         <option value="5">5 - Excellent</option>
                         <option value="4">4 - Very Good</option>
                         <option value="3">3 - Good</option>
@@ -327,55 +438,58 @@
                         <option value="1">1 - Poor</option>
                     </select>
                 </div>
-            </div>
+            </fieldset>
 
-            <!-- Checkbox Section -->
-            <div class="checkbox-section">
-                <h3>What did you love most about our flowers?</h3>
+            <!-- Features Fieldset -->
+            <fieldset>
+                <legend>What Did You Love Most?</legend>
                 <div class="checkbox-grid">
                     <div class="checkbox-item">
-                        <input type="checkbox" id="freshness" name="feature">
+                        <input type="checkbox" id="freshness" name="feature" value="freshness">
                         <label for="freshness">Freshness</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="arrangement" name="feature">
+                        <input type="checkbox" id="arrangement" name="feature" value="arrangement">
                         <label for="arrangement">Beautiful Arrangement</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="variety" name="feature">
+                        <input type="checkbox" id="variety" name="feature" value="variety">
                         <label for="variety">Great Variety</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="longlasting" name="feature">
+                        <input type="checkbox" id="longlasting" name="feature" value="longlasting">
                         <label for="longlasting">Long-lasting</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="value" name="feature">
+                        <input type="checkbox" id="value" name="feature" value="value">
                         <label for="value">Great Value</label>
                     </div>
                     <div class="checkbox-item">
-                        <input type="checkbox" id="packaging" name="feature">
+                        <input type="checkbox" id="packaging" name="feature" value="packaging">
                         <label for="packaging">Beautiful Packaging</label>
                     </div>
                 </div>
-            </div>
+            </fieldset>
 
             <!-- Additional Comments -->
             <div class="comments-section">
-                <h3>Additional Comments</h3>
-                <textarea placeholder="Tell us more about your experience, suggestions for improvement, or anything else you'd like us to know..."></textarea>
+                <label for="comments">Additional Comments</label>
+                <textarea id="comments" name="comments" placeholder="Tell us more about your experience, suggestions for improvement, or anything else you'd like us to know..."></textarea>
             </div>
 
             <!-- Recommendation -->
             <div class="recommend-section">
                 <div class="checkbox-item">
-                    <input type="checkbox" id="recommend">
+                    <input type="checkbox" id="recommend" name="recommend" value="yes">
                     <label for="recommend">I would recommend Samparya Bloom to friends and family</label>
                 </div>
             </div>
 
-            <!-- Submit Button -->
-            <button type="submit" class="submit-btn">SUBMIT FEEDBACK</button>
+            <!-- Submit and Reset Buttons -->
+            <div class="button-container">
+                <button type="submit" class="submit-btn">Submit Feedback</button>
+                <button type="reset" class="reset-btn">Reset Form</button>
+            </div>
         </form>
     </section>
 
@@ -385,12 +499,12 @@
             <div class="footer-links">
                 <h5>SB PHILIPPINES</h5>
                 <ul>
-                    <li><a href="#who-we-are">Who We Are</a></li>
-                    <li><a href="#story">Our Story</a></li>
-                    <li><a href="#locations">Locations</a></li>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                    <li><a href="#feedback">Feedback</a></li>
-                    <li><a href="#terms">Terms of service</a></li>
+                    <li><a href="who_we_are.html">Who We Are</a></li>
+                    <li><a href="our_story.html">Our Story</a></li>
+                    <li><a href="contact_location.html">Locations</a></li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="terms_of_service.html">Terms of service</a></li>
                 </ul>
             </div>
             <div class="newsletter">
@@ -401,18 +515,56 @@
                     <button>JOIN</button>
                 </div>
                 <div class="social-icons">
-                    <a href="#instagram">
+                    <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
                         <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
                     </a>
-                    <a href="#facebook">
+                   <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
                         <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
                     </a>
                 </div>
             </div>
         </div>                                
         <div class="footer-bottom">
-           ©2025 Samparyá Bloom — Designed and created with grace by Sophia Ong
+               &copy; ©2025 Samparyá Bloom. All rights reserved — Designed and created with grace by Sophia Ong
+              <p class="footer-mail">
+                 <a href="mailto:sbphilippines.net">sbphilippines.net</a>
+              </p>
         </div>
     </footer>
+    
+    <script>
+        const cartManager = {
+            cart: [],
+
+            loadCart() {
+                try {
+                    const stored = localStorage.getItem("cart");
+                    this.cart = stored ? JSON.parse(stored) : [];
+                } catch (e) {
+                    this.cart = [];
+                }
+            },
+
+            updateCartCount() {
+                const count = this.cart.length;
+                const cartCountEl = document.getElementById("cartCount");
+                if (cartCountEl) cartCountEl.textContent = count;
+            }
+        };
+
+        // Initialize count on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            cartManager.loadCart();
+            cartManager.updateCartCount();
+
+            // Handle form submission
+            const form = document.getElementById("feedbackForm");
+            form.addEventListener("submit", (e) => {
+                e.preventDefault();
+                alert("Thank you for your feedback! We appreciate your time and input.");
+                form.reset();
+            });
+        });
+    </script>
 </body>
 </html>
