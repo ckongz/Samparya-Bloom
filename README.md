@@ -1,14 +1,14 @@
-🌷 Samparyá Bloom
+              🌷 Samparyá Bloom
 
 “Where every moment blossoms into something beautiful.”
 
 
-🌼 Overview
+                   Overview
 
 Samparyá Bloom is a flower shop website designed to bring the beauty of floral arrangements to the digital world.
 It offers customers a seamless experience to explore elegant bouquets, order online, and locate the shop for pickups and deliveries — all wrapped in a soothing, nature-inspired design.
 
-💐 Features
+                   Features
 
 Responsive Design — Beautifully adapts to desktop, tablet, and mobile screens.
 Interactive Cart System — Add, view, and manage items dynamically.
@@ -17,7 +17,7 @@ Shop Hours Display — Clear view of store and delivery schedules.
 Elegant Aesthetic — Soft gradients, floral tones, and modern layouts.
 User-Friendly Navigation — Simple, intuitive interface for easy browsing.
 
-🏗️ Built With
+                  Built With
 
 Technology	Purpose
 HTML5	Website structure & semantics
@@ -26,7 +26,7 @@ JavaScript (Vanilla)	Cart management & interactivity
 Google Maps Embed API	Interactive map integration
 Project Structure
 
-🚀 Getting Started
+               Getting Started
 
 Follow these steps to view and explore Samparyá Bloom locally:
 
@@ -39,13 +39,13 @@ Navigate into the folder
 Open in your browser
 -Simply double-click index.html or open it in your preferred browser.
 
-                👩‍💻 Developer
+                 Developer
 
-               Sophia Casey Ong
-🌸 Designer & Developer of Samparyá Bloom
+👩‍💻 Sophia Casey Ong
+Designer & Developer of Samparyá Bloom
 📍 Angeles City, Pampanga, Philippines
 
-🪻 Acknowledgments
+               Acknowledgments
 Special thanks to 🌺
 > Local florists and designers who inspired the project.
 > All bloom lovers who believe that every petal tells a story.
