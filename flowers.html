@@ -1,134 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Flowers - Samparya Bloom</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flowers - Samparyá Bloom</title>
+    <link rel = "shortcun icon" href = "images/favicon.ico.jpg"/>
+    <link rel = "icon"  type = "image/png" sizes = "32x32" href = "images/favicon-32.png" />
+    <link rel = "apple-touch-icon" sizes = "180x180" href = "images/apple-touch-icon.png" />
+    <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            color: #333;
-            line-height: 1.6;
-            background-color: #f5f5f0;
-        }
-
         /* Top Banner */
-        .top-banner {
-            background-color: #5a5a4a;
-            color: white;
-            text-align: center;
-            padding: 8px 20px;
-            font-size: 11px;
-        }
-
-        /* Header */
-        header {
-            background-color: #2d2d2d;
-            padding: 15px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            width: 50px;
-            height: 50px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: 'Georgia', serif;
-            font-size: 24px;
-            font-style: italic;
-            color: #2d2d2d;
-            font-weight: bold;
-        }
-
-        nav {
-            display: flex;
-            gap: 30px;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .header-right a {
-            color: white;
-            text-decoration: none;
-            font-size: 11px;
-        }
-
-        .cart-icon {
-            width: 24px;
-            height: 24px;
-            border: 1px solid white;
-            border-radius: 3px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-        }
-
-        /* Category Navigation */
-        .category-nav {
-            background-color: white;
-            padding: 15px 40px;
-            text-align: center;
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .category-nav a {
-            display: inline-block;
-            padding: 8px 20px;
-            margin: 0 5px;
-            text-decoration: none;
-            color: #333;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            cursor: pointer;
-        }
-
-        .category-nav a:hover {
-            color: #8b2e3e;
-        }
-
-        /* Page Container */
+        /* Page Management */
         .page {
             display: none;
+            animation: fadeIn 0.5s ease;
         }
 
         .page.active {
             display: block;
         }
 
-        /* Hero Section with Background Image */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hero Section */
         .hero-image {
-            height: 350px;
+            height: 300px;
             background-size: cover;
             background-position: center;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            overflow: hidden;
         }
 
         .hero-image::before {
@@ -138,51 +45,84 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(255, 255, 255, 0.3);
+            background: linear-gradient(135deg, rgba(245,240,235,0.4), rgba(232,221,208,0.4));
         }
 
         .hero-image h1 {
             position: relative;
             z-index: 1;
-            font-size: 56px;
-            font-weight: normal;
-            color: #4a4a3a;
+            font-size: 40px;
+            font-weight: 400;
+            color: #2d2d2d;
             text-transform: uppercase;
             letter-spacing: 4px;
-            text-shadow: 2px 2px 4px rgba(255,255,255,0.5);
+            text-shadow: 2px 2px 8px rgba(255,255,255,0.8);
+            animation: slideDown 0.8s ease-out;
         }
 
-        /* Content Wrapper */
+        @keyframes slideDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .breadcrumb a {
+            color: #8b2e3e;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .breadcrumb a:hover {
+            color: #6b1e2e;
+        }
+
+        /* Content Layout */
         .content-wrapper {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 40px;
+            grid-template-columns: 280px 1fr;
+            gap: 50px;
             padding: 40px;
         }
 
         /* Sidebar */
         .sidebar {
             background-color: white;
-            padding: 25px;
-            border-radius: 8px;
+            padding: 30px;
+            border-radius: 0;
             height: fit-content;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 20px;
         }
 
         .sidebar h3 {
-            font-size: 14px;
+            font-size: 11px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-            color: #999;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            color: #888;
         }
 
         .sidebar h2 {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 25px;
             color: #2d2d2d;
         }
 
@@ -191,26 +131,32 @@
         }
 
         .sidebar ul li {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .sidebar ul li a {
             color: #555;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 14px;
             cursor: pointer;
+            transition: all 0.3s;
+            display: block;
+            padding: 8px 0;
+            border-bottom: 1px solid transparent;
         }
 
         .sidebar ul li a:hover {
             color: #8b2e3e;
+            padding-left: 10px;
+            border-bottom-color: #8b2e3e;
         }
 
         /* Main Content */
         .main-content {
             background-color: white;
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            padding: 50px;
+            border-radius: 0;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
         }
 
         .collection-title {
@@ -219,51 +165,59 @@
         }
 
         .collection-title h2 {
-            font-size: 36px;
-            font-weight: normal;
+            font-size: 42px;
+            font-weight: 400;
             color: #2d2d2d;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
 
         .collection-subtitle {
             text-align: center;
             font-size: 14px;
-            color: #666;
-            line-height: 1.7;
-            margin-bottom: 40px;
+            color: #888;
+            line-height: 1.8;
+            margin-bottom: 60px;
             font-style: italic;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* Products Grid */
+        /* Products Grid - Bestsellers */
         .products-grid-large {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 35px;
         }
 
+        /* Products Grid - Collections */
         .products-grid-collection {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            max-width: 900px;
+            gap: 40px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         .product-card {
-            background: #fafafa;
-            border-radius: 8px;
+            background: white;
+            border-radius: 0;
             overflow: hidden;
             text-align: center;
-            padding: 15px;
+            border: 1px solid #e8e8e8;
+            transition: all 0.4s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         }
 
         .product-image {
             width: 100%;
-            height: 200px;
-            background-color: #e8e8e8;
-            border-radius: 8px;
-            margin-bottom: 15px;
+            height: 280px;
+            background-color: #f5f5f5;
             position: relative;
             overflow: hidden;
         }
@@ -272,53 +226,79 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
         }
 
         .cart-badge {
             position: absolute;
-            bottom: 10px;
-            right: 10px;
-            width: 35px;
-            height: 35px;
-            background-color: #6a6a5a;
+            bottom: 15px;
+            right: 15px;
+            width: 45px;
+            height: 45px;
+            background-color: #434A3E;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 16px;
+            font-size: 18px;
             cursor: pointer;
+            transition: all 0.3s;
+            opacity: 0;
+            border: none;
+        }
+
+        .product-card:hover .cart-badge {
+            opacity: 1;
+            transform: scale(1.1);
         }
 
         .cart-badge:hover {
-            background-color: #5a5a4a;
+            background-color: #8b2e3e;
+        }
+
+        .product-info {
+            padding: 25px 20px;
         }
 
         .product-name {
-            font-size: 13px;
-            margin-bottom: 5px;
+            font-size: 15px;
+            margin-bottom: 10px;
             color: #2d2d2d;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
+            font-weight: 600;
         }
 
         .product-price {
-            font-size: 13px;
-            color: #555;
+            font-size: 14px;
+            color: #8b2e3e;
+            font-weight: 400;
         }
 
         /* Collection Product Cards */
         .collection-product {
             background: white;
-            border: 1px solid #d0d0d0;
-            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            border-radius: 0;
             overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .collection-product:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         }
 
         .collection-image {
             width: 100%;
-            height: 350px;
-            background-color: #e8e8e8;
+            height: 400px;
+            background-color: #f5f5f5;
+            overflow: hidden;
             position: relative;
         }
 
@@ -326,174 +306,142 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .collection-product:hover .collection-image img {
+            transform: scale(1.08);
         }
 
         .collection-content {
-            padding: 25px;
+            padding: 35px;
             text-align: center;
         }
 
         .collection-content h3 {
-            font-size: 16px;
+            font-size: 18px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
             color: #2d2d2d;
+            font-weight: 600;
         }
 
         .collection-content .cart-badge {
-            position: relative;
-            bottom: auto;
-            right: auto;
-            margin: 15px auto 10px;
+            position: static;
+            margin: 0 auto 15px;
+            opacity: 1;
+        }
+
+        .collection-content .cart-badge:hover {
+            background-color: #8b2e3e;
+            transform: scale(1.1);
         }
 
         .collection-content p {
-            font-size: 13px;
-            color: #555;
-        }
-
-        /* Pagination Dots */
-        .pagination-dots {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 40px;
-        }
-
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #d0d0d0;
-            cursor: pointer;
-        }
-
-        .dot.active {
-            background-color: #6a6a5a;
-        }
-
-        /* Footer */
-        footer {
-            background-color: #2d2d2d;
-            color: white;
-            padding: 50px 40px 30px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 60px;
-            margin-bottom: 40px;
-        }
-
-        .footer-links h5 {
             font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #8b2e3e;
+            font-weight: 400;
         }
 
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            font-size: 12px;
-        }
-
-        .footer-links a:hover {
-            color: white;
-        }
-
-        .newsletter {
-            background-color: #3d3d3d;
-            padding: 35px;
-            border-radius: 8px;
-        }
-
-        .newsletter h4 {
-            font-size: 26px;
-            font-weight: normal;
-            margin-bottom: 10px;
-        }
-
-        .newsletter p {
-            font-size: 12px;
-            color: #ccc;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .newsletter-form {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
-
-        .newsletter-form input {
-            flex: 1;
-            padding: 12px 15px;
-            border: none;
-            background-color: white;
-            font-size: 12px;
-            border-radius: 4px;
-        }
-
-        .newsletter-form button {
-            padding: 12px 30px;
-            background-color: white;
-            color: #2d2d2d;
-            border: none;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-radius: 4px;
-        }
-
-        .newsletter-form button:hover {
-            background-color: #f0f0f0;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 15px;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 16px;
-            text-decoration: none;
-        }
-
-        .footer-bottom {
+        /* Back Button */
+        .back-to-flowers {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            font-size: 11px;
-            color: #888;
+            margin: 40px 0;
         }
 
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #434A3E;
+            color: white;
+            text-decoration: none;
+            font-family: 'Georgia', serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .back-btn:hover {
+            background-color: #8b2e3e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 46, 62, 0.3);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #434A3E;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: none;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.show {
+            display: flex;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .toast-icon {
+            font-size: 20px;
+        }
+
+        .toast-message {
+            font-size: 14px;
+        }
+
+        /* Responsive */
         @media (max-width: 968px) {
             .content-wrapper {
                 grid-template-columns: 1fr;
+                padding: 20px;
             }
 
-            .footer-content,
+            .products-grid-large,
             .products-grid-collection {
                 grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 300px;
+            }
+
+            .hero-image h1 {
+                font-size: 36px;
+            }
+
+            .main-content {
+                padding: 30px 20px;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             header {
@@ -502,13 +450,24 @@
             }
 
             nav {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
+                gap: 20px;
+            }
+
+            .toast {
+                right: 20px;
+                left: 20px;
+                bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .products-grid-large {
+                grid-template-columns: 1fr;
             }
 
             .hero-image h1 {
-                font-size: 36px;
+                font-size: 28px;
+                letter-spacing: 3px;
             }
         }
     </style>
@@ -522,32 +481,42 @@
     <!-- Header -->
     <header>
         <nav>
-            <a href="#home">HOME</a>
-            <a href="#contact">CONTACT US</a>
+            <a href="index.html">HOME</a>
+            <a href="contact_location.html">CONTACT US</a>
         </nav>
-        <div class="logo">SB</div>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/Logo.png" alt="Samparyá Bloom Logo">
+            </a>
+        </div>
         <div class="header-right">
-            <a href="#signin">SIGN IN / REGISTER</a>
-            <div class="cart-icon">🛒</div>
+            <a href="sign_in_register.html">SIGN IN / REGISTER</a>
+            <div class="cart-icon" onclick="window.location.href='cart.html'">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
         </div>
     </header>
 
     <!-- Category Navigation -->
     <div class="category-nav">
-        <a onclick="showPage('flowers')">FLOWERS</a>
-        <a href="#occasions">OCCASIONS</a>
+        <a href="flowers.html">FLOWERS</a>
+        <a href="ocassions.html">OCCASIONS</a>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message">Added to cart!</span>
     </div>
 
     <!-- PAGE 1: FLOWERS BESTSELLERS -->
     <div id="flowers" class="page active">
-        <!-- Hero Section -->
-        <div class="hero-image" style="background-image: linear-gradient(rgba(245,245,240,0.3), rgba(245,245,240,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23e8d5c4%22/%3E%3C/svg%3E')">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(245,245,240,0.3), rgba(245,245,240,0.3)) ">
             <h1>FLOWERS</h1>
         </div>
 
-        <!-- Content Wrapper -->
         <div class="content-wrapper">
-            <!-- Sidebar -->
             <aside class="sidebar">
                 <h3>REFINE</h3>
                 <h2>SEARCH</h2>
@@ -561,7 +530,6 @@
                 </ul>
             </aside>
 
-            <!-- Main Content -->
             <main class="main-content">
                 <div class="collection-title">
                     <h2>Bestsellers</h2>
@@ -571,119 +539,75 @@
                 <div class="products-grid-large">
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 1%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
+                            <img src="images/tulips-bestseller.jpg" alt="Flower">
+                            <button class="cart-badge" onclick="cartManager.addToCart('KARLA', 4995, 'images/tulips-bestseller.jpg')">🛒</button>
                         </div>
-                        <p class="product-name">LEA</p>
-                        <p class="product-price">Starts at ₱4,832.00</p>
+                        <p class="product-name">KARLA</p>
+                        <p class="product-price">Starts at ₱4,995.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23d4c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 2%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
+                            <img src="images/flowers-best-lilac.jpg" alt="Flower">
+                            <button class="cart-badge" onclick="cartManager.addToCart('LILY', 1225, 'images/flowers-best-lilac.jpg')">🛒</button>
                         </div>
-                        <p class="product-name">LEE</p>
-                        <p class="product-price">Starts at ₱1,232.00</p>
+                        <p class="product-name">LILY</p>
+                        <p class="product-price">Starts at ₱1,225.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23f4e4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 3%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
+                            <img src="images/flowers-best-poe.jpg" alt="Flower">
+                            <button class="cart-badge" onclick="cartManager.addToCart('MEGAN', 2995, 'images/flowers-best-poe.jpg')">🛒</button>
                         </div>
-                        <p class="product-name">KATELYN</p>
-                        <p class="product-price">₱5,800.00</p>
+                        <p class="product-name">MEGAN</p>
+                        <p class="product-price">₱2,995.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 4%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
+                            <img src="images/flowers-best-gradient.png" alt="Flower">
+                            <button class="cart-badge" onclick="cartManager.addToCart('NORA', 1500, 'images/flowers-best-gradient.png')">🛒</button>
                         </div>
-                        <p class="product-name">JANET</p>
-                        <p class="product-price">Starts at ₱1,390.00</p>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e4e4c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 5%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
-                        </div>
-                        <p class="product-name">LEXI</p>
-                        <p class="product-price">₱2,591.00</p>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23d4e4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 6%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
-                        </div>
-                        <p class="product-name">KAI</p>
-                        <p class="product-price">₱3,859.00</p>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e8c4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 7%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
-                        </div>
-                        <p class="product-name">LOU</p>
-                        <p class="product-price">Starts at ₱2,244.00</p>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23f4d4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 8%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
-                        </div>
-                        <p class="product-name">REIA</p>
-                        <p class="product-price">Starts at ₱3,999.00</p>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e8d5c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 9%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
-                        </div>
-                        <p class="product-name">LEILA</p>
-                        <p class="product-price">Starts at ₱4,799.00</p>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23d4c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 10%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
-                        </div>
-                        <p class="product-name">PRIYA</p>
+                        <p class="product-name">NORA</p>
                         <p class="product-price">Starts at ₱1,500.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23c4d4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 11%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
+                            <img src="images/flowers-best-box.png" alt="Flower">
+                            <button class="cart-badge" onclick="cartManager.addToCart('LOVELY', 3995, 'images/flowers-best-box.png')">🛒</button>
                         </div>
-                        <p class="product-name">FREYA</p>
-                        <p class="product-price">Starts at ₱3,359.00</p>
+                        <p class="product-name">LOVELY</p>
+                        <p class="product-price">₱3,995.00</p>
                     </div>
 
                     <div class="product-card">
                         <div class="product-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='200'%3E%3Crect width='220' height='200' fill='%23e4d4c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='14' fill='%23666'%3EFlower 12%3C/text%3E%3C/svg%3E" alt="Flower">
-                            <div class="cart-badge">🛒</div>
+                            <img src="images/flowers-best-sun.png" alt="Flower">
+                            <button class="cart-badge" onclick="cartManager.addToCart('NOX', 995, 'images/flowers-best-sun.png')">🛒</button>
                         </div>
-                        <p class="product-name">KIMBERLY</p>
-                        <p class="product-price">₱4,299.00</p>
+                        <p class="product-name">NOX</p>
+                        <p class="product-price">₱995.00</p>
                     </div>
-                </div>
 
-                <div class="pagination-dots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/flowers-best-pink.png" alt="Flower">
+                            <button class="cart-badge" onclick="cartManager.addToCart('RIONAS', 2995, 'images/flowers-best-pink.png')">🛒</button>
+                        </div>
+                        <p class="product-name">RIONAS</p>
+                        <p class="product-price">Starts at ₱2,995.00</p>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/flowers-best-light.png" alt="Flower">
+                            <button class="cart-badge" onclick="cartManager.addToCart('VIM', 1100, 'images/flowers-best-light.png')">🛒</button>
+                        </div>
+                        <p class="product-name">VIM</p>
+                        <p class="product-price">Starts at ₱1,100.00</p>
+                    </div>
                 </div>
             </main>
         </div>
@@ -691,7 +615,7 @@
 
     <!-- PAGE 2: PEONIES -->
     <div id="peonies" class="page">
-        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23f4d4e4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3EPeonies Background%3C/text%3E%3C/svg%3E')">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('images/poenies-hero.png')">
             <h1>PEONIES</h1>
         </div>
 
@@ -718,25 +642,28 @@
                 <div class="products-grid-collection">
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23e8c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EREGINA%3C/text%3E%3C/svg%3E" alt="Regina">
+                            <img src="images/poenies-1.jpg" alt="REGINA">
                         </div>
                         <div class="collection-content">
                             <h3>REGINA</h3>
-                            <div class="cart-badge">🛒</div>
-                            <p>Starts at ₱4,993.00</p>
+                            <button class="cart-badge" onclick="cartManager.addToCart('REGINA', 4995, 'images/poenies-1.jpg')">🛒</button>
+                            <p>Starts at ₱4,995.00</p>
                         </div>
                     </div>
 
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4d4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ELINA%3C/text%3E%3C/svg%3E" alt="Lina">
+                            <img src="images/poenies-2.jpg" alt="LINA">
                         </div>
                         <div class="collection-content">
                             <h3>LINA</h3>
-                            <div class="cart-badge">🛒</div>
-                            <p>Starts at ₱1,993.00</p>
+                            <button class="cart-badge" onclick="cartManager.addToCart('LINA', 1995, 'images/poenies-2.jpg')">🛒</button>
+                            <p>Starts at ₱1,995.00</p>
                         </div>
                     </div>
+                </div>
+                <div class="back-to-flowers">
+                    <button class="back-btn" onclick="showPage('flowers')">← Back to All Flowers</button>
                 </div>
             </main>
         </div>
@@ -744,7 +671,7 @@
 
     <!-- PAGE 3: CARNATION BOUQUET -->
     <div id="carnation" class="page">
-        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23e8d4d4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3ECarnation Background%3C/text%3E%3C/svg%3E')">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('images/carnations-hero.png')">
             <h1>Carnation Bouquet</h1>
         </div>
 
@@ -771,25 +698,28 @@
                 <div class="products-grid-collection">
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4e4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ESAM%3C/text%3E%3C/svg%3E" alt="Sam">
+                            <img src="images/carnations-1.jpg" alt="SAM">
                         </div>
                         <div class="collection-content">
                             <h3>SAM</h3>
-                            <div class="cart-badge">🛒</div>
-                            <p>Starts at ₱4,993.00</p>
+                            <button class="cart-badge" onclick="cartManager.addToCart('SAM', 5995, 'images/carnations-1.jpg')">🛒</button>
+                            <p>Starts at ₱5,995.00</p>
                         </div>
                     </div>
 
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23e8d4c4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ELUNA%3C/text%3E%3C/svg%3E" alt="Luna">
+                            <img src="images/carnations-2.jpg" alt="Luna">
                         </div>
                         <div class="collection-content">
                             <h3>LUNA</h3>
-                            <div class="cart-badge">🛒</div>
-                            <p>Starts at ₱1,693.00</p>
+                            <button class="cart-badge" onclick="cartManager.addToCart('LUNA', 1995, 'images/carnations-2.jpg')">🛒</button>
+                            <p>Starts at ₱1,995.00</p>
                         </div>
                     </div>
+                </div>
+                <div class="back-to-flowers">
+                    <button class="back-btn" onclick="showPage('flowers')">← Back to All Flowers</button>
                 </div>
             </main>
         </div>
@@ -797,7 +727,7 @@
 
     <!-- PAGE 4: LILIES BOUQUET -->
     <div id="lilies" class="page">
-        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23f4f4e4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3ELilies Background%3C/text%3E%3C/svg%3E')">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('images/lily-hero.png')">
             <h1>Lilies Bouquet</h1>
         </div>
 
@@ -824,25 +754,28 @@
                 <div class="products-grid-collection">
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4e4f4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ENICOLE%3C/text%3E%3C/svg%3E" alt="Nicole">
+                            <img src="images/lily-1.jpg" alt="Nicole">
                         </div>
                         <div class="collection-content">
                             <h3>NICOLE</h3>
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('NICOLE', 4255, 'images/lily-1.jpg')">🛒</button>
                             <p>Starts at ₱4,255.00</p>
                         </div>
                     </div>
 
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23e4f4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ELEXI%3C/text%3E%3C/svg%3E" alt="Lexi">
+                            <img src="images/lily-2.jpg" alt="Lexi">
                         </div>
                         <div class="collection-content">
                             <h3>LEXI</h3>
-                            <div class="cart-badge">🛒</div>
-                            <p>Starts at ₱1,693.00</p>
+                            <button class="cart-badge" onclick="cartManager.addToCart('LEXI', 4225, 'images/lily-2.jpg')">🛒</button>
+                            <p>Starts at ₱4,225.00</p>
                         </div>
                     </div>
+                </div>
+                <div class="back-to-flowers">
+                    <button class="back-btn" onclick="showPage('flowers')">← Back to All Flowers</button>
                 </div>
             </main>
         </div>
@@ -850,7 +783,7 @@
 
     <!-- PAGE 5: ROSES BOUQUET -->
     <div id="roses" class="page">
-        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23e8c4c4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3ERoses Background%3C/text%3E%3C/svg%3E')">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('images/roses-hero.png')">
             <h1>Roses Bouquet</h1>
         </div>
 
@@ -877,25 +810,28 @@
                 <div class="products-grid-collection">
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23c4343c'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23fff'%3EMEGAN%3C/text%3E%3C/svg%3E" alt="Megan">
+                            <img src="images/roses-1.jpg" alt="Megan">
                         </div>
                         <div class="collection-content">
                             <h3>MEGAN</h3>
-                            <div class="cart-badge">🛒</div>
-                            <p>Starts at ₱4,223.00</p>
+                            <button class="cart-badge" onclick="cartManager.addToCart('MEGAN', 4225, 'images/roses-1.jpg')">🛒</button>
+                            <p>Starts at ₱4,225.00</p>
                         </div>
                     </div>
 
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4c4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ECORELIA%3C/text%3E%3C/svg%3E" alt="Corelia">
+                            <img src="images/roses-2.jpg" alt="Corelia">
                         </div>
                         <div class="collection-content">
                             <h3>CORELIA</h3>
-                            <div class="cart-badge">🛒</div>
-                            <p>Starts at ₱1,693.00</p>
+                            <button class="cart-badge" onclick="cartManager.addToCart('CORELIA', 1695, 'images/roses-2.jpg')">🛒</button>
+                            <p>Starts at ₱1,695.00</p>
                         </div>
                     </div>
+                </div>
+                <div class="back-to-flowers">
+                    <button class="back-btn" onclick="showPage('flowers')">← Back to All Flowers</button>
                 </div>
             </main>
         </div>
@@ -903,7 +839,7 @@
 
     <!-- PAGE 6: TULIPS -->
     <div id="tulips" class="page">
-        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23e4f4e4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3ETulips Background%3C/text%3E%3C/svg%3E')">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('images/tulip-hero.png')">
             <h1>Tulips</h1>
         </div>
 
@@ -930,25 +866,28 @@
                 <div class="products-grid-collection">
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4d4d4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3EMARIE%3C/text%3E%3C/svg%3E" alt="Marie">
+                            <img src="images/tulip-1.jpg" alt="Marie">
                         </div>
                         <div class="collection-content">
                             <h3>MARIE</h3>
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('MARIE', 3255, 'images/tulip-1.jpg')">🛒</button>
                             <p>Starts at ₱3,255.00</p>
                         </div>
                     </div>
 
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4c4e4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ENELLA%3C/text%3E%3C/svg%3E" alt="Nella">
+                            <img src="images/tulip-2.jpg" alt="Nella">
                         </div>
                         <div class="collection-content">
                             <h3>NELLA</h3>
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('NELLA', 2695, 'images/tulip-2.jpg')">🛒</button>
                             <p>Starts at ₱2,695.00</p>
                         </div>
                     </div>
+                </div>
+                <div class="back-to-flowers">
+                    <button class="back-btn" onclick="showPage('flowers')">← Back to All Flowers</button>
                 </div>
             </main>
         </div>
@@ -956,7 +895,7 @@
 
     <!-- PAGE 7: SUNFLOWER -->
     <div id="sunflower" class="page">
-        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%221400%22 height=%22350%22%3E%3Crect width=%221400%22 height=%22350%22 fill=%22%23f4e4a4%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22serif%22 font-size=%2224%22 fill=%22%23999%22%3ESunflower Background%3C/text%3E%3C/svg%3E')">
+        <div class="hero-image" style="background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), url('images/sun-hero.png')">
             <h1>Sunflower Flower Bouquet</h1>
         </div>
 
@@ -983,25 +922,28 @@
                 <div class="products-grid-collection">
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23e4d4a4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ELILO%3C/text%3E%3C/svg%3E" alt="Lilo">
+                            <img src="images/sun-1.jpg" alt="Lilo">
                         </div>
                         <div class="collection-content">
                             <h3>LILO</h3>
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('LILO', 2500, 'images/sun-1.jpg')">🛒</button>
                             <p>Starts at ₱2,500.00</p>
                         </div>
                     </div>
 
                     <div class="collection-product">
                         <div class="collection-image">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='350'%3E%3Crect width='400' height='350' fill='%23f4e4b4'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='16' fill='%23666'%3ENEX%3C/text%3E%3C/svg%3E" alt="Nex">
+                            <img src="images/sun-2.jpg" alt="Nex">
                         </div>
                         <div class="collection-content">
                             <h3>NEX</h3>
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('NEX', 2695, 'images/sun-2.jpg')">🛒</button>
                             <p>Starts at ₱2,695.00</p>
                         </div>
                     </div>
+                </div>
+                <div class="back-to-flowers">
+                    <button class="back-btn" onclick="showPage('flowers')">← Back to All Flowers</button>
                 </div>
             </main>
         </div>
@@ -1013,14 +955,12 @@
             <div class="footer-links">
                 <h5>SB PHILIPPINES</h5>
                 <ul>
-                    <li><a href="#who-we-are">Who We Are</a></li>
-                    <li><a href="#story">Our Story</a></li>
-                    <li><a href="#locations">Locations</a></li>
-                    <li><a href="#privacy">Privacy Policy</a></li>
-                </ul>
-                <ul style="margin-top: 25px;">
-                    <li><a href="#feedback">Feedback</a></li>
-                    <li><a href="#terms">Terms of service</a></li>
+                    <li><a href="who_we_are.html">Who We Are</a></li>
+                    <li><a href="our_story.html">Our Story</a></li>
+                    <li><a href="contact_location.html">Locations</a></li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="terms_of_service.html">Terms of service</a></li>
                 </ul>
             </div>
             <div class="newsletter">
@@ -1031,26 +971,67 @@
                     <button>JOIN</button>
                 </div>
                 <div class="social-icons">
-                    <a href="#instagram">📷</a>
-                    <a href="#facebook">📘</a>
+                    <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
+                        <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
+                    <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
+                        <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
                 </div>
             </div>
         </div>
+
         <div class="footer-bottom">
-            ©2025, Samparyá Bloom
+            &copy; ©2025 Samparyá Bloom. All rights reserved — Designed and created with grace by Sophia Ong
+            <p class="footer-mail">
+                <a href="mailto:sbphilippines.net">sbphilippines.net</a>
+            </p>
         </div>
     </footer>
-
     <script>
+        const cartManager = {
+            cart: JSON.parse(localStorage.getItem("cart")) || [],
+
+            saveCart() {
+                localStorage.setItem("cart", JSON.stringify(this.cart));
+                this.updateCartCount();
+            },
+
+            updateCartCount() {
+                const count = this.cart.length;
+                const cartCountEl = document.getElementById("cartCount");
+                if (cartCountEl) cartCountEl.textContent = count;
+            },
+
+            showToast(message = "Added to cart!") {
+                const toast = document.getElementById("toast");
+                const toastMessage = toast.querySelector(".toast-message");
+                toastMessage.textContent = message;
+
+                toast.classList.add("show");
+                setTimeout(() => toast.classList.remove("show"), 2500);
+            },
+
+            addToCart(name, price, image) {
+                this.cart.push({ name, price, image });
+                this.saveCart();
+                this.showToast(`${name} added to cart!`);
+            }
+        };
+
+        // Initialize count on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            cartManager.updateCartCount();
+        });
+
+        // -------------------------
+        // PAGE SWITCHING
+        // -------------------------
         function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Scroll to top
+            const pages = document.querySelectorAll(".page");
+            pages.forEach(page => page.classList.remove("active"));
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) targetPage.classList.add("active");
             window.scrollTo(0, 0);
         }
     </script>
