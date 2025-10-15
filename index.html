@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "shortcun icon" href = "images/favicon.ico.jpg"/>
+    <link rel = "icon"  type = "image/png" sizes = "32x32" href = "images/favicon-32.png" />
+    <link rel = "apple-touch-icon" sizes = "180x180" href = "images/apple-touch-icon.png" />
+    <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
     
     <style>
         /* Hero Banner */
@@ -698,13 +702,16 @@
             <a href="contact_location.html">CONTACT US</a>
         </nav>
         <div class="logo">
-            <a href = "index.html">
+            <a href="index.html">
                 <img src="images/Logo.png" alt="Samparyá Bloom Logo">
             </a>
         </div>
         <div class="header-right">
             <a href="sign_in_register.html">SIGN IN / REGISTER</a>
-            <div class="cart-icon">🛒</div>
+            <div class="cart-icon" onclick="window.location.href='cart.html'">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
         </div>
     </header>
 
@@ -895,5 +902,21 @@
               </p>
         </div>
     </footer>
+    <script>
+        const cartManager = {
+            cart: JSON.parse(localStorage.getItem("cart")) || [],
+
+            updateCartCount() {
+                const count = this.cart.length;
+                const cartCountEl = document.getElementById("cartCount");
+                if (cartCountEl) cartCountEl.textContent = count;
+            },
+        };
+
+        // Initialize count on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            cartManager.updateCartCount();
+        })
+    </script>
 </body>
 </html>
