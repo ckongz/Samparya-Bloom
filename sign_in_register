@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Sign in/Register - Samparya Bloom</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "shortcun icon" href = "images/favicon.ico.jpg"/>
+    <link rel = "icon"  type = "image/png" sizes = "32x32" href = "images/favicon-32.png" />
+    <link rel = "apple-touch-icon" sizes = "180x180" href = "images/apple-touch-icon.png" />
+    <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
+    <style>
+        /* Page Visibility */
+        .page {
+            display: none;
+            min-height: calc(100vh - 400px);
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Auth Container */
+        .auth-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 70px 20px;
+        }
+
+        .auth-box {
+            max-width: 480px;
+            width: 100%;
+            background: white;
+            padding: 50px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .auth-box h1 {
+            font-size: 42px;
+            font-weight: normal;
+            text-align: center;
+            margin-bottom: 15px;
+            color: #4a4a3a;
+            font-style: italic;
+        }
+
+        .auth-message {
+            text-align: center;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 35px;
+            line-height: 1.7;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="email"],
+        input[type="password"],
+        input[type="text"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #d0d0d0;
+            background-color: #f9f7f4;
+            font-family: 'Georgia', serif;
+            font-size: 14px;
+            color: #333;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        input::placeholder {
+            color: #999;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #6a6a5a;
+            background-color: white;
+            box-shadow: 0 0 0 3px rgba(106, 106, 90, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background-color: #6a6a5a;
+            color: white;
+            border: none;
+            font-family: 'Georgia', serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-bottom: 25px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #8b2e3e;
+        }
+
+        .auth-links {
+            text-align: center;
+        }
+
+        .auth-links a {
+            display: block;
+            color: #555;
+            text-decoration: none;
+            font-size: 13px;
+            margin-bottom: 12px;
+            transition: color 0.3s;
+        }
+
+        .auth-links a:hover {
+            color: #8b2e3e;
+            text-decoration: underline;
+        }
+
+        /* Register Container */
+        .register-container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 60px 40px 90px;
+        }
+
+        .register-intro {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 35px;
+            background: #f9f7f4;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #6a6a5a;
+        }
+
+        .register-intro a {
+            color: #6a6a5a;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #4a4a3a;
+            margin-bottom: 25px;
+            margin-top: 35px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            margin-bottom: 18px;
+        }
+
+        .privacy-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin: 30px 0;
+            font-size: 13px;
+            color: #555;
+            padding: 18px;
+            background: #f9f7f4;
+            border-radius: 6px;
+        }
+
+        .privacy-checkbox input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .privacy-checkbox a {
+            color: #6a6a5a;
+            text-decoration: underline;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Welcome Page */
+        .welcome-container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 100px 40px;
+            text-align: center;
+        }
+
+        .welcome-container h1 {
+            font-size: 52px;
+            font-weight: normal;
+            font-style: italic;
+            color: #4a4a3a;
+            margin-bottom: 35px;
+        }
+
+        .welcome-text {
+            font-size: 16px;
+            line-height: 1.9;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 45px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .return-btn {
+            display: inline-block;
+            padding: 16px 45px;
+            background-color: #6a6a5a;
+            color: white;
+            text-decoration: none;
+            font-family: 'Georgia', serif;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .return-btn:hover {
+            background-color: #8b2e3e;
+        }
+
+        /* Privacy Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-box {
+            background-color: #6a6a5a;
+            padding: 45px;
+            border-radius: 8px;
+            max-width: 650px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 25px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 32px;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            width: 35px;
+            height: 35px;
+            transition: opacity 0.3s;
+        }
+
+        .modal-close:hover {
+            color: #8b2e3e;
+        }
+
+        .modal-box h2 {
+            color: white;
+            font-size: 34px;
+            font-weight: normal;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .modal-box h3 {
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        .modal-box p {
+            color: white;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 18px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .auth-box {
+                padding: 40px 30px;
+            }
+
+            .auth-box h1 {
+                font-size: 36px;
+            }
+
+            .welcome-container h1 {
+                font-size: 40px;
+            }
+
+            .register-container {
+                padding: 40px 25px 70px;
+            }
+
+            .modal-box {
+                padding: 35px 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+   <!-- Top Banner -->
+    <div class="top-banner">
+        We offer free delivery in Angeles City for orders Php 6,000 and up.
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="contact_location.html">CONTACT US</a>
+        </nav>
+        <div class="logo">
+            <a href="index.html">
+                <img src="images/Logo.png" alt="Samparyá Bloom Logo">
+            </a>
+        </div>
+        <div class="header-right">
+            <a href="sign_in_register.html">SIGN IN / REGISTER</a>
+            <div class="cart-icon" onclick="window.location.href='cart.html'">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Navigation -->
+    <div class="category-nav">
+        <a href="flowers.html">FLOWERS</a>
+        <a href="ocassions.html">OCCASIONS</a>
+    </div>
+
+    <!-- PAGE: LOGIN -->
+    <div id="login" class="page active">
+        <div class="auth-container">
+            <div class="auth-box">
+                <h1>Login</h1>
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" placeholder="your.email@example.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="submit-btn">SIGN IN</button>
+                    <div class="auth-links">
+                        <a href="javascript:void(0)" onclick="showPage('reset')">Forgot your password?</a>
+                        <a href="javascript:void(0)" onclick="showPage('register-step1')">Create an account</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE: PASSWORD RESET -->
+    <div id="reset" class="page">
+        <div class="auth-container">
+            <div class="auth-box">
+                <h1>Reset Password</h1>
+                <p class="auth-message">We will send you an email to reset your password.</p>
+                <form onsubmit="return false;">
+                    <div class="form-group">
+                        <label for="reset-email">Email</label>
+                        <input type="email" id="reset-email" placeholder="your.email@example.com" required>
+                    </div>
+                    <button type="submit" class="submit-btn" onclick="showPage('reset-success')">SUBMIT</button>
+                    <div class="auth-links">
+                        <a href="javascript:void(0)" onclick="showPage('login')">Back to login</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE: RESET SUCCESS -->
+    <div id="reset-success" class="page">
+        <div class="auth-container">
+            <div class="auth-box">
+                <h1>Check Your Email</h1>
+                <p class="auth-message">We've sent you an email with a link to update your password. Please check your inbox.</p>
+                <div class="auth-links">
+                    <a href="javascript:void(0)" onclick="showPage('login')">Return to login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE: REGISTER STEP 1 -->
+    <div id="register-step1" class="page">
+        <div class="register-container">
+            <p class="register-intro">
+                Already have an account? <a href="javascript:void(0)" onclick="showPage('login')">Login here</a>
+            </p>
+
+            <h2 class="section-title">Your Personal Details</h2>
+            <form onsubmit="return false;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" placeholder="Juan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" placeholder="Dela Cruz" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="reg-email">Email Address</label>
+                    <input type="email" id="reg-email" placeholder="your.email@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telephone">Telephone</label>
+                    <input type="tel" id="telephone" placeholder="+63 912 345 6789" required>
+                </div>
+
+                <h2 class="section-title">Create Your Password</h2>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Minimum 8 characters" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="passwordConfirm">Confirm Password</label>
+                    <input type="password" id="passwordConfirm" placeholder="Re-enter your password" required>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="showPage('register-step2')">CONTINUE</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PAGE: REGISTER STEP 2 -->
+    <div id="register-step2" class="page">
+        <div class="register-container">
+            <h2 class="section-title">Delivery Address</h2>
+            <form onsubmit="return false;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="addr-firstName">First Name</label>
+                        <input type="text" id="addr-firstName" placeholder="Juan" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addr-lastName">Last Name</label>
+                        <input type="text" id="addr-lastName" placeholder="Dela Cruz" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">Street Address</label>
+                    <input type="text" id="address" placeholder="123 Main Street" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address2">Apartment, Suite, etc. (Optional)</label>
+                    <input type="text" id="address2" placeholder="Unit 4B">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="postal">Postal Code</label>
+                        <input type="text" id="postal" placeholder="2009" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">City</label>
+                        <input type="text" id="city" placeholder="Angeles City" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="region">Region</label>
+                    <input type="text" id="region" placeholder="Central Luzon" required>
+                </div>
+
+                <div class="privacy-checkbox">
+                    <input type="checkbox" id="privacyAgree" required>
+                    <label for="privacyAgree">
+                        I have read and agree to the <a onclick="showPrivacyModal()">Privacy Policy</a>
+                    </label>
+                </div>
+
+                <button type="button" class="submit-btn" onclick="showPage('welcome')">COMPLETE REGISTRATION</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- PAGE: WELCOME -->
+    <div id="welcome" class="page">
+        <div class="welcome-container">
+            <h1>Hello, Bloom Lover!</h1>
+            <p class="welcome-text">
+                Welcome to Samparyá Bloom, where every moment blossoms into something beautiful! We're delighted to have you as part of our blooming family. Whether you're here to send love, celebrate a special occasion, or simply bring a little joy into someone's day, we're here to make it unforgettable. Let's make life bloom together!
+            </p>
+            <a href="index.html" class="return-btn">Return to Bloom Hub</a>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div class="modal-overlay" id="privacyModal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closePrivacyModal()">×</button>
+            <h2>Privacy Policy</h2>
+            
+            <h3>Is it safe to use my credit card for online purchases?</h3>
+            <p>Absolutely! At Samparyá Bloom, your payment is processed securely through trusted gateways like PayPal and iPay88, ensuring that we never see or store your credit card or online banking details.</p>
+            
+            <h3>Is my personal information protected?</h3>
+            <p>Yes, your privacy is our priority. Samparyá Bloom is committed to safeguarding all your personal and order information. Only authorized team members who need the data to fulfill their duties have access to it. Rest assured, we do not sell or share your information with third parties.</p>
+            
+            <h3>How do you use my personal information?</h3>
+            <p>Your details are used solely to process and complete your orders. We only share information that directly enhances your shopping experience. You can shop with Samparyá Bloom confidently, knowing that your data is safe, secure, and kept strictly confidential.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <h5>SB PHILIPPINES</h5>
+                <ul>
+                    <li><a href="who_we_are.html">Who We Are</a></li>
+                    <li><a href="our_story.html">Our Story</a></li>
+                    <li><a href="contact_location.html">Locations</a></li>
+                    <li><a href="policy.html">Privacy Policy</a></li>
+                    <li><a href="feedback.html">Feedback</a></li>
+                    <li><a href="terms_of_service.html">Terms of service</a></li>
+                </ul>
+            </div>
+            <div class="newsletter">
+                <h4>Gain Exclusive Access</h4>
+                <p>Sign up today and receive exclusive discounts, early sales, style tips, and more.</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="Your email">
+                    <button>JOIN</button>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
+                        <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
+
+                    </a>
+                   <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
+                        <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
+                    </a>
+                </div>
+            </div>
+        </div>                                
+        <div class="footer-bottom">
+               &copy; ©2025 Samparyá Bloom. All rights reserved — Designed and created with grace by Sophia Ong
+              <p class="footer-mail">
+                 <a href="mailto:sbphilippines.net">sbphilippines.net</a>
+              </p>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            document.getElementById(pageId).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            // Simulate login success and redirect to welcome page
+            showPage('welcome');
+        }
+
+        function showPrivacyModal() {
+            document.getElementById('privacyModal').classList.add('active');
+        }
+
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').classList.remove('active');
+        }
+
+        document.getElementById('privacyModal').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closePrivacyModal();
+            }
+        });
+    </script>
+
+    <script>
+        const cartManager = {
+            cart: JSON.parse(localStorage.getItem("cart")) || [],
+
+            updateCartCount() {
+                const count = this.cart.length;
+                const cartCountEl = document.getElementById("cartCount");
+                if (cartCountEl) cartCountEl.textContent = count;
+            },
+        };
+
+        // Initialize count on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            cartManager.updateCartCount();
+        })
+    </script>
+</body>
+</html>
