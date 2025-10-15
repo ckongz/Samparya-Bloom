@@ -41,7 +41,7 @@ Project Structure
 Follow these steps to view and explore Samparyá Bloom locally:
 
 Clone this repository
-- git clone https://github.com/yourusername/samparya-bloom.git
+- git clone https://github.com/ckongz/samparya-bloom.git
 
 Navigate into the folder
 -cd samparya-bloom
