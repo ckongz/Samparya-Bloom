@@ -130,6 +130,33 @@
             box-shadow: 0 4px 12px rgba(255,255,255,0.3);
         }
 
+        .cart-count {
+            position: absolute;
+            top: -6px;
+            right: -6px;
+            background-color: #ff4d6d; /* brighter shade for contrast */
+            color: white;
+            border: 2px solid white; /* clean border for visibility */
+            border-radius: 50%;
+            min-width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            line-height: 1;
+            padding: 2px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transform: scale(1);
+            transition: transform 0.2s ease;
+        }
+
+        .cart-icon:hover .cart-count {
+            transform: scale(1.15);
+        }
+
+
         /* Category Navigation */
         .category-nav {
             background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
@@ -313,6 +340,35 @@
             color: #888;
             letter-spacing: 1px;
         }
+
+        /* Email link  */
+        .footer-mail {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer-mail a {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 1px solid #8b2e3e;
+            border-radius: 30px;
+            color: #fff;
+            background: linear-gradient(135deg, rgba(139,46,62,0.15) 0%, rgba(139,46,62,0.3) 100%);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+        }
+
+        .footer-mail a:hover {
+            background: linear-gradient(135deg, #8b2e3e 0%, #a83d51 100%);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(139,46,62,0.6);
+        }
+
+
 
         /* Responsive Design for Nav, Header, Footer */
         @media (max-width: 968px) {
