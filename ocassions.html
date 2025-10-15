@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "shortcun icon" href = "images/favicon.ico.jpg"/>
+    <link rel = "icon"  type = "image/png" sizes = "32x32" href = "images/favicon-32.png" />
+    <link rel = "apple-touch-icon" sizes = "180x180" href = "images/apple-touch-icon.png" />
+    <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
     <style>
         /* Page Management */
         .page {
@@ -21,44 +25,48 @@
             to { opacity: 1; }
         }
 
-        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 100%);
-            padding: 80px 20px;
-            text-align: center;
+            display: flex;
+            flex-direction: column;    
+            align-items: center;      
+            justify-content: center;    
+            text-align: center;       
+            height: 300px;
+            background: linear-gradient(135deg, rgba(245,240,235,0.6), rgba(232,221,208,0.6));
             position: relative;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-size: 50px 50px;
-            opacity: 0.3;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
+        /* Main Heading */
         .hero h1 {
-            font-size: 56px;
+            font-size: 40px;
             font-weight: 400;
             color: #2d2d2d;
             text-transform: uppercase;
             letter-spacing: 4px;
-            margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(255, 255, 255, 0.8);
+            animation: slideDown 0.8s ease-out;
+            margin: 0 0 8px 0;
         }
 
+        /* Subtitle */
         .hero p {
             font-size: 16px;
-            color: #666;
+            color: #555;
             font-style: italic;
+            margin: 0;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        /* Animations */
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         /* Breadcrumb */
@@ -153,15 +161,20 @@
             font-size: 42px;
             font-weight: 400;
             color: #2d2d2d;
+            text-transform: uppercase;
+            letter-spacing: 3px;
         }
 
         .section-subtitle {
             text-align: center;
             font-size: 14px;
             color: #888;
+            line-height: 1.8;
             margin-bottom: 60px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-style: italic;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Products Grid */
@@ -426,12 +439,42 @@
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
+            position: relative;
         }
 
         .add-to-cart-btn:hover {
             background-color: #8b2e3e;
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(139, 46, 62, 0.3);
+        }
+
+        .add-to-cart-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Price Display */
+        .price-display {
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f5f0eb 0%, #e8ddd0 100%);
+            border-radius: 8px;
+        }
+
+        .price-display .label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .price-display .amount {
+            font-size: 28px;
+            font-weight: 600;
+            color: #8b2e3e;
+            font-family: 'Georgia', serif;
         }
 
         /* More Details Section */
@@ -459,6 +502,96 @@
             margin-right: auto;
             line-height: 1.8;
         }
+
+        /* Video Section */
+        .video-container {
+            text-align: center;
+            margin: 20px auto;
+            padding: 60px 40px;
+            background: radial-gradient(circle at center, #fffaf8 0%, #e8ddd0 100%);
+            border-radius: 0;
+        }
+
+        .video-container video {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .video-container figcaption {
+            margin-top: 10px;
+            font-size: 15px;
+            color: #8b2e3e;
+            font-style: italic;
+        }
+        
+        /* Back Button */
+        .back-to-occasions {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #434A3E;
+            color: white;
+            text-decoration: none;
+            font-family: 'Georgia', serif;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        .back-btn:hover {
+            background-color: #8b2e3e;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(139, 46, 62, 0.3);
+        }
+
+               /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #434A3E;
+            color: white;
+            padding: 16px 24px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            display: none;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+            animation: slideIn 0.3s ease;
+        }
+
+        .toast.show {
+            display: flex;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .toast-icon {
+            font-size: 20px;
+        }
+
+        .toast-message {
+            font-size: 14px;
+        }
+
 
         @media (max-width: 968px) {
             .content-wrapper {
@@ -493,13 +626,16 @@
             <a href="contact_location.html">CONTACT US</a>
         </nav>
         <div class="logo">
-            <a href = "index.html">
+            <a href="index.html">
                 <img src="images/Logo.png" alt="Samparyá Bloom Logo">
             </a>
         </div>
         <div class="header-right">
             <a href="sign_in_register.html">SIGN IN / REGISTER</a>
-            <div class="cart-icon">🛒</div>
+            <div class="cart-icon" onclick="window.location.href='cart.html'">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
         </div>
     </header>
 
@@ -507,6 +643,12 @@
     <div class="category-nav">
         <a href="flowers.html">FLOWERS</a>
         <a href="ocassions.html">OCCASIONS</a>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon">✓</span>
+        <span class="toast-message">Added to cart!</span>
     </div>
 
     <!-- PAGE 1: OCCASIONS BESTSELLERS -->
@@ -540,7 +682,7 @@
                     <div class="product-card">
                         <div class="product-image">
                             <img src="images/flower-cake-bestseller.jpg" alt="Product">
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('GREEN', 4995, 'images/flower-cake-bestseller.jpg')">🛒</button>
                         </div>
                         <p class="product-name">GREEN</p>
                         <p class="product-price">₱ Starts at 4,995.00</p>
@@ -549,7 +691,7 @@
                     <div class="product-card">
                         <div class="product-image">
                             <img src="images/money-bouquet.png" alt="Product">
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('ROSEY', 1225, 'images/money-bouquet.png')">🛒</button>
                         </div>
                         <p class="product-name">ROSEY</p>
                         <p class="product-price">Starts at 1,225.00</p>
@@ -558,7 +700,7 @@
                     <div class="product-card">
                         <div class="product-image">
                             <img src="images/ocassions-best-pink.png">
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('GIRLFRIEND', 2995, 'images/ocassions-best-pink.png')">🛒</button>
                         </div>
                         <p class="product-name">GIRLFRIEND</p>
                         <p class="product-price">₱ 2,995.00</p>
@@ -567,7 +709,7 @@
                     <div class="product-card">
                         <div class="product-image">
                             <img src="images/ocassions-best-welc.png" alt="Product">
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('PINK', 1500, 'images/ocassions-best-welc.png')">🛒</button>
                         </div>
                         <p class="product-name">PINK</p>
                         <p class="product-price">Starts at ₱ 1,500.00</p>
@@ -576,7 +718,7 @@
                     <div class="product-card">
                         <div class="product-image">
                             <img src="images/ocassions-best-cup.png" alt="Product">
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('NELLY', 3995, 'images/ocassions-best-cup.png')">🛒</button>
                         </div>
                         <p class="product-name">NELLY</p>
                         <p class="product-price">₱ 3,995.00</p>
@@ -585,7 +727,7 @@
                     <div class="product-card">
                         <div class="product-image">
                             <img src="images/ocassions-best-dollars.png" alt="Product">
-                            <div class="cart-badge">🛒</div>
+                            <button class="cart-badge" onclick="cartManager.addToCart('MAXINE', 2995, 'images/ocassions-best-dollars.png')">🛒</button>
                         </div>
                         <p class="product-name">MAXINE</p>
                         <p class="product-price">Starts at ₱ 2,995.00</p>
@@ -594,7 +736,7 @@
                     <div class="product-card">
                         <div class="product-image">
                             <img src="images/ocassions-best-box.png" alt="Product">
-                            <div class="cart-badge">🛒</div>
+                             <button class="cart-badge" onclick="cartManager.addToCart('CHANNEL', 1100, 'images/ocassions-best-box.png')">🛒</button>
                         </div>
                         <p class="product-name">CHANNEL</p>
                         <p class="product-price">Starts at ₱ 1,100.00</p>
@@ -612,6 +754,16 @@
                             <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
                         </a>
                     </div>
+                </div>
+                <!-- Video Section -->
+                <div class="video-showcase">
+                    <figure class="video-container">
+                        <video controls preload="metadata">
+                            <source src="video/ocassions.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <figcaption>Watch our beautiful bundle arrangements come to life</figcaption>
+                    </figure>
                 </div>
             </main>
         </div>
@@ -660,9 +812,9 @@
                             <div class="options-group">
                                 <h4>Size:</h4>
                                 <div class="option-buttons">
-                                    <button class="option-btn active">Small</button>
-                                    <button class="option-btn">Medium</button>
-                                    <button class="option-btn">Large</button>
+                                    <button class="option-btn active" data-price="250">Small</button>
+                                    <button class="option-btn" data-price="320">Medium</button>
+                                    <button class="option-btn" data-price="380">Large</button>
                                 </div>
                             </div>
 
@@ -684,7 +836,12 @@
                                 </div>
                             </div>
 
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <div class="price-display">
+                                <div class="label">Total Price</div>
+                                <div class="amount">₱250.00</div>
+                            </div>
+
+                            <button class="add-to-cart-btn" onclick="addCoffeeToCart(this, 'Vanilla Latte', 'images/coffee-latte.jpg')">Add to Cart</button>
                         </div>
                     </div>
 
@@ -702,9 +859,9 @@
                             <div class="options-group">
                                 <h4>Size:</h4>
                                 <div class="option-buttons">
-                                    <button class="option-btn">Small</button>
-                                    <button class="option-btn active">Medium</button>
-                                    <button class="option-btn">Large</button>
+                                    <button class="option-btn" data-price="270">Small</button>
+                                    <button class="option-btn active" data-price="340">Medium</button>
+                                    <button class="option-btn" data-price="400">Large</button>
                                 </div>
                             </div>
 
@@ -726,7 +883,12 @@
                                 </div>
                             </div>
 
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <div class="price-display">
+                                <div class="label">Total Price</div>
+                                <div class="amount">₱340.00</div>
+                            </div>
+
+                            <button class="add-to-cart-btn" onclick="addCoffeeToCart(this, 'Caramel Macchiato', 'images/coffe-caramel.jpg')">Add to Cart</button>
                         </div>
                     </div>
 
@@ -744,9 +906,9 @@
                             <div class="options-group">
                                 <h4>Size:</h4>
                                 <div class="option-buttons">
-                                    <button class="option-btn">Small</button>
-                                    <button class="option-btn active">Medium</button>
-                                    <button class="option-btn">Large</button>
+                                    <button class="option-btn" data-price="280">Small</button>
+                                    <button class="option-btn active" data-price="350">Medium</button>
+                                    <button class="option-btn" data-price="410">Large</button>
                                 </div>
                             </div>
 
@@ -759,9 +921,18 @@
                                 </div>
                             </div>
 
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <div class="price-display">
+                                <div class="label">Total Price</div>
+                                <div class="amount">₱350.00</div>
+                            </div>
+
+                            <button class="add-to-cart-btn" onclick="addCoffeeToCart(this, 'Hazelnut Cappuccino', 'images/coffee-hazelnut.jpg')">Add to Cart</button>
                         </div>
                     </div>
+                </div>
+
+                <div class="back-to-occasions">
+                    <button class="back-btn" onclick="showPage('occasions')">← Back to All Occasions</button>
                 </div>
             </main>
         </div>
@@ -784,7 +955,7 @@
                 <ul>
                     <li><a onclick="showPage('flower-coffee')">Flower Coffee</a></li>
                     <li><a onclick="showPage('flower-cake')">Flower Cake</a></li>
-                    <li><a onclick="show('flower-money')">Flower Money</a></li>
+                    <li><a onclick="showPage('flower-money')">Flower Money</a></li>
                 </ul>
             </aside>
 
@@ -806,7 +977,7 @@
                                 <li>Congratulations card included</li>
                                 <li>Comes with gift box packaging</li>
                             </ul>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="cartManager.addToCart('Graduation Success Money Bouquet', 5000, 'images/money-100.png')">Add to Cart - ₱5,000</button>
                         </div>
                     </div>
 
@@ -825,7 +996,7 @@
                                 <li>Personalized love message</li>
                                 <li>Surprise gift wrap</li>
                             </ul>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="cartManager.addToCart('Anniversary Love Money Bouquet', 30000, 'images/money-1000.png')">Add to Cart - ₱30,000</button>
                         </div>
                     </div>
 
@@ -844,9 +1015,13 @@
                                 <li>Party balloons attachment</li>
                                 <li>Happy birthday card</li>
                             </ul>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="cartManager.addToCart('Birthday Surprise Money Bouquet', 8000, 'images/money-500.png')">Add to Cart - ₱8,000</button>
                         </div>
                     </div>
+                </div>
+
+                <div class="back-to-occasions">
+                    <button class="back-btn" onclick="showPage('occasions')">← Back to All Occasions</button>
                 </div>
             </main>
         </div>
@@ -890,7 +1065,7 @@
                                 <li>5 pcs of roses with bouquet</li>
                                 <li>Cake gift box with bag/tag</li>
                             </ul>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="cartManager.addToCart('Love Note Bento Cake', 1295, 'images/cake-heart.png')">Add to Cart - ₱1,295</button>
                         </div>
                     </div>
 
@@ -908,7 +1083,7 @@
                                 <li>Mixed petite flower bouquet</li>
                                 <li>Birthday cake greeting card</li>
                             </ul>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="cartManager.addToCart('Birthday Mini Bento Cake', 1195, 'images/cake-happy.png')">Add to Cart - ₱1,195</button>
                         </div>
                     </div>
 
@@ -926,7 +1101,7 @@
                                 <li>White daisy mini bouquet</li>
                                 <li>Keepsake packaging</li>
                             </ul>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="cartManager.addToCart('Kawaii Garden Bento Cake', 1395, 'images/cake-kawaii.png')">Add to Cart - ₱1,395</button>
                         </div>
                     </div>
 
@@ -944,9 +1119,13 @@
                                 <li>Single sunflower or gerbera</li>
                                 <li>Elegant paper you card</li>
                             </ul>
-                            <button class="add-to-cart-btn">Add to Cart</button>
+                            <button class="add-to-cart-btn" onclick="cartManager.addToCart('Thank You Bento Cake', 1095, 'images/cake-ty.png')">Add to Cart - ₱1,095</button>
                         </div>
                     </div>
+                </div>
+
+                <div class="back-to-occasions">
+                    <button class="back-btn" onclick="showPage('occasions')">← Back to All Occasions</button>
                 </div>
             </main>
         </div>
@@ -976,7 +1155,6 @@
                 <div class="social-icons">
                     <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
                         <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
-
                     </a>
                    <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
                         <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
@@ -993,19 +1171,53 @@
     </footer>
 
     <script>
+        const cartManager = {
+            cart: JSON.parse(localStorage.getItem("cart")) || [],
+
+            saveCart() {
+                localStorage.setItem("cart", JSON.stringify(this.cart));
+                this.updateCartCount();
+            },
+
+            updateCartCount() {
+                const count = this.cart.length;
+                const cartCountEl = document.getElementById("cartCount");
+                if (cartCountEl) cartCountEl.textContent = count;
+            },
+
+            showToast(message = "Added to cart!") {
+                const toast = document.getElementById("toast");
+                const toastMessage = toast.querySelector(".toast-message");
+                toastMessage.textContent = message;
+
+                toast.classList.add("show");
+                setTimeout(() => toast.classList.remove("show"), 2500);
+            },
+
+            addToCart(name, price, image) {
+                this.cart.push({ name, price, image });
+                this.saveCart();
+                this.showToast(`${name} added to cart!`);
+            }
+        };
+
+        // Initialize count on page load
+        document.addEventListener("DOMContentLoaded", () => {
+            cartManager.updateCartCount();
+        });
+
+        // -------------------------
+        // PAGE SWITCHING
+        // -------------------------
         function showPage(pageId) {
-            // Hide all pages
-            const pages = document.querySelectorAll('.page');
-            pages.forEach(page => page.classList.remove('active'));
-            
-            // Show selected page
-            document.getElementById(pageId).classList.add('active');
-            
-            // Scroll to top
+            const pages = document.querySelectorAll(".page");
+            pages.forEach(page => page.classList.remove("active"));
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) targetPage.classList.add("active");
             window.scrollTo(0, 0);
         }
 
-        // Option button interactions
+        // Option button interactions with price update
         document.addEventListener('click', function(e) {
             if (e.target.classList.contains('option-btn')) {
                 // Remove active class from siblings
@@ -1013,8 +1225,44 @@
                 siblings.forEach(btn => btn.classList.remove('active'));
                 // Add active class to clicked button
                 e.target.classList.add('active');
+                
+                // Update price display if it's a size button with price
+                if (e.target.hasAttribute('data-price')) {
+                    const card = e.target.closest('.product-detail-card');
+                    const priceDisplay = card.querySelector('.price-display .amount');
+                    if (priceDisplay) {
+                        const price = parseInt(e.target.getAttribute('data-price'));
+                        priceDisplay.textContent = `₱${price.toFixed(2)}`;
+                    }
+                }
             }
         });
+
+        // Add Coffee to Cart with Options
+        function addCoffeeToCart(button, productName, productImage) {
+            const card = button.closest('.product-detail-card');
+            
+            // Get selected size and price
+            const sizeBtn = card.querySelector('.option-buttons .option-btn.active[data-price]');
+            const price = sizeBtn ? parseInt(sizeBtn.getAttribute('data-price')) : 0;
+            const size = sizeBtn ? sizeBtn.textContent.trim() : '';
+            
+            // Get all selected options
+            const optionGroups = card.querySelectorAll('.options-group');
+            let optionsText = '';
+            
+            optionGroups.forEach(group => {
+                const groupTitle = group.querySelector('h4').textContent.replace(':', '').trim();
+                const activeBtn = group.querySelector('.option-btn.active');
+                if (activeBtn) {
+                    optionsText += ` | ${groupTitle}: ${activeBtn.textContent.trim()}`;
+                }
+            });
+            
+            const fullName = `${productName} (${size})${optionsText}`;
+            
+            cartManager.addToCart(fullName, price, productImage);
+        }
     </script>
 </body>
 </html>
