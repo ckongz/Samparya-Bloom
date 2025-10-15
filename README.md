@@ -9,21 +9,31 @@ Samparyá Bloom is a flower shop website designed to bring the beauty of floral 
 It offers customers a seamless experience to explore elegant bouquets, order online, and locate the shop for pickups and deliveries — all wrapped in a soothing, nature-inspired design.
 
                    Features
-
+                   
 Responsive Design — Beautifully adapts to desktop, tablet, and mobile screens.
+
 Interactive Cart System — Add, view, and manage items dynamically.
+
 Google Maps Integration — Displays the shop’s exact location.
+
 Shop Hours Display — Clear view of store and delivery schedules.
+
 Elegant Aesthetic — Soft gradients, floral tones, and modern layouts.
+
 User-Friendly Navigation — Simple, intuitive interface for easy browsing.
 
                   Built With
 
 Technology	Purpose
+
 HTML5	Website structure & semantics
+
 CSS3	Styling, layout, and responsiveness
+
 JavaScript (Vanilla)	Cart management & interactivity
+
 Google Maps Embed API	Interactive map integration
+
 Project Structure
 
                Getting Started
