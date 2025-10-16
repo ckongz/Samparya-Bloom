@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Terms Of Service - Samparya Bloom</title>
+    <title>Our Story - Samparya Bloom</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,136 +12,157 @@
     <style>
 
         /* Hero Section */
-        .sb-terms-service .hero {
+        .sb-our-story .hero {
             text-align: center;
-            padding: 60px 20px 40px;
-            background-color: #fafafa;
+            padding: 60px 20px 50px;
+            background-color: #f5f5f0;
         }
 
-        .sb-terms-service .hero h1 {
+        .sb-our-story .hero h1 {
             font-size: 48px;
-            font-weight: normal;
-            font-style: italic;
-            color: #4a4a3a;
+            font-weight: 600;
             margin-bottom: 15px;
-        }
-
-        .sb-terms-service .hero p {
-            font-size: 13px;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        /* Content Section */
-        .sb-terms-service .content-section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 40px 80px;
-        }
-
-        .sb-terms-service .policy-block {
-            margin-bottom: 50px;
-            padding: 30px;
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            border: 1px solid #e0e0d0;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .sb-terms-service .policy-block:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
-
-        .sb-terms-service .policy-block h2 {
-            font-size: 16px;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-            color: #2d2d2d;
-            border-bottom: 2px solid #e0e0d0;
-            padding-bottom: 10px;
-        }
-
-        .sb-terms-service .policy-block p {
-            font-size: 13px;
-            line-height: 1.8;
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        .sb-terms-service .policy-block ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
-
-        .sb-terms-service .policy-block ul li {
-            font-size: 13px;
-            line-height: 1.8;
-            margin-bottom: 8px;
-            color: #555;
+            color: #1F211E;
+            letter-spacing: -0.5px;
             position: relative;
         }
 
-        .sb-terms-service .policy-block ul li::before {
-            content: "•";
-            color: #8b2e3e;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+        /* Main Content */
+        .sb-our-story .content-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 40px;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: start;
         }
 
-        /* Last Updated Section */
-        .sb-terms-service .last-updated {
-            text-align: center;
-            font-size: 12px;
+        .sb-our-story .shop-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            background: #f9f9f9;
+        }
+
+        .sb-our-story .shop-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease, filter 0.6s ease;
+        }
+
+        /* Hover Elevation & Glow */
+        .sb-our-story .shop-image:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 45px rgba(139,46,62,0.25);
+        }
+
+        /* Smooth Zoom & Soft Blur on Hover */
+        .sb-our-story .shop-image:hover img {
+            transform: scale(1.08);
+            filter: brightness(0.95);
+        }
+
+        /* Gradient Overlay */
+        .sb-our-story .shop-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(139,46,62,0.3) 0%, rgba(169,68,86,0.15) 40%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+
+        .sb-our-story .shop-image:hover::before {
+            opacity: 1;
+        }
+
+        .sb-our-story .text-content h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #4a4a3a;
+            letter-spacing: -0.5px;
+        }
+
+        .sb-our-story .text-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #0a0a0aa2;
+            max-width: 900px;
+        }
+
+        /* Our Story Section */
+        .sb-our-story .story-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 40px 80px;
+        }
+
+        .sb-our-story .story-label {
+            font-size: 11px;
             color: #888;
-            margin-bottom: 40px;
-            font-style: italic;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
         }
 
-        /* Content Wrapper */
-        .sb-terms-service .content-wrapper {
-            background: #f5f5f0;
-            padding: 40px 0;
+        .sb-our-story .story-section h2 {
+            font-size: 36px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #4a4a3a;
+        }
+
+        .sb-our-story .story-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #0a0a0aa2;
+            max-width: 1100px;
         }
 
         @media (max-width: 968px) {
-            .sb-terms-service .hero h1 {
+            .sb-our-story .content-section {
+                grid-template-columns: 1fr;
+                padding: 40px 30px;
+            }
+
+            .sb-our-story .hero h1 {
                 font-size: 36px;
             }
 
-            .sb-terms-service .content-section {
-                padding: 40px 30px 60px;
+            .sb-our-story .story-section {
+                padding: 30px 30px 60px;
             }
 
-            .sb-terms-service .policy-block {
-                padding: 25px;
-                margin-bottom: 40px;
+            .sb-our-story .text-content h2 {
+                font-size: 28px;
+            }
+
+            .sb-our-story .story-section h2 {
+                font-size: 28px;
             }
         }
 
         @media (max-width: 480px) {
-            .sb-terms-service .hero h1 {
+            .sb-our-story .hero h1 {
                 font-size: 32px;
             }
             
-            .sb-terms-service .content-section {
-                padding: 30px 20px 50px;
+            .sb-our-story .content-section {
+                padding: 30px 20px;
             }
             
-            .sb-terms-service .policy-block {
-                padding: 20px;
-                margin-bottom: 30px;
-            }
-            
-            .sb-terms-service .policy-block h2 {
-                font-size: 15px;
+            .sb-our-story .story-section {
+                padding: 20px 20px 40px;
             }
         }
     </style>
@@ -178,56 +199,39 @@
         <a href="ocassions.html">OCCASIONS</a>
     </div>
 
-    <!-- Terms of Service Content -->
-    <section class="sb-terms-service">
+    <!-- Our Story Content -->
+    <section class="sb-our-story">
         <!-- Hero Section -->
         <section class="hero">
-            <h1>Terms of Service</h1>
-            <p>By placing an order through our website, you are agreeing to the terms and conditions outlined below.</p>
+            <h1>Our Roots: A Legacy in Bloom</h1>
         </section>
 
-        <!-- Content Section -->
-        <section class="content-wrapper">
-            <div class="content-section">
-                <p class="last-updated">Last Updated: December 2024</p>
-                <div class="policy-block">
-                    <h2>ORDERS</h2>
-                    <p>By placing an order, you reserve the right to us decline the inclusion of non-Samparya Bloom items or deliveries (e.g., gifts, toys, chocolates, or handwritten cards). We are not liable for the loss of, fines or delays due to such items.</p>
-                    <p>Please note that some cakes cannot be customized due to our agreement with suppliers and bakeries or pre-set locations.</p>
-                    <p>A processed message can be added to your arrangement, which will be printed on our signature Samparya Bloom card.</p>
-                </div>
-
-                <div class="policy-block">
-                    <h2>CANCELLATION POLICY</h2>
-                    <p>Orders may be cancelled or changed at least 24 hours before the scheduled delivery date to receive a full refund. Cancellations made within 24 hours (on the delivery date) will be charged in full.</p>
-                    <p>To request a cancellation or change, please email us at service@samparyabloom.ph or call our customer support team.</p>
-                </div>
-
-                <div class="policy-block">
-                    <h2>RETURNS AND REFUNDS</h2>
-                    <p>Due to the perishable nature of our products, we are unable to offer returns within 24 hours of delivery.</p>
-                    <ul>
-                        <li>Proof of purchase (order number, order form, or receipt)</li>
-                        <li>Clear photos of the arrangement</li>
-                    </ul>
-                    <p>At Samparya Bloom, every arrangement is a special expression of love and care. If your order arrives in a condition that does not meet our quality standards, please contact our support team at service@samparyabloom.ph within 24 hours of delivery. Please include the following:</p>
-                </div>
-
-                <div class="policy-block">
-                    <h2>PRODUCTS AND SUBSTITUTION POLICY</h2>
-                    <p>All products are subject to seasonal availability.</p>
-                    <p>While we strive to deliver exactly what is shown on our website, substitutions may occur due to product availability. This could include changes in flower types, color, or packaging.</p>
-                    <p>Rest assured, any substitutions will be of equal or greater value, ensuring complete customer satisfaction. Please note: No changes can be made to your order once received.</p>
-                </div>
-
-                <div class="policy-block">
-                    <h2>PAYMENTS</h2>
-                    <p>We accept payments through credit card, debit card, and over the counter (OTC) banking.</p>
-                    <p>All transactions are processed securely through Maya and PayMongo payment gateways.</p>
-                    <p>For over-the-counter payments, orders will be confirmed once proof of payment has been received via email or through our website.</p>
-                    <p>Any instances of credit card fraud will be reported to the appropriate authorities.</p>
-                </div>
+        <!-- Main Content Section -->
+        <section class="content-section">
+            <div class="shop-image">
+                <img src="images/out-story-girl-flower.png" alt="Samparya Bloom Shop">
             </div>
+
+            <div class="text-content">
+                <h2>Samparya Bloom</h2>
+                <p>For over three decades, Samparyá Bloom has remained a beloved symbol of timeless beauty and craftsmanship in the Philippines. Established with a passion for elegance and an eye for detail, our flower shop has grown from a humble local boutique into a trusted destination for those who appreciate premium floral artistry. Each arrangement we create is more than just a bouquet—it's a story of grace, care, and connection, designed to bring warmth and sophistication to every moment.</p>
+                
+                <p>Our commitment to excellence goes beyond beautiful blooms. Whether you're ordering online for same-day delivery in select cities or visiting one of our boutiques in person, we ensure that every experience with Samparyá Bloom feels personal, seamless, and inspiring. From our friendly florists to our refined presentation, every step is infused with a deep understanding of how flowers can transform ordinary spaces into extraordinary expressions of emotion.</p>
+
+                <p>Through the years, we've had the honor of creating floral designs for homes, weddings, corporate events, and meaningful celebrations of life. From adding charm to intimate spaces to elevating grand venues, our artistry captures the essence of every story we touch. Our curated collection includes fresh, dried, and artificial flowers, alongside elegant home décor pieces that add warmth, character, and luxury to any environment.</p>
+            </div>
+        </section>
+
+        <!-- Our Story Section -->
+        <section class="story-section">
+            <p class="story-label">PURPOSE</p>
+            <h2>Our story</h2>
+            
+            <p>Founded in Angeles City, Pampanga, Samparya Bloom has been dedicated to bringing people together through the beauty of flowers for near 30 years. The name "Samparya" comes from the Kapampangan word meaning "to gather" or "to bring together," perfectly reflecting our mission to create bonds, celebrate moments, and share joy through stunning floral artistry.</p>
+            
+            <p>What began as a small family-run flower shop has grown into a well-loved brand known for premium floral arrangements and decor. Over the years, we've expanded from crafting lovely bouquets for intimate occasions to styling large-scale events and transforming spaces with our unique designs.</p>
+            
+            <p>In 2008, we launched our online store to make our flowers accessible to everyone, offering same-day delivery and a seamless way to send love and beauty straight to someone's doorstep.</p>
         </section>
     </section>
 
