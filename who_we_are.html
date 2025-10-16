@@ -11,7 +11,7 @@
     <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
     <style>
         /* Hero Section */
-        .hero {
+        .sb-who-we-are .hero {
             text-align: center;
             padding: 60px 20px 50px;
             background:#f5f5f0;
@@ -19,7 +19,7 @@
             overflow: hidden;
         }
 
-        .hero h1 {
+        .sb-who-we-are .hero h1 {
             font-size: 43px;
             font-weight: 600;
             margin-bottom: 15px;
@@ -28,7 +28,7 @@
             position: relative;
         }
 
-        .hero h2 {
+        .sb-who-we-are .hero h2 {
             font-size: 28px;
             font-weight: 500;
             color: #434A3E;
@@ -37,7 +37,7 @@
         }
 
         /* Main Content */
-        .content-section {
+        .sb-who-we-are .content-section {
             max-width: 1200px;
             margin: 0 auto;
             padding: 80px 40px;
@@ -48,7 +48,7 @@
             background: #FFFFFF;
         }
 
-        .text-content h3 {
+        .sb-who-we-are .text-content h3 {
             font-size: 14px;
             color: #534948;
             text-transform: uppercase;
@@ -59,7 +59,7 @@
             padding-left: 20px;
         }
 
-        .text-content h3::before {
+        .sb-who-we-are .text-content h3::before {
             content: '';
             position: absolute;
             left: 0;
@@ -70,7 +70,7 @@
             background: linear-gradient(90deg, #534948, #434A3E);
         }
 
-        .text-content h4 {
+        .sb-who-we-are .text-content h4 {
             font-size: 36px;
             font-weight: 600;
             margin-bottom: 20px;
@@ -79,7 +79,7 @@
             letter-spacing: -0.5px;
         }
 
-        .text-content h5 {
+        .sb-who-we-are .text-content h5 {
             font-size: 28px;
             font-weight: 500;
             margin-bottom: 25px;
@@ -87,7 +87,7 @@
             line-height: 1.3;
         }
 
-        .text-content h6 {
+        .sb-who-we-are .text-content h6 {
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 15px;
@@ -97,7 +97,7 @@
             padding-left: 15px;
         }
 
-        .text-content h6::before {
+        .sb-who-we-are .text-content h6::before {
             content: '▸';
             position: absolute;
             left: 0;
@@ -105,7 +105,7 @@
             font-size: 14px;
         }
 
-        .text-content p {
+        .sb-who-we-are .text-content p {
             font-size: 16px;
             line-height: 1.8;
             margin-bottom: 20px;
@@ -114,7 +114,7 @@
         }
 
         /*  Image Container */
-        .image-container {
+        .sb-who-we-are .image-container {
             position: relative;
             border-radius: 20px;
             overflow: hidden;
@@ -123,7 +123,7 @@
             background: linear-gradient(135deg, #F8F7F5, #F0EFEC);
         }
 
-        .image-container::before {
+        .sb-who-we-are .image-container::before {
             content: '';
             position: absolute;
             top: 0;
@@ -135,12 +135,12 @@
             pointer-events: none;
         }
 
-        .image-container:hover {
+        .sb-who-we-are .image-container:hover {
             transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
             box-shadow: 0 25px 50px rgba(31, 33, 30, 0.15);
         }
 
-        .image-container img {
+        .sb-who-we-are .image-container img {
             width: 100%;
             height: 500px;
             object-fit: cover;
@@ -151,20 +151,20 @@
 
 
         /* Commitment Section */
-        .commitment-section {
+        .sb-who-we-are .commitment-section {
             background: linear-gradient(135deg, #fcfbfa99 0%, #F0EFEC 100%);
             padding: 80px 40px;
             position: relative;
             border-top: 4px solid #f1f0ee;
         }
 
-        .commitment-content {
+        .sb-who-we-are .commitment-content {
             max-width: 1200px;
             margin: 0 auto;
             position: relative;
         }
 
-        .commitment-content h4 {
+        .sb-who-we-are .commitment-content h4 {
             font-size: 36px;
             font-weight: 600;
             margin-bottom: 20px;
@@ -173,7 +173,7 @@
             letter-spacing: -0.5px;
         }
 
-        .commitment-content h6 {
+        .sb-who-we-are .commitment-content h6 {
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 25px;
@@ -183,7 +183,7 @@
         }
 
 
-        .commitment-content p {
+        .sb-who-we-are .commitment-content p {
             font-size: 16px;
             line-height: 1.8;
             margin-bottom: 20px;
@@ -198,93 +198,98 @@
 
         /*  Responsive Design */
         @media (max-width: 968px) {
-            .content-section {
+            .sb-who-we-are .content-section {
                 gap: 60px;
                 padding: 60px 30px;
             }
             
-            .hero {
+            .sb-who-we-are .hero {
                 padding: 60px 20px 40px;
             }
             
-            .hero h1 {
+            .sb-who-we-are .hero h1 {
                 font-size: 38px;
             }
             
-            .hero h2 {
+            .sb-who-we-are .hero h2 {
                 font-size: 30px;
             }
             
-            .text-content h4 {
+            .sb-who-we-are .text-content h4 {
                 font-size: 30px;
             }
             
-            .text-content h5 {
+            .sb-who-we-are .text-content h5 {
                 font-size: 24px;
             }
         }
 
         @media (max-width: 768px) {
-            .content-section {
+            .sb-who-we-are .content-section {
                 grid-template-columns: 1fr;
                 gap: 40px;
                 padding: 40px 20px;
             }
             
-            .hero h1 {
+            .sb-who-we-are .hero h1 {
                 font-size: 32px;
             }
             
-            .hero h2 {
+            .sb-who-we-are .hero h2 {
                 font-size: 26px;
             }
             
-            .image-container {
+            .sb-who-we-are .image-container {
                 transform: none;
                 order: -1;
             }
             
-            .image-container:hover {
+            .sb-who-we-are .image-container:hover {
                 transform: scale(1.02);
             }
             
-            .image-container img {
+            .sb-who-we-are .image-container img {
                 height: 400px;
             }
             
-            .commitment-section {
+            .sb-who-we-are .commitment-section {
                 padding: 60px 20px;
             }
         }
 
         @media (max-width: 480px) {
-            .hero {
+            .sb-who-we-are .hero {
                 padding: 50px 20px 30px;
             }
             
-            .hero h1 {
+            .sb-who-we-are .hero h1 {
                 font-size: 28px;
             }
             
-            .hero h2 {
+            .sb-who-we-are .hero h2 {
                 font-size: 22px;
             }
             
-            .text-content h4 {
+            .sb-who-we-are .text-content h4 {
                 font-size: 26px;
             }
             
-            .text-content h5 {
+            .sb-who-we-are .text-content h5 {
                 font-size: 20px;
             }
             
-            .image-container img {
+            .sb-who-we-are .image-container img {
                 height: 300px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Top Banner -->
+    <div class="top-banner">
+        We offer free delivery in Angeles City for orders Php 6,000 and up.
+    </div>
+
     <!-- Header -->
     <header>
         <nav>
@@ -311,35 +316,38 @@
         <a href="ocassions.html">OCCASIONS</a>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Beyond Blooms: Experience</h1>
-        <h2>Samparyá Bloom</h2>
-    </section>
+    <!-- Who We Are Content -->
+    <section class="sb-who-we-are">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Beyond Blooms: Experience</h1>
+            <h2>Samparyá Bloom</h2>
+        </section>
 
-    <!-- Main Content Section -->
-    <section class="content-section">
-        <div class="text-content">
-            <h3>SAMPARYÁ BLOOM PHILIPPINES</h3>
-            <h4>Who We Are</h4>
-            <h5>Our Business</h5>
-            <h6>Samparyá Bloom</h6>
-            <p>What started as a small family-run flower shop in Angeles City, Pampanga, has now blossomed into a trusted name in the region. We're known not just for our premium flowers and home decor selections.</p>
-            <p>Over the years, we've decorated everything from homes and intimate gatherings to large-scale celebrations and corporate events. We don't just sell flowers but unforgettable memories. Our carefully selected products include high-end, imported blooms and handpicked home accents that elevate any space.</p>
-        </div>
-        <div class="image-container">
-            <img src="images/who-we-are-girl.png" alt="Flower arrangement">
-        </div>
-    </section>
+        <!-- Main Content Section -->
+        <section class="content-section">
+            <div class="text-content">
+                <h3>SAMPARYÁ BLOOM PHILIPPINES</h3>
+                <h4>Who We Are</h4>
+                <h5>Our Business</h5>
+                <h6>Samparyá Bloom</h6>
+                <p>What started as a small family-run flower shop in Angeles City, Pampanga, has now blossomed into a trusted name in the region. We're known not just for our premium flowers and home decor selections.</p>
+                <p>Over the years, we've decorated everything from homes and intimate gatherings to large-scale celebrations and corporate events. We don't just sell flowers but unforgettable memories. Our carefully selected products include high-end, imported blooms and handpicked home accents that elevate any space.</p>
+            </div>
+            <div class="image-container">
+                <img src="images/who-we-are-girl.png" alt="Flower arrangement">
+            </div>
+        </section>
 
-    <!-- Commitment Section -->
-    <section class="commitment-section">
-        <div class="commitment-content">
-            <h4>Our Commitment</h4>
-            <h6>RESPONSIBLE SOURCING</h6>
-            <p>At Samparyá Bloom, our commitment goes beyond creating stunning floral arrangements — it's about doing right by both people and the world around us. We take pride in ensuring that every flower and material we use is ethically and sustainably obtained.</p>
-            <p>From partnering with trusted growers who practice eco-friendly farming to sourcing supplies who share our values, we work to minimize our environmental impact while supporting local communities. This approach allows us to deliver premium, meaningful blooms that not only brighten someone's day but also respect the planet and the people behind every petal.</p>
-        </div>
+        <!-- Commitment Section -->
+        <section class="commitment-section">
+            <div class="commitment-content">
+                <h4>Our Commitment</h4>
+                <h6>RESPONSIBLE SOURCING</h6>
+                <p>At Samparyá Bloom, our commitment goes beyond creating stunning floral arrangements — it's about doing right by both people and the world around us. We take pride in ensuring that every flower and material we use is ethically and sustainably obtained.</p>
+                <p>From partnering with trusted growers who practice eco-friendly farming to sourcing supplies who share our values, we work to minimize our environmental impact while supporting local communities. This approach allows us to deliver premium, meaningful blooms that not only brighten someone's day but also respect the planet and the people behind every petal.</p>
+            </div>
+        </section>
     </section>
 
     <!-- Footer -->
@@ -366,7 +374,6 @@
                 <div class="social-icons">
                     <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
                         <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
-
                     </a>
                    <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
                         <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
