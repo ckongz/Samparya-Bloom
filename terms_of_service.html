@@ -10,23 +10,15 @@
     <link rel = "apple-touch-icon" sizes = "180x180" href = "images/apple-touch-icon.png" />
     <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
     <style>
-        /* Top Banner */
-        .top-banner {
-            background-color: #5a5a4a;
-            color: white;
-            text-align: center;
-            padding: 8px 20px;
-            font-size: 11px;
-        }
 
         /* Hero Section */
-        .hero {
+        .sb-terms-service .hero {
             text-align: center;
             padding: 60px 20px 40px;
             background-color: #fafafa;
         }
 
-        .hero h1 {
+        .sb-terms-service .hero h1 {
             font-size: 48px;
             font-weight: normal;
             font-style: italic;
@@ -34,7 +26,7 @@
             margin-bottom: 15px;
         }
 
-        .hero p {
+        .sb-terms-service .hero p {
             font-size: 13px;
             color: #666;
             max-width: 600px;
@@ -43,51 +35,113 @@
         }
 
         /* Content Section */
-        .content-section {
+        .sb-terms-service .content-section {
             max-width: 900px;
             margin: 0 auto;
             padding: 60px 40px 80px;
         }
 
-        .policy-block {
+        .sb-terms-service .policy-block {
             margin-bottom: 50px;
+            padding: 30px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0d0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .policy-block h2 {
+        .sb-terms-service .policy-block:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+
+        .sb-terms-service .policy-block h2 {
             font-size: 16px;
             font-weight: bold;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 20px;
             color: #2d2d2d;
+            border-bottom: 2px solid #e0e0d0;
+            padding-bottom: 10px;
         }
 
-        .policy-block p {
+        .sb-terms-service .policy-block p {
             font-size: 13px;
             line-height: 1.8;
             margin-bottom: 15px;
             color: #555;
         }
 
-        .policy-block ul {
+        .sb-terms-service .policy-block ul {
             margin-left: 20px;
             margin-bottom: 15px;
         }
 
-        .policy-block ul li {
+        .sb-terms-service .policy-block ul li {
             font-size: 13px;
             line-height: 1.8;
             margin-bottom: 8px;
             color: #555;
+            position: relative;
+        }
+
+        .sb-terms-service .policy-block ul li::before {
+            content: "•";
+            color: #8b2e3e;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* Last Updated Section */
+        .sb-terms-service .last-updated {
+            text-align: center;
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        /* Content Wrapper */
+        .sb-terms-service .content-wrapper {
+            background: #f5f5f0;
+            padding: 40px 0;
         }
 
         @media (max-width: 968px) {
-            .hero h1 {
+            .sb-terms-service .hero h1 {
                 font-size: 36px;
             }
 
-            .content-section {
+            .sb-terms-service .content-section {
                 padding: 40px 30px 60px;
+            }
+
+            .sb-terms-service .policy-block {
+                padding: 25px;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sb-terms-service .hero h1 {
+                font-size: 32px;
+            }
+            
+            .sb-terms-service .content-section {
+                padding: 30px 20px 50px;
+            }
+            
+            .sb-terms-service .policy-block {
+                padding: 20px;
+                margin-bottom: 30px;
+            }
+            
+            .sb-terms-service .policy-block h2 {
+                font-size: 15px;
             }
         }
     </style>
@@ -124,53 +178,57 @@
         <a href="ocassions.html">OCCASIONS</a>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Terms of Service</h1>
-        <p>By placing an order through our website, you are agreeing to the terms and conditions outlined below.</p>
-    </section>
+    <!-- Terms of Service Content -->
+    <section class="sb-terms-service">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Terms of Service</h1>
+            <p>By placing an order through our website, you are agreeing to the terms and conditions outlined below.</p>
+        </section>
 
-    <!-- Content Section -->
-    <section class="content-section">
-        
-        <div class="policy-block">
-            <h2>ORDERS</h2>
-            <p>By placing an order, you reserve the right to us decline the inclusion of non-Samparya Bloom items or deliveries (e.g., gifts, toys, chocolates, or handwritten cards). We are not liable for the loss of, fines or delays due to such items.</p>
-            <p>Please note that some cakes cannot be customized due to our agreement with suppliers and bakeries or pre-set locations.</p>
-            <p>A processed message can be added to your arrangement, which will be printed on our signature Samparya Bloom card.</p>
-        </div>
+        <!-- Content Section -->
+        <section class="content-wrapper">
+            <div class="content-section">
+                <p class="last-updated">Last Updated: December 2024</p>
+                <div class="policy-block">
+                    <h2>ORDERS</h2>
+                    <p>By placing an order, you reserve the right to us decline the inclusion of non-Samparya Bloom items or deliveries (e.g., gifts, toys, chocolates, or handwritten cards). We are not liable for the loss of, fines or delays due to such items.</p>
+                    <p>Please note that some cakes cannot be customized due to our agreement with suppliers and bakeries or pre-set locations.</p>
+                    <p>A processed message can be added to your arrangement, which will be printed on our signature Samparya Bloom card.</p>
+                </div>
 
-        <div class="policy-block">
-            <h2>CANCELLATION POLICY</h2>
-            <p>Orders may be cancelled or changed at least 24 hours before the scheduled delivery date to receive a full refund. Cancellations made within 24 hours (on the delivery date) will be charged in full.</p>
-            <p>To request a cancellation or change, please email us at service@samparyabloom.ph or call our customer support team.</p>
-        </div>
+                <div class="policy-block">
+                    <h2>CANCELLATION POLICY</h2>
+                    <p>Orders may be cancelled or changed at least 24 hours before the scheduled delivery date to receive a full refund. Cancellations made within 24 hours (on the delivery date) will be charged in full.</p>
+                    <p>To request a cancellation or change, please email us at service@samparyabloom.ph or call our customer support team.</p>
+                </div>
 
-        <div class="policy-block">
-            <h2>RETURNS AND REFUNDS</h2>
-            <p>Due to the perishable nature of our products, we are unable to offer returns within 24 hours of delivery.</p>
-            <ul>
-                <li>Proof of purchase (order number, order form, or receipt)</li>
-                <li>Clear photos of the arrangement</li>
-            </ul>
-            <p>At Samparya Bloom, every arrangement is a special expression of love and care. If your order arrives in a condition that does not meet our quality standards, please contact our support team at service@samparyabloom.ph within 24 hours of delivery. Please include the following:</p>
-        </div>
+                <div class="policy-block">
+                    <h2>RETURNS AND REFUNDS</h2>
+                    <p>Due to the perishable nature of our products, we are unable to offer returns within 24 hours of delivery.</p>
+                    <ul>
+                        <li>Proof of purchase (order number, order form, or receipt)</li>
+                        <li>Clear photos of the arrangement</li>
+                    </ul>
+                    <p>At Samparya Bloom, every arrangement is a special expression of love and care. If your order arrives in a condition that does not meet our quality standards, please contact our support team at service@samparyabloom.ph within 24 hours of delivery. Please include the following:</p>
+                </div>
 
-        <div class="policy-block">
-            <h2>PRODUCTS AND SUBSTITUTION POLICY</h2>
-            <p>All products are subject to seasonal availability.</p>
-            <p>While we strive to deliver exactly what is shown on our website, substitutions may occur due to product availability. This could include changes in flower types, color, or packaging.</p>
-            <p>Rest assured, any substitutions will be of equal or greater value, ensuring complete customer satisfaction. Please note: No changes can be made to your order once received.</p>
-        </div>
+                <div class="policy-block">
+                    <h2>PRODUCTS AND SUBSTITUTION POLICY</h2>
+                    <p>All products are subject to seasonal availability.</p>
+                    <p>While we strive to deliver exactly what is shown on our website, substitutions may occur due to product availability. This could include changes in flower types, color, or packaging.</p>
+                    <p>Rest assured, any substitutions will be of equal or greater value, ensuring complete customer satisfaction. Please note: No changes can be made to your order once received.</p>
+                </div>
 
-        <div class="policy-block">
-            <h2>PAYMENTS</h2>
-            <p>We accept payments through credit card, debit card, and over the counter (OTC) banking.</p>
-            <p>All transactions are processed securely through Maya and PayMongo payment gateways.</p>
-            <p>For over-the-counter payments, orders will be confirmed once proof of payment has been received via email or through our website.</p>
-            <p>Any instances of credit card fraud will be reported to the appropriate authorities.</p>
-        </div>
-
+                <div class="policy-block">
+                    <h2>PAYMENTS</h2>
+                    <p>We accept payments through credit card, debit card, and over the counter (OTC) banking.</p>
+                    <p>All transactions are processed securely through Maya and PayMongo payment gateways.</p>
+                    <p>For over-the-counter payments, orders will be confirmed once proof of payment has been received via email or through our website.</p>
+                    <p>Any instances of credit card fraud will be reported to the appropriate authorities.</p>
+                </div>
+            </div>
+        </section>
     </section>
 
     <!-- Footer -->
@@ -197,7 +255,6 @@
                 <div class="social-icons">
                     <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
                         <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
-
                     </a>
                    <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
                         <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
