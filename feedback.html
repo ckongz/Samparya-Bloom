@@ -10,14 +10,15 @@
     <link rel = "apple-touch-icon" sizes = "180x180" href = "images/apple-touch-icon.png" />
     <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
     <style>
+         
         /* Hero Section */
-        .hero {
+        .sb-feedback .hero {
             text-align: center;
             padding: 60px 20px 30px;
             background-color: #fafafa;
         }
 
-        .hero h1 {
+        .sb-feedback .hero h1 {
             font-size: 48px;
             font-weight: normal;
             font-style: italic;
@@ -25,7 +26,7 @@
             margin-bottom: 15px;
         }
 
-        .hero p {
+        .sb-feedback .hero p {
             font-size: 15px;
             color: #666;
             max-width: 700px;
@@ -34,24 +35,24 @@
         }
 
         /* Form Section */
-        .form-section {
+        .sb-feedback .form-section {
             max-width: 900px;
             margin: 0 auto;
             padding: 50px 40px 80px;
         }
 
-        .form-group {
+        .sb-feedback .form-group {
             margin-bottom: 20px;
         }
 
-        .form-row {
+        .sb-feedback .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 25px;
             margin-bottom: 20px;
         }
 
-        label {
+        .sb-feedback label {
             display: block;
             font-size: 14px;
             margin-bottom: 8px;
@@ -59,11 +60,11 @@
             font-weight: 500;
         }
 
-        input[type="text"],
-        input[type="email"],
-        input[type="date"],
-        textarea,
-        select {
+        .sb-feedback input[type="text"],
+        .sb-feedback input[type="email"],
+        .sb-feedback input[type="date"],
+        .sb-feedback textarea,
+        .sb-feedback select {
             width: 100%;
             padding: 14px 16px;
             border: 1px solid #d0d0d0;
@@ -75,27 +76,27 @@
             transition: all 0.3s ease;
         }
 
-        input:focus,
-        textarea:focus,
-        select:focus {
+        .sb-feedback input:focus,
+        .sb-feedback textarea:focus,
+        .sb-feedback select:focus {
             outline: none;
             border-color: #8a8a7a;
             background-color: #ffffff;
             box-shadow: 0 0 0 3px rgba(138, 138, 122, 0.1);
         }
 
-        input::placeholder,
-        textarea::placeholder {
+        .sb-feedback input::placeholder,
+        .sb-feedback textarea::placeholder {
             color: #999;
             font-style: italic;
         }
 
-        textarea {
+        .sb-feedback textarea {
             min-height: 120px;
             resize: vertical;
         }
 
-        select {
+        .sb-feedback select {
             appearance: none;
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
@@ -105,7 +106,7 @@
         }
 
         /* Fieldset Styling */
-        fieldset {
+        .sb-feedback fieldset {
             border: 2px solid #d0d0d0;
             padding: 30px;
             margin-bottom: 30px;
@@ -114,7 +115,7 @@
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
 
-        legend {
+        .sb-feedback legend {
             font-size: 18px;
             font-weight: bold;
             color: #3a3a2a;
@@ -126,7 +127,7 @@
         }
 
         /* Rating Section */
-        .rating-row {
+        .sb-feedback .rating-row {
             display: grid;
             grid-template-columns: 200px 1fr;
             gap: 20px;
@@ -134,52 +135,52 @@
             align-items: center;
         }
 
-        .rating-row:last-child {
+        .sb-feedback .rating-row:last-child {
             margin-bottom: 0;
         }
 
-        .rating-row label {
+        .sb-feedback .rating-row label {
             margin-bottom: 0;
             font-size: 14px;
         }
 
-        .rating-row select {
+        .sb-feedback .rating-row select {
             background-color: white;
             max-width: 250px;
         }
 
         /* Checkbox Section */
-        .checkbox-grid {
+        .sb-feedback .checkbox-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 18px;
         }
 
-        .checkbox-item {
+        .sb-feedback .checkbox-item {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        .checkbox-item input[type="checkbox"] {
+        .sb-feedback .checkbox-item input[type="checkbox"] {
             width: 20px;
             height: 20px;
             cursor: pointer;
             margin: 0;
         }
 
-        .checkbox-item label {
+        .sb-feedback .checkbox-item label {
             margin-bottom: 0;
             font-size: 14px;
             cursor: pointer;
         }
 
         /* Additional Comments */
-        .comments-section {
+        .sb-feedback .comments-section {
             margin-bottom: 25px;
         }
 
-        .comments-section label {
+        .sb-feedback .comments-section label {
             font-size: 16px;
             font-weight: bold;
             margin-bottom: 10px;
@@ -187,7 +188,7 @@
         }
 
         /* Recommendation Checkbox */
-        .recommend-section {
+        .sb-feedback .recommend-section {
             margin-bottom: 30px;
             padding: 20px;
             background: #f8f8f0;
@@ -195,24 +196,24 @@
             border: 1px solid #e0e0d0;
         }
 
-        .recommend-section .checkbox-item {
+        .sb-feedback .recommend-section .checkbox-item {
             justify-content: flex-start;
         }
 
-        .recommend-section label {
+        .sb-feedback .recommend-section label {
             font-size: 15px;
             font-weight: 500;
         }
 
         /* Button Container */
-        .button-container {
+        .sb-feedback .button-container {
             display: flex;
             gap: 20px;
             margin-top: 35px;
         }
 
         /* Submit Button */
-        .submit-btn {
+        .sb-feedback .submit-btn {
             flex: 1;
             padding: 16px;
             background: linear-gradient(135deg, #b2b1a0 0%, #8a8a7a 25%, #6a6a5a 50%, #525242 75%, #3a3a2a 100%);
@@ -230,14 +231,14 @@
             border-radius: 4px;
         }
 
-        .submit-btn:hover {
+        .sb-feedback .submit-btn:hover {
             background: linear-gradient(135deg, #c2c1b0 0%, #9a9a8a 25%, #7a7a6a 50%, #626252 75%, #4a4a3a 100%);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         /* Reset Button */
-        .reset-btn {
+        .sb-feedback .reset-btn {
             flex: 1;
             padding: 16px;
             background: linear-gradient(135deg, #8b7355 0%, #6d5a45 50%, #5a4a38 100%);
@@ -255,67 +256,67 @@
             border-radius: 4px;
         }
 
-        .reset-btn:hover {
+        .sb-feedback .reset-btn:hover {
             background: linear-gradient(135deg, #9b8365 0%, #7d6a55 50%, #6a5a48 100%);
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
         @media (max-width: 768px) {
-            .form-row {
+            .sb-feedback .form-row {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
 
-            .rating-row {
+            .sb-feedback .rating-row {
                 grid-template-columns: 1fr;
                 gap: 8px;
             }
 
-            .rating-row select {
+            .sb-feedback .rating-row select {
                 max-width: 100%;
             }
 
-            .checkbox-grid {
+            .sb-feedback .checkbox-grid {
                 grid-template-columns: 1fr;
             }
 
-            .hero h1 {
+            .sb-feedback .hero h1 {
                 font-size: 36px;
             }
 
-            .form-section {
+            .sb-feedback .form-section {
                 padding: 40px 25px 60px;
             }
 
-            fieldset {
+            .sb-feedback fieldset {
                 padding: 20px;
             }
 
-            .button-container {
+            .sb-feedback .button-container {
                 flex-direction: column;
                 gap: 15px;
             }
 
-            legend {
+            .sb-feedback legend {
                 font-size: 16px;
             }
         }
 
         @media (max-width: 480px) {
-            .hero h1 {
+            .sb-feedback .hero h1 {
                 font-size: 32px;
             }
 
-            .hero p {
+            .sb-feedback .hero p {
                 font-size: 14px;
             }
 
-            .form-section {
+            .sb-feedback .form-section {
                 padding: 30px 20px 50px;
             }
 
-            fieldset {
+            .sb-feedback fieldset {
                 padding: 18px;
             }
         }
@@ -353,144 +354,147 @@
         <a href="ocassions.html">OCCASIONS</a>
     </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <h1>Share Your Experience</h1>
-        <p>Help us improve our flowers and service by sharing your honest feedback about your recent purchases.</p>
-    </section>
+    <!-- Feedback Content -->
+    <section class="sb-feedback">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Share Your Experience</h1>
+            <p>Help us improve our flowers and service by sharing your honest feedback about your recent purchases.</p>
+        </section>
 
-    <!-- Form Section -->
-    <section class="form-section">
-        <form id="feedbackForm">
-            <!-- Contact Information Fieldset -->
-            <fieldset>
-                <legend>Contact Information</legend>
-                <div class="form-row">
+        <!-- Form Section -->
+        <section class="form-section">
+            <form id="feedbackForm">
+                <!-- Contact Information Fieldset -->
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name*</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Purchase Date</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label for="name">Your Name*</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email">
                     </div>
+
                     <div class="form-group">
-                        <label for="date">Purchase Date</label>
-                        <input type="date" id="date" name="date">
+                        <label for="purchase">Flower/Arrangement Purchased*</label>
+                        <input type="text" id="purchase" name="purchase" placeholder="e.g., red roses bouquet, money bouquets" required>
                     </div>
+                </fieldset>
+
+                <!-- Rating Section Fieldset -->
+                <fieldset>
+                    <legend>Rate Your Experience</legend>
+                    
+                    <div class="rating-row">
+                        <label for="overall">Overall Satisfaction</label>
+                        <select id="overall" name="overall">
+                            <option value="">Select Rating</option>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="3">3 - Good</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                    </div>
+
+                    <div class="rating-row">
+                        <label for="quality">Flower Quality</label>
+                        <select id="quality" name="quality">
+                            <option value="">Select Rating</option>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="3">3 - Good</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                    </div>
+
+                    <div class="rating-row">
+                        <label for="service">Customer Service</label>
+                        <select id="service" name="service">
+                            <option value="">Select Rating</option>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="3">3 - Good</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                    </div>
+
+                    <div class="rating-row">
+                        <label for="delivery">Delivery/Pickup Experience</label>
+                        <select id="delivery" name="delivery">
+                            <option value="">Select Rating</option>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="3">3 - Good</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Features Fieldset -->
+                <fieldset>
+                    <legend>What Did You Love Most?</legend>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="freshness" name="feature" value="freshness">
+                            <label for="freshness">Freshness</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="arrangement" name="feature" value="arrangement">
+                            <label for="arrangement">Beautiful Arrangement</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="variety" name="feature" value="variety">
+                            <label for="variety">Great Variety</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="longlasting" name="feature" value="longlasting">
+                            <label for="longlasting">Long-lasting</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="value" name="feature" value="value">
+                            <label for="value">Great Value</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="packaging" name="feature" value="packaging">
+                            <label for="packaging">Beautiful Packaging</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Additional Comments -->
+                <div class="comments-section">
+                    <label for="comments">Additional Comments</label>
+                    <textarea id="comments" name="comments" placeholder="Tell us more about your experience, suggestions for improvement, or anything else you'd like us to know..."></textarea>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email">
-                </div>
-
-                <div class="form-group">
-                    <label for="purchase">Flower/Arrangement Purchased*</label>
-                    <input type="text" id="purchase" name="purchase" placeholder="e.g., red roses bouquet, money bouquets" required>
-                </div>
-            </fieldset>
-
-            <!-- Rating Section Fieldset -->
-            <fieldset>
-                <legend>Rate Your Experience</legend>
-                
-                <div class="rating-row">
-                    <label for="overall">Overall Satisfaction</label>
-                    <select id="overall" name="overall">
-                        <option value="">Select Rating</option>
-                        <option value="5">5 - Excellent</option>
-                        <option value="4">4 - Very Good</option>
-                        <option value="3">3 - Good</option>
-                        <option value="2">2 - Fair</option>
-                        <option value="1">1 - Poor</option>
-                    </select>
-                </div>
-
-                <div class="rating-row">
-                    <label for="quality">Flower Quality</label>
-                    <select id="quality" name="quality">
-                        <option value="">Select Rating</option>
-                        <option value="5">5 - Excellent</option>
-                        <option value="4">4 - Very Good</option>
-                        <option value="3">3 - Good</option>
-                        <option value="2">2 - Fair</option>
-                        <option value="1">1 - Poor</option>
-                    </select>
-                </div>
-
-                <div class="rating-row">
-                    <label for="service">Customer Service</label>
-                    <select id="service" name="service">
-                        <option value="">Select Rating</option>
-                        <option value="5">5 - Excellent</option>
-                        <option value="4">4 - Very Good</option>
-                        <option value="3">3 - Good</option>
-                        <option value="2">2 - Fair</option>
-                        <option value="1">1 - Poor</option>
-                    </select>
-                </div>
-
-                <div class="rating-row">
-                    <label for="delivery">Delivery/Pickup Experience</label>
-                    <select id="delivery" name="delivery">
-                        <option value="">Select Rating</option>
-                        <option value="5">5 - Excellent</option>
-                        <option value="4">4 - Very Good</option>
-                        <option value="3">3 - Good</option>
-                        <option value="2">2 - Fair</option>
-                        <option value="1">1 - Poor</option>
-                    </select>
-                </div>
-            </fieldset>
-
-            <!-- Features Fieldset -->
-            <fieldset>
-                <legend>What Did You Love Most?</legend>
-                <div class="checkbox-grid">
+                <!-- Recommendation -->
+                <div class="recommend-section">
                     <div class="checkbox-item">
-                        <input type="checkbox" id="freshness" name="feature" value="freshness">
-                        <label for="freshness">Freshness</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="arrangement" name="feature" value="arrangement">
-                        <label for="arrangement">Beautiful Arrangement</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="variety" name="feature" value="variety">
-                        <label for="variety">Great Variety</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="longlasting" name="feature" value="longlasting">
-                        <label for="longlasting">Long-lasting</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="value" name="feature" value="value">
-                        <label for="value">Great Value</label>
-                    </div>
-                    <div class="checkbox-item">
-                        <input type="checkbox" id="packaging" name="feature" value="packaging">
-                        <label for="packaging">Beautiful Packaging</label>
+                        <input type="checkbox" id="recommend" name="recommend" value="yes">
+                        <label for="recommend">I would recommend Samparya Bloom to friends and family</label>
                     </div>
                 </div>
-            </fieldset>
 
-            <!-- Additional Comments -->
-            <div class="comments-section">
-                <label for="comments">Additional Comments</label>
-                <textarea id="comments" name="comments" placeholder="Tell us more about your experience, suggestions for improvement, or anything else you'd like us to know..."></textarea>
-            </div>
-
-            <!-- Recommendation -->
-            <div class="recommend-section">
-                <div class="checkbox-item">
-                    <input type="checkbox" id="recommend" name="recommend" value="yes">
-                    <label for="recommend">I would recommend Samparya Bloom to friends and family</label>
+                <!-- Submit and Reset Buttons -->
+                <div class="button-container">
+                    <button type="submit" class="submit-btn">Submit Feedback</button>
+                    <button type="reset" class="reset-btn">Reset Form</button>
                 </div>
-            </div>
-
-            <!-- Submit and Reset Buttons -->
-            <div class="button-container">
-                <button type="submit" class="submit-btn">Submit Feedback</button>
-                <button type="reset" class="reset-btn">Reset Form</button>
-            </div>
-        </form>
+            </form>
+        </section>
     </section>
 
     <!-- Footer -->
