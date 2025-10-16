@@ -11,24 +11,24 @@
     <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
     <style>
         /* Page Visibility */
-        .page {
+        .sb-signin-register .page {
             display: none;
             min-height: calc(100vh - 400px);
         }
 
-        .page.active {
+        .sb-signin-register .page.active {
             display: block;
         }
 
         /* Auth Container */
-        .auth-container {
+        .sb-signin-register .auth-container {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 70px 20px;
         }
 
-        .auth-box {
+        .sb-signin-register .auth-box {
             max-width: 480px;
             width: 100%;
             background: white;
@@ -37,7 +37,7 @@
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
         }
 
-        .auth-box h1 {
+        .sb-signin-register .auth-box h1 {
             font-size: 42px;
             font-weight: normal;
             text-align: center;
@@ -46,7 +46,7 @@
             font-style: italic;
         }
 
-        .auth-message {
+        .sb-signin-register .auth-message {
             text-align: center;
             font-size: 14px;
             color: #666;
@@ -54,11 +54,11 @@
             line-height: 1.7;
         }
 
-        .form-group {
+        .sb-signin-register .form-group {
             margin-bottom: 20px;
         }
 
-        label {
+        .sb-signin-register label {
             display: block;
             font-size: 13px;
             color: #555;
@@ -66,10 +66,10 @@
             font-weight: 500;
         }
 
-        input[type="email"],
-        input[type="password"],
-        input[type="text"],
-        input[type="tel"] {
+        .sb-signin-register input[type="email"],
+        .sb-signin-register input[type="password"],
+        .sb-signin-register input[type="text"],
+        .sb-signin-register input[type="tel"] {
             width: 100%;
             padding: 14px 16px;
             border: 1px solid #d0d0d0;
@@ -81,18 +81,18 @@
             transition: all 0.3s;
         }
 
-        input::placeholder {
+        .sb-signin-register input::placeholder {
             color: #999;
         }
 
-        input:focus {
+        .sb-signin-register input:focus {
             outline: none;
             border-color: #6a6a5a;
             background-color: white;
             box-shadow: 0 0 0 3px rgba(106, 106, 90, 0.1);
         }
 
-        .submit-btn {
+        .sb-signin-register .submit-btn {
             width: 100%;
             padding: 16px;
             background-color: #6a6a5a;
@@ -109,15 +109,15 @@
             transition: background-color 0.3s;
         }
 
-        .submit-btn:hover {
+        .sb-signin-register .submit-btn:hover {
             background-color: #8b2e3e;
         }
 
-        .auth-links {
+        .sb-signin-register .auth-links {
             text-align: center;
         }
 
-        .auth-links a {
+        .sb-signin-register .auth-links a {
             display: block;
             color: #555;
             text-decoration: none;
@@ -126,19 +126,19 @@
             transition: color 0.3s;
         }
 
-        .auth-links a:hover {
+        .sb-signin-register .auth-links a:hover {
             color: #8b2e3e;
             text-decoration: underline;
         }
 
         /* Register Container */
-        .register-container {
+        .sb-signin-register .register-container {
             max-width: 650px;
             margin: 0 auto;
             padding: 60px 40px 90px;
         }
 
-        .register-intro {
+        .sb-signin-register .register-intro {
             font-size: 14px;
             color: #666;
             margin-bottom: 35px;
@@ -148,13 +148,13 @@
             border-left: 4px solid #6a6a5a;
         }
 
-        .register-intro a {
+        .sb-signin-register .register-intro a {
             color: #6a6a5a;
             text-decoration: underline;
             font-weight: 600;
         }
 
-        .section-title {
+        .sb-signin-register .section-title {
             font-size: 20px;
             font-weight: 600;
             color: #4a4a3a;
@@ -164,14 +164,14 @@
             border-bottom: 2px solid #e0e0e0;
         }
 
-        .form-row {
+        .sb-signin-register .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 18px;
             margin-bottom: 18px;
         }
 
-        .privacy-checkbox {
+        .sb-signin-register .privacy-checkbox {
             display: flex;
             align-items: flex-start;
             gap: 12px;
@@ -183,7 +183,7 @@
             border-radius: 6px;
         }
 
-        .privacy-checkbox input[type="checkbox"] {
+        .sb-signin-register .privacy-checkbox input[type="checkbox"] {
             width: 20px;
             height: 20px;
             cursor: pointer;
@@ -191,7 +191,7 @@
             flex-shrink: 0;
         }
 
-        .privacy-checkbox a {
+        .sb-signin-register .privacy-checkbox a {
             color: #6a6a5a;
             text-decoration: underline;
             cursor: pointer;
@@ -199,14 +199,14 @@
         }
 
         /* Welcome Page */
-        .welcome-container {
+        .sb-signin-register .welcome-container {
             max-width: 850px;
             margin: 0 auto;
             padding: 100px 40px;
             text-align: center;
         }
 
-        .welcome-container h1 {
+        .sb-signin-register .welcome-container h1 {
             font-size: 52px;
             font-weight: normal;
             font-style: italic;
@@ -214,7 +214,7 @@
             margin-bottom: 35px;
         }
 
-        .welcome-text {
+        .sb-signin-register .welcome-text {
             font-size: 16px;
             line-height: 1.9;
             color: #666;
@@ -225,7 +225,7 @@
             margin-right: auto;
         }
 
-        .return-btn {
+        .sb-signin-register .return-btn {
             display: inline-block;
             padding: 16px 45px;
             background-color: #6a6a5a;
@@ -240,12 +240,12 @@
             transition: background-color 0.3s;
         }
 
-        .return-btn:hover {
+        .sb-signin-register .return-btn:hover {
             background-color: #8b2e3e;
         }
 
         /* Privacy Modal */
-        .modal-overlay {
+        .sb-signin-register .modal-overlay {
             display: none;
             position: fixed;
             top: 0;
@@ -259,11 +259,11 @@
             padding: 20px;
         }
 
-        .modal-overlay.active {
+        .sb-signin-register .modal-overlay.active {
             display: flex;
         }
 
-        .modal-box {
+        .sb-signin-register .modal-box {
             background-color: #6a6a5a;
             padding: 45px;
             border-radius: 8px;
@@ -275,7 +275,7 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
         }
 
-        .modal-close {
+        .sb-signin-register .modal-close {
             position: absolute;
             top: 18px;
             right: 25px;
@@ -291,11 +291,11 @@
             transition: opacity 0.3s;
         }
 
-        .modal-close:hover {
+        .sb-signin-register .modal-close:hover {
             color: #8b2e3e;
         }
 
-        .modal-box h2 {
+        .sb-signin-register .modal-box h2 {
             color: white;
             font-size: 34px;
             font-weight: normal;
@@ -303,7 +303,7 @@
             margin-bottom: 30px;
         }
 
-        .modal-box h3 {
+        .sb-signin-register .modal-box h3 {
             color: white;
             font-size: 17px;
             font-weight: bold;
@@ -311,7 +311,7 @@
             margin-bottom: 12px;
         }
 
-        .modal-box p {
+        .sb-signin-register .modal-box p {
             color: white;
             font-size: 14px;
             line-height: 1.8;
@@ -320,28 +320,46 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .form-row {
+            .sb-signin-register .form-row {
                 grid-template-columns: 1fr;
             }
 
-            .auth-box {
+            .sb-signin-register .auth-box {
                 padding: 40px 30px;
             }
 
-            .auth-box h1 {
+            .sb-signin-register .auth-box h1 {
                 font-size: 36px;
             }
 
-            .welcome-container h1 {
+            .sb-signin-register .welcome-container h1 {
                 font-size: 40px;
             }
 
-            .register-container {
+            .sb-signin-register .register-container {
                 padding: 40px 25px 70px;
             }
 
-            .modal-box {
+            .sb-signin-register .modal-box {
                 padding: 35px 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sb-signin-register .auth-container {
+                padding: 50px 15px;
+            }
+            
+            .sb-signin-register .auth-box {
+                padding: 30px 20px;
+            }
+            
+            .sb-signin-register .welcome-container {
+                padding: 60px 20px;
+            }
+            
+            .sb-signin-register .register-container {
+                padding: 30px 20px 50px;
             }
         }
     </style>
@@ -378,191 +396,194 @@
         <a href="ocassions.html">OCCASIONS</a>
     </div>
 
-    <!-- PAGE: LOGIN -->
-    <div id="login" class="page active">
-        <div class="auth-container">
-            <div class="auth-box">
-                <h1>Login</h1>
-                <form onsubmit="handleLogin(event)">
-                    <div class="form-group">
-                        <label for="login-email">Email</label>
-                        <input type="email" id="login-email" placeholder="your.email@example.com" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="login-password">Password</label>
-                        <input type="password" id="login-password" placeholder="Enter your password" required>
-                    </div>
-                    <button type="submit" class="submit-btn">SIGN IN</button>
-                    <div class="auth-links">
-                        <a href="javascript:void(0)" onclick="showPage('reset')">Forgot your password?</a>
-                        <a href="javascript:void(0)" onclick="showPage('register-step1')">Create an account</a>
-                    </div>
-                </form>
+    <!-- Sign In/Register Content -->
+    <section class="sb-signin-register">
+        <!-- PAGE: LOGIN -->
+        <div id="login" class="page active">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <h1>Login</h1>
+                    <form onsubmit="handleLogin(event)">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" placeholder="Enter your password" required>
+                        </div>
+                        <button type="submit" class="submit-btn">SIGN IN</button>
+                        <div class="auth-links">
+                            <a href="javascript:void(0)" onclick="showPage('reset')">Forgot your password?</a>
+                            <a href="javascript:void(0)" onclick="showPage('register-step1')">Create an account</a>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- PAGE: PASSWORD RESET -->
-    <div id="reset" class="page">
-        <div class="auth-container">
-            <div class="auth-box">
-                <h1>Reset Password</h1>
-                <p class="auth-message">We will send you an email to reset your password.</p>
+        <!-- PAGE: PASSWORD RESET -->
+        <div id="reset" class="page">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <h1>Reset Password</h1>
+                    <p class="auth-message">We will send you an email to reset your password.</p>
+                    <form onsubmit="return false;">
+                        <div class="form-group">
+                            <label for="reset-email">Email</label>
+                            <input type="email" id="reset-email" placeholder="your.email@example.com" required>
+                        </div>
+                        <button type="submit" class="submit-btn" onclick="showPage('reset-success')">SUBMIT</button>
+                        <div class="auth-links">
+                            <a href="javascript:void(0)" onclick="showPage('login')">Back to login</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: RESET SUCCESS -->
+        <div id="reset-success" class="page">
+            <div class="auth-container">
+                <div class="auth-box">
+                    <h1>Check Your Email</h1>
+                    <p class="auth-message">We've sent you an email with a link to update your password. Please check your inbox.</p>
+                    <div class="auth-links">
+                        <a href="javascript:void(0)" onclick="showPage('login')">Return to login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE: REGISTER STEP 1 -->
+        <div id="register-step1" class="page">
+            <div class="register-container">
+                <p class="register-intro">
+                    Already have an account? <a href="javascript:void(0)" onclick="showPage('login')">Login here</a>
+                </p>
+
+                <h2 class="section-title">Your Personal Details</h2>
                 <form onsubmit="return false;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" placeholder="Juan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" placeholder="Dela Cruz" required>
+                        </div>
+                    </div>
+
                     <div class="form-group">
-                        <label for="reset-email">Email</label>
-                        <input type="email" id="reset-email" placeholder="your.email@example.com" required>
+                        <label for="reg-email">Email Address</label>
+                        <input type="email" id="reg-email" placeholder="your.email@example.com" required>
                     </div>
-                    <button type="submit" class="submit-btn" onclick="showPage('reset-success')">SUBMIT</button>
-                    <div class="auth-links">
-                        <a href="javascript:void(0)" onclick="showPage('login')">Back to login</a>
+
+                    <div class="form-group">
+                        <label for="telephone">Telephone</label>
+                        <input type="tel" id="telephone" placeholder="+63 912 345 6789" required>
                     </div>
+
+                    <h2 class="section-title">Create Your Password</h2>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Minimum 8 characters" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="passwordConfirm">Confirm Password</label>
+                        <input type="password" id="passwordConfirm" placeholder="Re-enter your password" required>
+                    </div>
+
+                    <button type="button" class="submit-btn" onclick="showPage('register-step2')">CONTINUE</button>
                 </form>
             </div>
         </div>
-    </div>
 
-    <!-- PAGE: RESET SUCCESS -->
-    <div id="reset-success" class="page">
-        <div class="auth-container">
-            <div class="auth-box">
-                <h1>Check Your Email</h1>
-                <p class="auth-message">We've sent you an email with a link to update your password. Please check your inbox.</p>
-                <div class="auth-links">
-                    <a href="javascript:void(0)" onclick="showPage('login')">Return to login</a>
-                </div>
+        <!-- PAGE: REGISTER STEP 2 -->
+        <div id="register-step2" class="page">
+            <div class="register-container">
+                <h2 class="section-title">Delivery Address</h2>
+                <form onsubmit="return false;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="addr-firstName">First Name</label>
+                            <input type="text" id="addr-firstName" placeholder="Juan" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="addr-lastName">Last Name</label>
+                            <input type="text" id="addr-lastName" placeholder="Dela Cruz" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Street Address</label>
+                        <input type="text" id="address" placeholder="123 Main Street" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address2">Apartment, Suite, etc. (Optional)</label>
+                        <input type="text" id="address2" placeholder="Unit 4B">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="postal">Postal Code</label>
+                            <input type="text" id="postal" placeholder="2009" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" id="city" placeholder="Angeles City" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="region">Region</label>
+                        <input type="text" id="region" placeholder="Central Luzon" required>
+                    </div>
+
+                    <div class="privacy-checkbox">
+                        <input type="checkbox" id="privacyAgree" required>
+                        <label for="privacyAgree">
+                            I have read and agree to the <a onclick="showPrivacyModal()">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="button" class="submit-btn" onclick="showPage('welcome')">COMPLETE REGISTRATION</button>
+                </form>
             </div>
         </div>
-    </div>
 
-    <!-- PAGE: REGISTER STEP 1 -->
-    <div id="register-step1" class="page">
-        <div class="register-container">
-            <p class="register-intro">
-                Already have an account? <a href="javascript:void(0)" onclick="showPage('login')">Login here</a>
-            </p>
-
-            <h2 class="section-title">Your Personal Details</h2>
-            <form onsubmit="return false;">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" placeholder="Juan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Last Name</label>
-                        <input type="text" id="lastName" placeholder="Dela Cruz" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="reg-email">Email Address</label>
-                    <input type="email" id="reg-email" placeholder="your.email@example.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="telephone">Telephone</label>
-                    <input type="tel" id="telephone" placeholder="+63 912 345 6789" required>
-                </div>
-
-                <h2 class="section-title">Create Your Password</h2>
-
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Minimum 8 characters" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="passwordConfirm">Confirm Password</label>
-                    <input type="password" id="passwordConfirm" placeholder="Re-enter your password" required>
-                </div>
-
-                <button type="button" class="submit-btn" onclick="showPage('register-step2')">CONTINUE</button>
-            </form>
+        <!-- PAGE: WELCOME -->
+        <div id="welcome" class="page">
+            <div class="welcome-container">
+                <h1>Hello, Bloom Lover!</h1>
+                <p class="welcome-text">
+                    Welcome to Samparyá Bloom, where every moment blossoms into something beautiful! We're delighted to have you as part of our blooming family. Whether you're here to send love, celebrate a special occasion, or simply bring a little joy into someone's day, we're here to make it unforgettable. Let's make life bloom together!
+                </p>
+                <a href="index.html" class="return-btn">Return to Bloom Hub</a>
+            </div>
         </div>
-    </div>
 
-    <!-- PAGE: REGISTER STEP 2 -->
-    <div id="register-step2" class="page">
-        <div class="register-container">
-            <h2 class="section-title">Delivery Address</h2>
-            <form onsubmit="return false;">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="addr-firstName">First Name</label>
-                        <input type="text" id="addr-firstName" placeholder="Juan" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="addr-lastName">Last Name</label>
-                        <input type="text" id="addr-lastName" placeholder="Dela Cruz" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="address">Street Address</label>
-                    <input type="text" id="address" placeholder="123 Main Street" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="address2">Apartment, Suite, etc. (Optional)</label>
-                    <input type="text" id="address2" placeholder="Unit 4B">
-                </div>
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="postal">Postal Code</label>
-                        <input type="text" id="postal" placeholder="2009" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="city">City</label>
-                        <input type="text" id="city" placeholder="Angeles City" required>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="region">Region</label>
-                    <input type="text" id="region" placeholder="Central Luzon" required>
-                </div>
-
-                <div class="privacy-checkbox">
-                    <input type="checkbox" id="privacyAgree" required>
-                    <label for="privacyAgree">
-                        I have read and agree to the <a onclick="showPrivacyModal()">Privacy Policy</a>
-                    </label>
-                </div>
-
-                <button type="button" class="submit-btn" onclick="showPage('welcome')">COMPLETE REGISTRATION</button>
-            </form>
+        <!-- Privacy Policy Modal -->
+        <div class="modal-overlay" id="privacyModal">
+            <div class="modal-box">
+                <button class="modal-close" onclick="closePrivacyModal()">×</button>
+                <h2>Privacy Policy</h2>
+                
+                <h3>Is it safe to use my credit card for online purchases?</h3>
+                <p>Absolutely! At Samparyá Bloom, your payment is processed securely through trusted gateways like PayPal and iPay88, ensuring that we never see or store your credit card or online banking details.</p>
+                
+                <h3>Is my personal information protected?</h3>
+                <p>Yes, your privacy is our priority. Samparyá Bloom is committed to safeguarding all your personal and order information. Only authorized team members who need the data to fulfill their duties have access to it. Rest assured, we do not sell or share your information with third parties.</p>
+                
+                <h3>How do you use my personal information?</h3>
+                <p>Your details are used solely to process and complete your orders. We only share information that directly enhances your shopping experience. You can shop with Samparyá Bloom confidently, knowing that your data is safe, secure, and kept strictly confidential.</p>
+            </div>
         </div>
-    </div>
-
-    <!-- PAGE: WELCOME -->
-    <div id="welcome" class="page">
-        <div class="welcome-container">
-            <h1>Hello, Bloom Lover!</h1>
-            <p class="welcome-text">
-                Welcome to Samparyá Bloom, where every moment blossoms into something beautiful! We're delighted to have you as part of our blooming family. Whether you're here to send love, celebrate a special occasion, or simply bring a little joy into someone's day, we're here to make it unforgettable. Let's make life bloom together!
-            </p>
-            <a href="index.html" class="return-btn">Return to Bloom Hub</a>
-        </div>
-    </div>
-
-    <!-- Privacy Policy Modal -->
-    <div class="modal-overlay" id="privacyModal">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closePrivacyModal()">×</button>
-            <h2>Privacy Policy</h2>
-            
-            <h3>Is it safe to use my credit card for online purchases?</h3>
-            <p>Absolutely! At Samparyá Bloom, your payment is processed securely through trusted gateways like PayPal and iPay88, ensuring that we never see or store your credit card or online banking details.</p>
-            
-            <h3>Is my personal information protected?</h3>
-            <p>Yes, your privacy is our priority. Samparyá Bloom is committed to safeguarding all your personal and order information. Only authorized team members who need the data to fulfill their duties have access to it. Rest assured, we do not sell or share your information with third parties.</p>
-            
-            <h3>How do you use my personal information?</h3>
-            <p>Your details are used solely to process and complete your orders. We only share information that directly enhances your shopping experience. You can shop with Samparyá Bloom confidently, knowing that your data is safe, secure, and kept strictly confidential.</p>
-        </div>
-    </div>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -588,7 +609,6 @@
                 <div class="social-icons">
                     <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
                         <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
-
                     </a>
                    <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
                         <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
@@ -606,7 +626,7 @@
 
     <script>
         function showPage(pageId) {
-            const pages = document.querySelectorAll('.page');
+            const pages = document.querySelectorAll('.sb-signin-register .page');
             pages.forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
             window.scrollTo({top: 0, behavior: 'smooth'});
