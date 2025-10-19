@@ -5,348 +5,117 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "shortcun icon" href = "images/favicon.ico.jpg"/>
-    <link rel = "icon"  type = "image/png" sizes = "32x32" href = "images/favicon-32.png" />
-    <link rel = "apple-touch-icon" sizes = "180x180" href = "images/apple-touch-icon.png" />
-    <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
-    <style>
-         
-        /* Hero Section */
-        .sb-feedback .hero {
-            text-align: center;
-            padding: 60px 20px 30px;
-            background-color: #fafafa;
-        }
-
-        .sb-feedback .hero h1 {
-            font-size: 48px;
-            font-weight: normal;
-            font-style: italic;
-            color: #4a4a3a;
-            margin-bottom: 15px;
-        }
-
-        .sb-feedback .hero p {
-            font-size: 15px;
-            color: #666;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.8;
-        }
-
-        /* Form Section */
-        .sb-feedback .form-section {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 50px 40px 80px;
-        }
-
-        .sb-feedback .form-group {
-            margin-bottom: 20px;
-        }
-
-        .sb-feedback .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-            margin-bottom: 20px;
-        }
-
-        .sb-feedback label {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: #333;
-            font-weight: 500;
-        }
-
-        .sb-feedback input[type="text"],
-        .sb-feedback input[type="email"],
-        .sb-feedback input[type="date"],
-        .sb-feedback textarea,
-        .sb-feedback select {
-            width: 100%;
-            padding: 14px 16px;
-            border: 1px solid #d0d0d0;
-            background-color: #f5f5f0;
-            font-family: 'Georgia', serif;
-            font-size: 14px;
-            color: #333;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-
-        .sb-feedback input:focus,
-        .sb-feedback textarea:focus,
-        .sb-feedback select:focus {
-            outline: none;
-            border-color: #8a8a7a;
-            background-color: #ffffff;
-            box-shadow: 0 0 0 3px rgba(138, 138, 122, 0.1);
-        }
-
-        .sb-feedback input::placeholder,
-        .sb-feedback textarea::placeholder {
-            color: #999;
-            font-style: italic;
-        }
-
-        .sb-feedback textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        .sb-feedback select {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            cursor: pointer;
-            padding-right: 35px;
-        }
-
-        /* Fieldset Styling */
-        .sb-feedback fieldset {
-            border: 2px solid #d0d0d0;
-            padding: 30px;
-            margin-bottom: 30px;
-            background: linear-gradient(135deg, #fafafa 0%, #f5f5f0 100%);
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-
-        .sb-feedback legend {
-            font-size: 18px;
-            font-weight: bold;
-            color: #3a3a2a;
-            padding: 5px 15px;
-            background-color: #ffffff;
-            border: 2px solid #d0d0d0;
-            border-radius: 4px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Rating Section */
-        .sb-feedback .rating-row {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 20px;
-            margin-bottom: 18px;
-            align-items: center;
-        }
-
-        .sb-feedback .rating-row:last-child {
-            margin-bottom: 0;
-        }
-
-        .sb-feedback .rating-row label {
-            margin-bottom: 0;
-            font-size: 14px;
-        }
-
-        .sb-feedback .rating-row select {
-            background-color: white;
-            max-width: 250px;
-        }
-
-        /* Checkbox Section */
-        .sb-feedback .checkbox-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px;
-        }
-
-        .sb-feedback .checkbox-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .sb-feedback .checkbox-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            cursor: pointer;
-            margin: 0;
-        }
-
-        .sb-feedback .checkbox-item label {
-            margin-bottom: 0;
-            font-size: 14px;
-            cursor: pointer;
-        }
-
-        /* Additional Comments */
-        .sb-feedback .comments-section {
-            margin-bottom: 25px;
-        }
-
-        .sb-feedback .comments-section label {
-            font-size: 16px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #3a3a2a;
-        }
-
-        /* Recommendation Checkbox */
-        .sb-feedback .recommend-section {
-            margin-bottom: 30px;
-            padding: 20px;
-            background: #f8f8f0;
-            border-radius: 6px;
-            border: 1px solid #e0e0d0;
-        }
-
-        .sb-feedback .recommend-section .checkbox-item {
-            justify-content: flex-start;
-        }
-
-        .sb-feedback .recommend-section label {
-            font-size: 15px;
-            font-weight: 500;
-        }
-
-        /* Button Container */
-        .sb-feedback .button-container {
-            display: flex;
-            gap: 20px;
-            margin-top: 35px;
-        }
-
-        /* Submit Button */
-        .sb-feedback .submit-btn {
-            flex: 1;
-            padding: 16px;
-            background: linear-gradient(135deg, #b2b1a0 0%, #8a8a7a 25%, #6a6a5a 50%, #525242 75%, #3a3a2a 100%);
-            color: white;
-            border: none;
-            font-family: 'Georgia', serif;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            font-weight: bold;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-
-        .sb-feedback .submit-btn:hover {
-            background: linear-gradient(135deg, #c2c1b0 0%, #9a9a8a 25%, #7a7a6a 50%, #626252 75%, #4a4a3a 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Reset Button */
-        .sb-feedback .reset-btn {
-            flex: 1;
-            padding: 16px;
-            background: linear-gradient(135deg, #8b7355 0%, #6d5a45 50%, #5a4a38 100%);
-            color: white;
-            border: none;
-            font-family: 'Georgia', serif;
-            font-size: 14px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            font-weight: bold;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            border-radius: 4px;
-        }
-
-        .sb-feedback .reset-btn:hover {
-            background: linear-gradient(135deg, #9b8365 0%, #7d6a55 50%, #6a5a48 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        @media (max-width: 768px) {
-            .sb-feedback .form-row {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .sb-feedback .rating-row {
-                grid-template-columns: 1fr;
-                gap: 8px;
-            }
-
-            .sb-feedback .rating-row select {
-                max-width: 100%;
-            }
-
-            .sb-feedback .checkbox-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .sb-feedback .hero h1 {
-                font-size: 36px;
-            }
-
-            .sb-feedback .form-section {
-                padding: 40px 25px 60px;
-            }
-
-            .sb-feedback fieldset {
-                padding: 20px;
-            }
-
-            .sb-feedback .button-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .sb-feedback legend {
-                font-size: 16px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sb-feedback .hero h1 {
-                font-size: 32px;
-            }
-
-            .sb-feedback .hero p {
-                font-size: 14px;
-            }
-
-            .sb-feedback .form-section {
-                padding: 30px 20px 50px;
-            }
-
-            .sb-feedback fieldset {
-                padding: 18px;
-            }
-        }
-    </style>
+    
+    <!-- Favicon declarations for different devices and platforms -->
+    <link rel="shortcut icon" href="images/favicon.ico.jpg"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" sizes="192X192" href="images/android-chrome-192.png" />
 </head>
 <body>
-    <!-- Top Banner -->
+    <!-- Top Banner for delivery information -->
     <div class="top-banner">
         We offer free delivery in Angeles City for orders Php 6,000 and up.
     </div>
 
-   <!-- Header -->
+    <!-- Header Section -->
     <header>
-        <nav>
+        <!-- Hamburger Menu Button (Mobile Only) -->
+        <button class="hamburger-menu" aria-label="Open navigation menu">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+
+        <!-- Desktop Navigation (Hidden on Mobile ≤768px) -->
+        <div class="desktop-nav">
             <a href="index.html">HOME</a>
             <a href="contact_location.html">CONTACT US</a>
-        </nav>
+        </div>
+
+        <!-- Logo (Center) -->
         <div class="logo">
             <a href="index.html">
                 <img src="images/Logo.png" alt="Samparyá Bloom Logo">
             </a>
         </div>
+
+        <!-- Desktop Header Right (Hidden on Mobile ≤768px) -->
         <div class="header-right">
+            <!-- Dropdown navigation for quick links -->
+            <div class="dropdown-nav">
+                <button class="dropdown-toggle">Quick Links</button>
+                <div class="dropdown-menu">
+                    <a href="who_we_are.html">Who We Are</a>
+                    <a href="our_story.html">Our Story</a>
+                    <a href="contact_location.html">Locations</a>
+                    <a href="policy.html">Privacy Policy</a>
+                    <a href="feedback.html">Feedback</a>
+                    <a href="terms_of_service.html">Terms of Service</a>
+                </div>
+            </div>
             <a href="sign_in_register.html">SIGN IN / REGISTER</a>
-            <div class="cart-icon" onclick="window.location.href='cart.html'">
+            
+            <!-- Cart Icon for Desktop - Inside header-right -->
+            <div class="cart-icon cart-desktop" onclick="window.location.href='cart.html'" role="button" aria-label="Shopping cart" tabindex="0">
                 🛒
                 <span class="cart-count" id="cartCount">0</span>
             </div>
         </div>
+
+        <!-- Cart Icon for Mobile - Outside header-right -->
+        <div class="cart-icon cart-mobile" onclick="window.location.href='cart.html'" role="button" aria-label="Shopping cart" tabindex="0">
+            🛒
+            <span class="cart-count" id="cartCountMobile">0</span>
+        </div>
     </header>
+
+    <!-- Mobile Navigation Overlay (Dark background when menu is open) -->
+    <div class="mobile-nav-overlay" aria-hidden="true"></div>
+
+    <!-- Mobile Navigation Menu (Slide-in from left) -->
+    <div class="mobile-nav" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-logo">
+                <img src="images/Logo.png" alt="Samparyá Bloom">
+            </div>
+            <button class="mobile-nav-close" aria-label="Close navigation menu">&times;</button>
+        </div>
+        
+        <div class="mobile-nav-content">
+            <!-- Main Menu Section -->
+            <div class="mobile-nav-section">
+                <h3>Main Menu</h3>
+                <a href="index.html">Home</a>
+                <a href="contact_location.html">Contact Us</a>
+            </div>
+
+            <!-- Shop Section -->
+            <div class="mobile-nav-section">
+                <h3>Products</h3>
+                <a href="flowers.html">Flowers</a>
+                <a href="ocassions.html">Occasions</a>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="mobile-nav-section">
+                <h3>Quick Links</h3>
+                <a href="who_we_are.html">Who We Are</a>
+                <a href="our_story.html">Our Story</a>
+                <a href="contact_location.html">Locations</a>
+                <a href="policy.html">Privacy Policy</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="terms_of_service.html">Terms of Service</a>
+            </div>
+
+            <!-- Sign In Button (Featured) -->
+            <div class="mobile-nav-signin">
+                <a href="sign_in_register.html">Sign In / Register</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Category Navigation -->
     <div class="category-nav">
@@ -354,7 +123,7 @@
         <a href="ocassions.html">OCCASIONS</a>
     </div>
 
-    <!-- Feedback Content -->
+    <!-- Feedback Content Section -->
     <section class="sb-feedback">
         <!-- Hero Section -->
         <section class="hero">
@@ -394,6 +163,7 @@
                 <fieldset>
                     <legend>Rate Your Experience</legend>
                     
+                    <!-- Overall Satisfaction Rating -->
                     <div class="rating-row">
                         <label for="overall">Overall Satisfaction</label>
                         <select id="overall" name="overall">
@@ -406,6 +176,7 @@
                         </select>
                     </div>
 
+                    <!-- Flower Quality Rating -->
                     <div class="rating-row">
                         <label for="quality">Flower Quality</label>
                         <select id="quality" name="quality">
@@ -418,6 +189,7 @@
                         </select>
                     </div>
 
+                    <!-- Customer Service Rating -->
                     <div class="rating-row">
                         <label for="service">Customer Service</label>
                         <select id="service" name="service">
@@ -430,6 +202,7 @@
                         </select>
                     </div>
 
+                    <!-- Delivery Experience Rating -->
                     <div class="rating-row">
                         <label for="delivery">Delivery/Pickup Experience</label>
                         <select id="delivery" name="delivery">
@@ -443,7 +216,7 @@
                     </div>
                 </fieldset>
 
-                <!-- Features Fieldset -->
+                <!-- Features Fieldset - What customers loved -->
                 <fieldset>
                     <legend>What Did You Love Most?</legend>
                     <div class="checkbox-grid">
@@ -474,13 +247,13 @@
                     </div>
                 </fieldset>
 
-                <!-- Additional Comments -->
+                <!-- Additional Comments Section -->
                 <div class="comments-section">
                     <label for="comments">Additional Comments</label>
                     <textarea id="comments" name="comments" placeholder="Tell us more about your experience, suggestions for improvement, or anything else you'd like us to know..."></textarea>
                 </div>
 
-                <!-- Recommendation -->
+                <!-- Recommendation Section -->
                 <div class="recommend-section">
                     <div class="checkbox-item">
                         <input type="checkbox" id="recommend" name="recommend" value="yes">
@@ -497,9 +270,20 @@
         </section>
     </section>
 
-    <!-- Footer -->
+    <!-- Thank You Modal (Shown after form submission) -->
+    <div class="thank-you-overlay" id="thankYouOverlay">
+        <div class="thank-you-modal">
+            <div class="thank-you-icon"></div>
+            <h1>Thank You!</h1>
+            <p>Thank you for your feedback! We appreciate your time and input.</p>
+            <p class="redirect-message">Redirecting you back to the homepage in <span id="countdown">3</span> seconds...</p>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
     <footer>
         <div class="footer-content">
+            <!-- Company Links -->
             <div class="footer-links">
                 <h5>SB PHILIPPINES</h5>
                 <ul>
@@ -511,6 +295,8 @@
                     <li><a href="terms_of_service.html">Terms of service</a></li>
                 </ul>
             </div>
+            
+            <!-- Newsletter Signup -->
             <div class="newsletter">
                 <h4>Gain Exclusive Access</h4>
                 <p>Sign up today and receive exclusive discounts, early sales, style tips, and more.</p>
@@ -518,57 +304,327 @@
                     <input type="email" placeholder="Your email">
                     <button>JOIN</button>
                 </div>
+                
+                <!-- Social Media Links -->
                 <div class="social-icons">
                     <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
                         <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
                     </a>
-                   <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
+                    <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
                         <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
                     </a>
                 </div>
             </div>
         </div>                                
+        
+        <!-- Footer Bottom -->
         <div class="footer-bottom">
-               &copy; ©2025 Samparyá Bloom. All rights reserved — Designed and created with grace by Sophia Ong
-              <p class="footer-mail">
-                 <a href="mailto:sbphilippines.net">sbphilippines.net</a>
-              </p>
+            &copy; ©2025 Samparyá Bloom. All rights reserved — Designed and created with grace by Sophia Ong
+            <p class="footer-mail">
+                <a href="mailto:sbphilippines.net">sbphilippines.net</a>
+            </p>
         </div>
     </footer>
     
+    <!-- Cart Management and Form Handling Script -->
     <script>
-        const cartManager = {
-            cart: [],
+    // Cart Manager Object
+    const cartManager = {
+        // Retrieve cart from localStorage or initialize empty array
+        cart: JSON.parse(localStorage.getItem("cart")) || [],
 
-            loadCart() {
-                try {
-                    const stored = localStorage.getItem("cart");
-                    this.cart = stored ? JSON.parse(stored) : [];
-                } catch (e) {
-                    this.cart = [];
-                }
-            },
+        // Save cart to localStorage and update count display
+        saveCart() {
+            localStorage.setItem("cart", JSON.stringify(this.cart));
+            this.updateCartCount();
+        },
 
-            updateCartCount() {
+        // Update cart count in both desktop and mobile views
+        updateCartCount() {
+            try {
                 const count = this.cart.length;
+                
+                // Update desktop cart count
                 const cartCountEl = document.getElementById("cartCount");
                 if (cartCountEl) cartCountEl.textContent = count;
+                
+                // Update mobile cart count
+                const cartCountMobileEl = document.getElementById("cartCountMobile");
+                if (cartCountMobileEl) cartCountMobileEl.textContent = count;
+            } catch (error) {
+                console.error("Error updating cart count:", error);
             }
-        };
+        }
+    };
 
-        // Initialize count on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            cartManager.loadCart();
-            cartManager.updateCartCount();
+    // Initialize cart count on page load
+    document.addEventListener("DOMContentLoaded", () => {
+        cartManager.updateCartCount();
+    });
 
-            // Handle form submission
-            const form = document.getElementById("feedbackForm");
-            form.addEventListener("submit", (e) => {
-                e.preventDefault();
-                alert("Thank you for your feedback! We appreciate your time and input.");
-                form.reset();
+    // -------------------------
+    // PAGE SWITCHING FUNCTIONALITY
+    // -------------------------
+    function showPage(pageId) {
+        try {
+            const pages = document.querySelectorAll(".bloomify-page");
+            pages.forEach(page => page.classList.remove("active"));
+            
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add("active");
+                window.scrollTo(0, 0);
+            }
+        } catch (error) {
+            console.error("Error switching page:", error);
+        }
+    }
+
+    // Dropdown functionality for quick links
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector('.dropdown-nav');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        
+        if (dropdownToggle && dropdown) {
+            // Toggle dropdown on click
+            dropdownToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        }
+    });
+
+    // Handle form submission
+    const form = document.getElementById("feedbackForm");
+    const thankYouOverlay = document.getElementById("thankYouOverlay");
+    const countdownElement = document.getElementById("countdown");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        
+        // Show thank you modal
+        thankYouOverlay.style.display = 'flex';
+        
+        // Start countdown for redirect
+        let countdown = 3;
+        countdownElement.textContent = countdown;
+        
+        const countdownInterval = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+            
+            // Redirect when countdown reaches 0
+            if (countdown <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = 'index.html';
+            }
+        }, 1000);
+    });
+    </script>
+
+    <!-- Mobile Navigation and UI Scripts -->
+    <script>
+    // =============================================
+    // MOBILE HAMBURGER MENU FUNCTIONALITY
+    // =============================================
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Get all necessary elements
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+        const mobileNavClose = document.querySelector('.mobile-nav-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+        // Check if elements exist
+        if (!hamburgerMenu || !mobileNav || !mobileNavOverlay) {
+            console.warn('Mobile menu elements not found');
+            return;
+        }
+
+        // ==================
+        // OPEN MOBILE MENU
+        // ==================
+        hamburgerMenu.addEventListener('click', function() {
+            openMobileMenu();
+        });
+
+        function openMobileMenu() {
+            hamburgerMenu.classList.add('active');
+            mobileNav.classList.add('active');
+            mobileNavOverlay.classList.add('active');
+            document.body.classList.add('mobile-menu-open');
+            document.body.style.overflow = 'hidden';
+            
+            // Focus first menu item for accessibility
+            const firstLink = mobileNav.querySelector('a');
+            if (firstLink) {
+                setTimeout(() => firstLink.focus(), 100);
+            }
+        }
+
+        // ==================
+        // CLOSE MOBILE MENU
+        // ==================
+        function closeMobileMenu() {
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
+            document.body.style.overflow = '';
+            
+            // Return focus to hamburger button
+            hamburgerMenu.focus();
+        }
+
+        // Close button click
+        if (mobileNavClose) {
+            mobileNavClose.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+        }
+
+        // Overlay click
+        mobileNavOverlay.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+
+        // ==================
+        // CLOSE ON LINK CLICK
+        // ==================
+        mobileNavLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                // Small delay for better UX
+                setTimeout(function() {
+                    closeMobileMenu();
+                }, 300);
             });
         });
+
+        // ==================
+        // KEYBOARD SUPPORT
+        // ==================
+        
+        // ESC key to close menu
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // ==================
+        // WINDOW RESIZE HANDLER
+        // ==================
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                // If screen is resized to desktop size, close mobile menu
+                if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            }, 250);
+        });
+
+        // ==================
+        // TOUCH SWIPE TO CLOSE
+        // ==================
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        mobileNav.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        mobileNav.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            // Swipe left to close (distance > 50px)
+            if (touchStartX - touchEndX > 50) {
+                closeMobileMenu();
+            }
+        }, { passive: true });
+
+        // ==================
+        // FOCUS TRAP (for accessibility)
+        // ==================
+        mobileNav.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                const focusableElements = mobileNav.querySelectorAll(
+                    'a[href], button:not([disabled])'
+                );
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) {
+                    // Shift + Tab
+                    if (document.activeElement === firstElement) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    }
+                } else {
+                    // Tab
+                    if (document.activeElement === lastElement) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+            }
+        });
+
+        console.log('Mobile menu initialized successfully');
+    });
+
+    // =============================================
+    // DROPDOWN FUNCTIONALITY (DESKTOP)
+    // =============================================
+    document.addEventListener("DOMContentLoaded", function() {
+        const dropdown = document.querySelector('.dropdown-nav');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        
+        if (dropdown && dropdownToggle) {
+            // Toggle dropdown on click
+            dropdownToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                dropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+
+            // Close dropdown on ESC key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && dropdown.classList.contains('active')) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        }
+    });
+
+    // =============================================
+    // CART ICON KEYBOARD SUPPORT
+    // =============================================
+    document.addEventListener("DOMContentLoaded", function() {
+        const cartIcon = document.querySelector('.cart-icon');
+        if (cartIcon) {
+            cartIcon.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.location.href = 'cart.html';
+                }
+            });
+        }
+    });
     </script>
 </body>
 </html>
