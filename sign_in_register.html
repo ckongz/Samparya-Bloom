@@ -147,8 +147,8 @@
                         </div>
                         <button type="submit" class="submit-btn">SIGN IN</button>
                         <div class="auth-links">
-                            <a href="javascript:void(0)" onclick="showPage('reset')">Forgot your password?</a>
-                            <a href="javascript:void(0)" onclick="showPage('register-step1')">Create an account</a>
+                            <a href="javascript:void(0)" onclick="showAuthPage('reset')">Forgot your password?</a>
+                            <a href="javascript:void(0)" onclick="showAuthPage('register-step1')">Create an account</a>
                         </div>
                     </form>
                 </div>
@@ -166,9 +166,9 @@
                             <label for="reset-email">Email</label>
                             <input type="email" id="reset-email" placeholder="your.email@example.com" required>
                         </div>
-                        <button type="submit" class="submit-btn" onclick="showPage('reset-success')">SUBMIT</button>
+                        <button type="submit" class="submit-btn" onclick="showAuthPage('reset-success')">SUBMIT</button>
                         <div class="auth-links">
-                            <a href="javascript:void(0)" onclick="showPage('login')">Back to login</a>
+                            <a href="javascript:void(0)" onclick="showAuthPage('login')">Back to login</a>
                         </div>
                     </form>
                 </div>
@@ -182,7 +182,7 @@
                     <h1>Check Your Email</h1>
                     <p class="auth-message">We've sent you an email with a link to update your password. Please check your inbox.</p>
                     <div class="auth-links">
-                        <a href="javascript:void(0)" onclick="showPage('login')">Return to login</a>
+                        <a href="javascript:void(0)" onclick="showAuthPage('login')">Return to login</a>
                     </div>
                 </div>
             </div>
@@ -192,7 +192,7 @@
         <div id="register-step1" class="page">
             <div class="register-container">
                 <p class="register-intro">
-                    Already have an account? <a href="javascript:void(0)" onclick="showPage('login')">Login here</a>
+                    Already have an account? <a href="javascript:void(0)" onclick="showAuthPage('login')">Login here</a>
                 </p>
 
                 <h2 class="section-title">Your Personal Details</h2>
@@ -230,7 +230,7 @@
                         <input type="password" id="passwordConfirm" placeholder="Re-enter your password" required>
                     </div>
 
-                    <button type="button" class="submit-btn" onclick="showPage('register-step2')">CONTINUE</button>
+                    <button type="button" class="submit-btn" onclick="showAuthPage('register-step2')">CONTINUE</button>
                 </form>
             </div>
         </div>
@@ -280,11 +280,11 @@
                     <div class="privacy-checkbox">
                         <input type="checkbox" id="privacyAgree" required>
                         <label for="privacyAgree">
-                            I have read and agree to the <a onclick="showPrivacyModal()">Privacy Policy</a>
+                            I have read and agree to the <a href="javascript:void(0)" onclick="showPrivacyModal()">Privacy Policy</a>
                         </label>
                     </div>
 
-                    <button type="button" class="submit-btn" onclick="showPage('welcome')">COMPLETE REGISTRATION</button>
+                    <button type="button" class="submit-btn" onclick="showAuthPage('welcome')">COMPLETE REGISTRATION</button>
                 </form>
             </div>
         </div>
@@ -366,19 +366,22 @@
 
     <!-- Authentication and Page Navigation Script -->
     <script>
-        // Show specific page and hide others
-        function showPage(pageId) {
+        // Show specific authentication page and hide others
+        function showAuthPage(pageId) {
             const pages = document.querySelectorAll('.sb-signin-register .page');
             pages.forEach(page => page.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+                window.scrollTo({top: 0, behavior: 'smooth'});
+            }
         }
 
         // Handle login form submission
         function handleLogin(event) {
             event.preventDefault();
             // Simulate login success and redirect to welcome page
-            showPage('welcome');
+            showAuthPage('welcome');
         }
 
         // Show privacy policy modal
@@ -403,12 +406,11 @@
     <script>
     // Cart Manager Object
     const cartManager = {
-        // Retrieve cart from localStorage or initialize empty array
-        cart: JSON.parse(localStorage.getItem("cart")) || [],
+        // Retrieve cart data
+        cart: [],
 
-        // Save cart to localStorage and update count display
+        // Save cart and update count display
         saveCart() {
-            localStorage.setItem("cart", JSON.stringify(this.cart));
             this.updateCartCount();
         },
 
@@ -434,24 +436,6 @@
     document.addEventListener("DOMContentLoaded", () => {
         cartManager.updateCartCount();
     });
-
-    // -------------------------
-    // PAGE SWITCHING FUNCTIONALITY
-    // -------------------------
-    function showPage(pageId) {
-        try {
-            const pages = document.querySelectorAll(".bloomify-page");
-            pages.forEach(page => page.classList.remove("active"));
-            
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.add("active");
-                window.scrollTo(0, 0);
-            }
-        } catch (error) {
-            console.error("Error switching page:", error);
-        }
-    }
 
     // Dropdown functionality for quick links
     document.addEventListener("DOMContentLoaded", () => {
@@ -631,15 +615,17 @@
     // CART ICON KEYBOARD SUPPORT
     // =============================================
     document.addEventListener("DOMContentLoaded", function() {
-        const cartIcon = document.querySelector('.cart-icon');
-        if (cartIcon) {
-            cartIcon.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    window.location.href = 'cart.html';
-                }
-            });
-        }
+        const cartIcons = document.querySelectorAll('.cart-icon');
+        cartIcons.forEach(cartIcon => {
+            if (cartIcon) {
+                cartIcon.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        window.location.href = 'cart.html';
+                    }
+                });
+            }
+        });
     });
     </script>
 </body>
