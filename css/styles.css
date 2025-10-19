@@ -4526,6 +4526,18 @@ body.mobile-menu-open {
         gap: 35px;
     }
 
+    .home-product-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        width: 100%;
+        height: 100%;
+    }
+
+    .home-product-link:hover .home-product-image img {
+        transform: scale(1.05);
+    }
+
     /* Header enhancements for large screens */
     header {
         padding: 25px 60px;
