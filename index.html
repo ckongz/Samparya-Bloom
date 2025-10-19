@@ -5,809 +5,10 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "shortcun icon" href = "images/favicon.ico.jpg"/>
-    <link rel = "icon"  type = "image/png" sizes = "32x32" href = "images/favicon-32.png" />
-    <link rel = "apple-touch-icon" sizes = "180x180" href = "images/apple-touch-icon.png" />
-    <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
-    
-    <style>
-        /* Hero Banner */
-        .hero-banner {
-            position: relative;
-            height: 600px;
-            display: flex;
-            align-items: center;       
-            padding-left: 100px;       
-            background-image: url('images/hero-index.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            overflow: hidden;
-        }
-
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.05) 100%);
-            pointer-events: none;
-        }
-
-        /* Hero Content */
-        .hero-content {
-            position: relative;
-            max-width: 650px;
-            padding: 60px 50px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            text-align: left;
-            z-index: 2;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero-label {
-            font-size: 11px; 
-            color: #8b2e3e;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .hero-content h1 {
-            font-size: 54px;
-            font-weight: 500;
-            background: linear-gradient(135deg, #8b2e3e 0%, #a83d51 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 25px;
-            line-height: 1.2;
-        }
-
-        .hero-content p {
-            font-size: 15px; 
-            color: #555;
-            line-height: 1.8;
-            margin-bottom: 15px;
-            max-width: 550px;
-        }
-
-        .hero-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 15px 45px; 
-            background: linear-gradient(135deg, #8b2e3e 0%, #a83d51 100%);
-            color: white;
-            text-decoration: none;
-            font-size: 12px; 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: all 0.4s ease;
-            box-shadow: 0 4px 15px rgba(139, 46, 62, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .hero-btn:hover::before {
-            left: 100%;
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(139, 46, 62, 0.5);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 50px;
-        }
-
-        /* Bestsellers Section */
-        .bestsellers {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
-        }
-
-        .section-label {
-            font-size: 11px; 
-            color: #8b2e3e;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-
-        .bestsellers h2 {
-            font-size: 42px;
-            font-weight: 500;
-            margin-bottom: 15px;
-            color: #2d2d2d;
-            background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .bestsellers-subtitle {
-            font-size: 15px; 
-            color: #666;
-            margin-bottom: 60px;
-            line-height: 1.6;
-        }
-
-        .products-row {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 35px;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(139, 46, 62, 0.05) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.4s;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .product-card:hover::before {
-            opacity: 1;
-        }
-
-        .product-card:hover {
-            transform: translateY(-15px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(139, 46, 62, 0.2);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 280px; 
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            overflow: hidden;
-            position: relative;
-        }
-
-        .product-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.1) 100%);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .product-card:hover .product-image::after {
-            opacity: 1;
-        }
-
-        .product-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .product-card:hover .product-image img {
-            transform: scale(1.15);
-        }
-
-        .product-info {
-            padding: 30px 25px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .product-info h3 {
-            font-size: 16px; 
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 12px;
-            color: #2d2d2d;
-            font-weight: 600;
-        }
-
-        .product-info p {
-            font-size: 13px; 
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Our Story Section */
-        .our-story {
-            max-width: 1300px;
-            margin: 100px auto;
-            padding: 0 50px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .story-content {
-            padding: 50px 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            animation: slideInLeft 0.8s ease-out;
-        }
-
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .story-content .section-label {
-            margin-bottom: 12px;
-            font-size: 11px;
-            letter-spacing: 3px;
-        }
-
-        .story-content h2 {
-            font-size: 42px;
-            line-height: 1.3;
-            margin-bottom: 25px;
-            font-weight: 500;
-            background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .story-content p {
-            font-size: 15px;
-            line-height: 1.9;
-            margin-bottom: 20px;
-            color: #666;
-        }
-
-        .story-btn {
-            display: inline-block;
-            align-self: flex-start;
-            margin-top: 15px;
-            padding: 14px 35px;
-            background: linear-gradient(135deg, #8b2e3e 0%, #a83d51 100%);
-            color: white;
-            text-decoration: none;
-            font-size: 11px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 600;
-            transition: all 0.4s ease;
-            border-radius: 30px;
-            box-shadow: 0 4px 15px rgba(139, 46, 62, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .story-btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .story-btn:hover::before {
-            left: 100%;
-        }
-
-        .story-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(139, 46, 62, 0.5);
-        }
-
-        .story-image {
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            position: relative;
-            animation: slideInRight 0.8s ease-out;
-        }
-
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .story-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(139, 46, 62, 0.1) 0%, transparent 50%);
-            opacity: 0;
-            transition: opacity 0.5s;
-            z-index: 1;
-        }
-
-        .story-image:hover::before {
-            opacity: 1;
-        }
-
-        .story-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .our-story:hover .story-image img {
-            transform: scale(1.1);
-        }
-
-        /* Reviews Section */
-        .reviews {
-            padding: 100px 0;
-            text-align: center;
-            background: linear-gradient(to bottom, #fafafa 0%, #ffffff 100%);
-        }
-
-        .reviews h2 {
-            font-size: 42px;
-            font-weight: 500;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .reviews-subtitle {
-            font-size: 11px;
-            color: #8b2e3e;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 60px;
-            font-weight: 600;
-        }
-
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 50px;
-        }
-
-        .review-card {
-            background: white;
-            padding: 35px 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .review-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(139, 46, 62, 0.05) 0%, transparent 100%);
-            opacity: 0;
-            transition: opacity 0.4s;
-        }
-
-        .review-card:hover::before {
-            opacity: 1;
-        }
-
-        .review-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(139, 46, 62, 0.15);
-        }
-
-        .review-image {
-            width: 90px;
-            height: 90px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            margin: 0 auto 20px;
-            border-radius: 50%;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.4s;
-        }
-
-        .review-card:hover .review-image {
-            transform: scale(1.1) rotate(5deg);
-        }
-
-        .review-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .stars {
-            color: #FFD700;
-            font-size: 14px;
-            margin-bottom: 15px;
-            letter-spacing: 3px;
-            text-shadow: 0 2px 5px rgba(255, 215, 0, 0.3);
-        }
-
-        .review-text {
-            font-size: 13px;
-            line-height: 1.8;
-            color: #666;
-            margin-bottom: 15px;
-            min-height: 80px;
-            font-style: italic;
-        }
-
-        .review-author {
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #8b2e3e;
-            font-weight: 700;
-        }
-
-        /* Instagram Section */
-        .instagram-section {
-            padding: 100px 0;
-            background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
-            text-align: center;
-            position: relative;
-        }
-
-        .instagram-section::before {
-            content: '';
-            position: absolute;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 600px;
-            height: 4px;
-            background: linear-gradient(90deg, transparent 0%, #8b2e3e 20%, #8b2e3e 80%, transparent 100%);
-            border-radius: 2px;
-            box-shadow: 0 2px 10px rgba(139, 46, 62, 0.4);
-        }
-
-        .instagram-handle {
-            font-size: 11px;
-            color: #8b2e3e;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 600;
-            margin-top: 30px;
-        }
-
-        .instagram-section h2 {
-            font-size: 42px;
-            margin-bottom: 60px;
-            font-weight: 500;
-            background: linear-gradient(135deg, #2d2d2d 0%, #4a4a4a 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .instagram-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            max-width: 1300px;
-            margin: 0 auto;
-            padding: 0 50px;
-        }
-
-        .instagram-post {
-            position: relative;
-            height: 380px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
-        }
-
-        .instagram-post::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%);
-            opacity: 0;
-            transition: opacity 0.4s;
-            z-index: 1;
-        }
-
-        .instagram-post:hover::before {
-            opacity: 1;
-        }
-
-        .instagram-post:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 60px rgba(139, 46, 62, 0.2);
-        }
-
-        .instagram-post img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
-
-        .instagram-post:hover img {
-            transform: scale(1.15);
-        }
-
-        .instagram-overlay {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: white;
-            font-size: 10px;
-            background: linear-gradient(135deg, rgba(139, 46, 62, 0.9) 0%, rgba(168, 61, 81, 0.9) 100%);
-            padding: 10px 20px;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 700;
-            transition: all 0.4s ease;
-            z-index: 2;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-        }
-
-        .instagram-overlay::before {
-            content: '📷';
-            font-size: 13px;
-        }
-
-        .instagram-post:hover .instagram-overlay {
-            bottom: 25px;
-            left: 25px;
-            transform: scale(1.05);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
-        }
-
-/* Audio Player */
-        .audio-player {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 15px 20px;
-            border-radius: 50px;
-            box-shadow: 0 10px 40px rgba(139, 46, 62, 0.3);
-            transition: all 0.4s ease;
-        }
-
-        .audio-player:hover {
-            box-shadow: 0 15px 50px rgba(139, 46, 62, 0.4);
-            transform: translateY(-3px);
-        }
-
-        .play-button {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #8b2e3e 0%, #a83d51 100%);
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(139, 46, 62, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .play-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .play-button:hover::before {
-            left: 100%;
-        }
-
-        .play-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 20px rgba(139, 46, 62, 0.5);
-        }
-
-        .play-button:active {
-            transform: scale(0.95);
-        }
-
-        .play-icon,
-        .pause-icon {
-            color: white;
-            font-size: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .pause-icon {
-            display: none;
-        }
-
-        .play-button.playing .play-icon {
-            display: none;
-        }
-
-        .play-button.playing .pause-icon {
-            display: block;
-        }
-
-        .audio-info {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            min-width: 150px;
-        }
-
-        .audio-title {
-            font-size: 12px;
-            font-weight: 600;
-            color: #2d2d2d;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .audio-progress {
-            height: 4px;
-            background: #e8e8e8;
-            border-radius: 2px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .audio-progress-bar {
-            height: 100%;
-            background: linear-gradient(135deg, #8b2e3e 0%, #a83d51 100%);
-            width: 0%;
-            transition: width 0.1s linear;
-        }
-
-        @media (max-width: 968px) {
-            .products-row,
-            .reviews-grid,
-            .instagram-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .our-story {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-banner {
-                padding-left: 30px;
-                height: 500px;
-            }
-
-            .hero-content {
-                padding: 40px 30px;
-            }
-
-            .hero-content h1 {
-                font-size: 36px;
-            }
-
-            .story-content {
-                padding: 40px 30px;
-            }
-
-            .container {
-                padding: 0 30px;
-            }
-
-            header {
-                padding-left: 30px;
-                padding-right: 30px;
-            }
-
-            .audio-player {
-                bottom: 20px;
-                right: 20px;
-            }
-
-            .audio-info {
-                display: none;
-            }
-        }
-    </style>
+    <link rel="shortcut icon" href="images/favicon.ico.jpg"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" sizes="192X192" href="images/android-chrome-192.png" />
 </head>
 <body>
     <!-- Top Banner -->
@@ -817,23 +18,101 @@
 
     <!-- Header -->
     <header>
-        <nav>
+        <!-- Hamburger Menu Button (Mobile Only) -->
+        <button class="hamburger-menu" aria-label="Open navigation menu">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+
+        <!-- Desktop Navigation (Hidden on Mobile ≤768px) -->
+        <div class="desktop-nav">
             <a href="index.html">HOME</a>
             <a href="contact_location.html">CONTACT US</a>
-        </nav>
+        </div>
+
+        <!-- Logo (Center) -->
         <div class="logo">
             <a href="index.html">
                 <img src="images/Logo.png" alt="Samparyá Bloom Logo">
             </a>
         </div>
+
+        <!-- Desktop Header Right (Hidden on Mobile ≤768px) -->
         <div class="header-right">
+            <div class="dropdown-nav">
+                <button class="dropdown-toggle">Quick Links</button>
+                <div class="dropdown-menu">
+                    <a href="who_we_are.html">Who We Are</a>
+                    <a href="our_story.html">Our Story</a>
+                    <a href="contact_location.html">Locations</a>
+                    <a href="policy.html">Privacy Policy</a>
+                    <a href="feedback.html">Feedback</a>
+                    <a href="terms_of_service.html">Terms of Service</a>
+                </div>
+            </div>
             <a href="sign_in_register.html">SIGN IN / REGISTER</a>
-            <div class="cart-icon" onclick="window.location.href='cart.html'">
+            
+            <!-- Cart Icon for Desktop - Inside header-right -->
+            <div class="cart-icon cart-desktop" onclick="window.location.href='cart.html'" role="button" aria-label="Shopping cart" tabindex="0">
                 🛒
                 <span class="cart-count" id="cartCount">0</span>
             </div>
         </div>
+
+        <!-- Cart Icon for Mobile - Outside header-right -->
+        <div class="cart-icon cart-mobile" onclick="window.location.href='cart.html'" role="button" aria-label="Shopping cart" tabindex="0">
+            🛒
+            <span class="cart-count" id="cartCountMobile">0</span>
+        </div>
     </header>
+
+    <!-- Mobile Navigation Overlay (Dark background when menu is open) -->
+    <div class="mobile-nav-overlay" aria-hidden="true"></div>
+
+    <!-- Mobile Navigation Menu (Slide-in from left) -->
+    <div class="mobile-nav" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-logo">
+                <img src="images/Logo.png" alt="Samparyá Bloom">
+            </div>
+            <button class="mobile-nav-close" aria-label="Close navigation menu">&times;</button>
+        </div>
+        
+        <div class="mobile-nav-content">
+            <!-- Main Menu Section -->
+            <div class="mobile-nav-section">
+                <h3>Main Menu</h3>
+                <a href="index.html">Home</a>
+                <a href="contact_location.html">Contact Us</a>
+            </div>
+
+            <!-- Shop Section -->
+            <div class="mobile-nav-section">
+                <h3>Products</h3>
+                <a href="flowers.html">Flowers</a>
+                <a href="ocassions.html">Occasions</a>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="mobile-nav-section">
+                <h3>Quick Links</h3>
+                <a href="who_we_are.html">Who We Are</a>
+                <a href="our_story.html">Our Story</a>
+                <a href="contact_location.html">Locations</a>
+                <a href="policy.html">Privacy Policy</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="terms_of_service.html">Terms of Service</a>
+            </div>
+
+            <!-- Sign In Button (Featured) -->
+            <div class="mobile-nav-signin">
+                <a href="sign_in_register.html">Sign In / Register</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Category Navigation -->
     <div class="category-nav">
@@ -842,55 +121,58 @@
     </div>
 
     <!-- Hero Banner -->
-    <section class="hero-banner">
-        <div class="hero-content">
-            <p class="hero-label">SHOP ELEGANT PETALS TODAY!</p>
+    <section class="home-hero-banner">
+        <div class="home-hero-content">
+            <p class="home-hero-label">SHOP ELEGANT PETALS TODAY!</p>
             <h1>Petals at Your Doorstep</h1>
             <p>Same day delivery available in Angeles City and nearby areas. Place your order before 9 AM to receive it the same day.</p>
             <p>Orders after the cut-off will arrive the next day or on your chosen date.</p>
-            <a href="flowers.html" class="hero-btn">FLOWERS</a>
+            <a href="flowers.html" class="home-hero-btn">FLOWERS</a>
         </div>
     </section>
 
     <!-- Bestsellers Section -->
-    <section class="bestsellers">
-        <div class="container">
-            <p class="section-label">CHECK OUT OUR</p>
+    <section class="home-bestsellers">
+        <div class="home-container">
+            <p class="home-section-label">CHECK OUT OUR</p>
             <h2>Bestsellers</h2>
-            <p class="bestsellers-subtitle">Best-loved picks, made for you</p>
+            <p class="home-bestsellers-subtitle">Best-loved picks, made for you</p>
 
-            <div class="products-row">
-                <div class="product-card">
-                    <div class="product-image">
-                        <a href = "flowers.html">
+            <div class="home-products-row">
+                <!-- Tulips Bouquet Product Card -->
+                <div class="home-product-card">
+                    <div class="home-product-image">
+                        <a href="flowers.html">
                             <img src="images/tulips-bestseller.jpg" alt="Tulips Bouquet">
                         </a>
                     </div>
-                    <div class="product-info">
+                    <div class="home-product-info">
                         <h3>Tulips Bouquet</h3>
                         <p>Discover the elegance of our Tulip Collection, admired for their vibrant colors and timeless beauty.</p>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-image">
-                        <a href = "ocassions.html">
+                <!-- Flower Cakes Product Card -->
+                <div class="home-product-card">
+                    <div class="home-product-image">
+                        <a href="ocassions.html">
                             <img src="images/flower-cake-bestseller.jpg" alt="Flower Cake">
                         </a>
                     </div>
-                    <div class="product-info">
+                    <div class="home-product-info">
                         <h3>Flower Cakes</h3>
                         <p>A sweet blend of bento cakes and fresh blooms—beautifully packaged, the perfect gift for birthdays, anniversaries.</p>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <div class="product-image">
-                        <a href = "ocassions.html">
+                <!-- Money Bouquet Product Card -->
+                <div class="home-product-card">
+                    <div class="home-product-image">
+                        <a href="ocassions.html">
                             <img src="images/money-bouquet.png" alt="Money Bouquet">
                         </a>
                     </div>
-                    <div class="product-info">
+                    <div class="home-product-info">
                         <h3>Money Bouquet</h3>
                         <p>An extraordinary arrangement of beautifully folded bills paired with fresh blooms.</p>
                     </div>
@@ -900,99 +182,106 @@
     </section>
 
     <!-- Our Story Section -->
-    <section class="our-story">
-        <div class="story-content">
-            <p class="section-label">OUR STORY</p>
+    <section class="home-our-story">
+        <div class="home-story-content">
+            <p class="home-section-label">OUR STORY</p>
             <h2>Where Timeless Elegance Blooms</h2>
             <p>At Samparyá Bloom, we celebrate a heritage built on elegance and passion for flowers. Discover our journey of crafting timeless floral experiences, where every bloom tells a story of love, tradition, and artistry.</p>
-            <a href="our_story.html" class="story-btn">LEARN MORE</a>
+            <a href="our_story.html" class="home-story-btn">LEARN MORE</a>
         </div>
-        <div class="story-image">
+        <div class="home-story-image">
             <img src="images/our_story_feauture.png" alt="Flower Shop Interior">
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section class="reviews">
-        <div class="container">
+    <section class="home-reviews">
+        <div class="home-container">
             <h2>Love Notes From Our Customers</h2>
-            <p class="reviews-subtitle">TRUSTED BY BLOOM LOVERS</p>
+            <p class="home-reviews-subtitle">TRUSTED BY BLOOM LOVERS</p>
 
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <div class="review-image">
+            <div class="home-reviews-grid">
+                <!-- Review Card 1 -->
+                <div class="home-review-card">
+                    <div class="home-review-image">
                         <img src="images/reviews-red.png" alt="Review">
                     </div>
-                    <div class="stars">★ ★ ★ ★ ★</div>
-                    <p class="review-text">"The bouquet was absolutely stunning! Delivery was prompt, and the flowers arrived in perfect condition. I'll definitely be ordering again."</p>
-                    <p class="review-author">ROSES BOUQUET</p>
+                    <div class="home-stars">★ ★ ★ ★ ★</div>
+                    <p class="home-review-text">"The bouquet was absolutely stunning! Delivery was prompt, and the flowers arrived in perfect condition. I'll definitely be ordering again."</p>
+                    <p class="home-review-author">ROSES BOUQUET</p>
                 </div>
 
-                <div class="review-card">
-                    <div class="review-image">
+                <!-- Review Card 2 -->
+                <div class="home-review-card">
+                    <div class="home-review-image">
                         <img src="images/reviews-pink.png" alt="Review">
                     </div>
-                    <div class="stars">★ ★ ★ ★ ★</div>
-                    <p class="review-text">"Smooth checkout, easy delivery tracking, and the flowers arrived fresh with care instructions. The whole process was seamless."</p>
-                    <p class="review-author">LILIES BOUQUET</p>
+                    <div class="home-stars">★ ★ ★ ★ ★</div>
+                    <p class="home-review-text">"Smooth checkout, easy delivery tracking, and the flowers arrived fresh with care instructions. The whole process was seamless."</p>
+                    <p class="home-review-author">LILIES BOUQUET</p>
                 </div>
 
-                <div class="review-card">
-                    <div class="review-image">
+                <!-- Review Card 3 -->
+                <div class="home-review-card">
+                    <div class="home-review-image">
                         <img src="images/reviews-cake.png" alt="Review">
                     </div>
-                    <div class="stars">★ ★ ★ ★ ★</div>
-                    <p class="review-text"> "Perfect combo! The cake was delicious and the flowers were fresh—it made the birthday celebration extra special."</p>
-                    <p class="review-author">FLOWER CAKE</p>
+                    <div class="home-stars">★ ★ ★ ★ ★</div>
+                    <p class="home-review-text">"Perfect combo! The cake was delicious and the flowers were fresh—it made the birthday celebration extra special."</p>
+                    <p class="home-review-author">FLOWER CAKE</p>
                 </div>
 
-                <div class="review-card">
-                    <div class="review-image">
+                <!-- Review Card 4 -->
+                <div class="home-review-card">
+                    <div class="home-review-image">
                         <img src="images/reviews-ballon.png" alt="Review">
                     </div>
-                    <div class="stars">★ ★ ★ ★ ★</div>
-                    <p class="review-text">"Beautifully packaged and so thoughtful. Everything came together perfectly, and my best friend loved it. Such a memorable gift!"</p>
-                    <p class="review-author">BIRTHDAY BUNDLE</p>
+                    <div class="home-stars">★ ★ ★ ★ ★</div>
+                    <p class="home-review-text">"Beautifully packaged and so thoughtful. Everything came together perfectly, and my best friend loved it. Such a memorable gift!"</p>
+                    <p class="home-review-author">BIRTHDAY BUNDLE</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Instagram Section -->
-    <section class="instagram-section">
-        <div class="container">
-            <p class="instagram-handle">@SAMPARYABLOOM</p>
+    <section class="home-instagram-section">
+        <div class="home-container">
+            <p class="home-instagram-handle">@SAMPARYABLOOM</p>
             <h2>Celeb Blooms</h2>
 
-            <div class="instagram-grid">
-                <div class="instagram-post">
-                    <div class="instagram-overlay">@LILYCOLLINES</div>
+            <div class="home-instagram-grid">
+                <!-- Instagram Post 1 -->
+                <div class="home-instagram-post">
+                    <div class="home-instagram-overlay">@LILYCOLLINES</div>
                     <img src="images/celeb-lily.jpg" alt="Instagram">
                 </div>
 
-                <div class="instagram-post">
-                    <div class="instagram-overlay">@LISAMANOBAN</div>
+                <!-- Instagram Post 2 -->
+                <div class="home-instagram-post">
+                    <div class="home-instagram-overlay">@LISAMANOBAN</div>
                     <img src="images/celeb-lisa.jpg" alt="Instagram">
                 </div>
 
-                <div class="instagram-post">
-                    <div class="instagram-overlay">@KATHRYNBERNARDO</div>
+                <!-- Instagram Post 3 -->
+                <div class="home-instagram-post">
+                    <div class="home-instagram-overlay">@KATHRYNBERNARDO</div>
                     <img src="images/celeb-kat.jpg" alt="Instagram">
                 </div>
             </div>
         </div>
     </section>
 
-        <!-- Audio Player -->
-    <div class="audio-player">
-        <button class="play-button" id="playButton">
-            <span class="play-icon">▶</span>
-            <span class="pause-icon">⏸</span>
+    <!-- Audio Player -->
+    <div class="home-audio-player">
+        <button class="home-play-button" id="playButton">
+            <span class="home-play-icon">▶</span>
+            <span class="home-pause-icon">⏸</span>
         </button>
-        <div class="audio-info">
-            <div class="audio-title">Background Music</div>
-            <div class="audio-progress">
-                <div class="audio-progress-bar" id="progressBar"></div>
+        <div class="home-audio-info">
+            <div class="home-audio-title">Background Music</div>
+            <div class="home-audio-progress">
+                <div class="home-audio-progress-bar" id="progressBar"></div>
             </div>
         </div>
         <audio id="bgAudio" loop>
@@ -1024,61 +313,303 @@
                 <div class="social-icons">
                     <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
                         <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
-
                     </a>
-                   <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
+                    <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
                         <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
                     </a>
                 </div>
             </div>
         </div>                                
         <div class="footer-bottom">
-               &copy; ©2025 Samparyá Bloom. All rights reserved — Designed and created with grace by Sophia Ong
-              <p class="footer-mail">
-                 <a href="mailto:sbphilippines.net">sbphilippines.net</a>
-              </p>
+            &copy; ©2025 Samparyá Bloom. All rights reserved — Designed and created with grace by Sophia Ong
+            <p class="footer-mail">
+                <a href="mailto:sbphilippines.net">sbphilippines.net</a>
+            </p>
         </div>
     </footer>
+
+    <!-- JavaScript Section -->
     <script>
+        // =============================================
+        // CART MANAGEMENT SYSTEM
+        // =============================================
         const cartManager = {
+            // Initialize cart from localStorage or empty array
             cart: JSON.parse(localStorage.getItem("cart")) || [],
 
-            updateCartCount() {
-                const count = this.cart.length;
-                const cartCountEl = document.getElementById("cartCount");
-                if (cartCountEl) cartCountEl.textContent = count;
+            // Save cart to localStorage and update UI
+            saveCart() {
+                localStorage.setItem("cart", JSON.stringify(this.cart));
+                this.updateCartCount();
             },
+
+            // Update cart count in both desktop and mobile views
+            updateCartCount() {
+                try {
+                    const count = this.cart.length;
+                    
+                    // Update desktop cart count
+                    const cartCountEl = document.getElementById("cartCount");
+                    if (cartCountEl) cartCountEl.textContent = count;
+                    
+                    // Update mobile cart count
+                    const cartCountMobileEl = document.getElementById("cartCountMobile");
+                    if (cartCountMobileEl) cartCountMobileEl.textContent = count;
+                } catch (error) {
+                    console.error("Error updating cart count:", error);
+                }
+            }
         };
 
-        // Initialize count on page load
+        // =============================================
+        // PAGE INITIALIZATION
+        // =============================================
         document.addEventListener("DOMContentLoaded", () => {
+            // Initialize cart count
             cartManager.updateCartCount();
+            
+            // Initialize audio player
+            initializeAudioPlayer();
         });
 
-        // Audio Player functionality
-        const playButton = document.getElementById('playButton');
-        const bgAudio = document.getElementById('bgAudio');
-        const progressBar = document.getElementById('progressBar');
+        // =============================================
+        // PAGE SWITCHING FUNCTIONALITY
+        // =============================================
+        function showPage(pageId) {
+            try {
+                const pages = document.querySelectorAll(".bloomify-page");
+                pages.forEach(page => page.classList.remove("active"));
+                
+                const targetPage = document.getElementById(pageId);
+                if (targetPage) {
+                    targetPage.classList.add("active");
+                    window.scrollTo(0, 0);
+                }
+            } catch (error) {
+                console.error("Error switching page:", error);
+            }
+        }
 
-        playButton.addEventListener('click', () => {
-            if (bgAudio.paused) {
-                bgAudio.play();
-                playButton.classList.add('playing');
-            } else {
-                bgAudio.pause();
-                playButton.classList.remove('playing');
+        // =============================================
+        // DROPDOWN NAVIGATION FUNCTIONALITY
+        // =============================================
+        document.addEventListener("DOMContentLoaded", () => {
+            const dropdown = document.querySelector('.dropdown-nav');
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            
+            if (dropdownToggle && dropdown) {
+                // Toggle dropdown on click
+                dropdownToggle.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                // Close dropdown when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!dropdown.contains(e.target)) {
+                        dropdown.classList.remove('active');
+                    }
+                });
             }
         });
 
-        // Update progress bar
-        bgAudio.addEventListener('timeupdate', () => {
-            const progress = (bgAudio.currentTime / bgAudio.duration) * 100;
-            progressBar.style.width = progress + '%';
+        // =============================================
+        // AUDIO PLAYER FUNCTIONALITY
+        // =============================================
+        function initializeAudioPlayer() {
+            const playButton = document.getElementById('playButton');
+            const bgAudio = document.getElementById('bgAudio');
+            const progressBar = document.getElementById('progressBar');
+
+            // Play/Pause button functionality
+            playButton.addEventListener('click', () => {
+                if (bgAudio.paused) {
+                    bgAudio.play();
+                    playButton.classList.add('playing');
+                } else {
+                    bgAudio.pause();
+                    playButton.classList.remove('playing');
+                }
+            });
+
+            // Update progress bar as audio plays
+            bgAudio.addEventListener('timeupdate', () => {
+                const progress = (bgAudio.currentTime / bgAudio.duration) * 100;
+                progressBar.style.width = progress + '%';
+            });
+
+            // Reset progress bar when audio ends
+            bgAudio.addEventListener('ended', () => {
+                progressBar.style.width = '0%';
+            });
+        }
+    </script>
+
+    <!-- Mobile Menu JavaScript -->
+    <script>
+        // =============================================
+        // MOBILE HAMBURGER MENU FUNCTIONALITY
+        // =============================================
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Get all necessary elements
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+            const mobileNavClose = document.querySelector('.mobile-nav-close');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+            // Check if elements exist
+            if (!hamburgerMenu || !mobileNav || !mobileNavOverlay) {
+                console.warn('Mobile menu elements not found');
+                return;
+            }
+
+            // ==================
+            // OPEN MOBILE MENU
+            // ==================
+            hamburgerMenu.addEventListener('click', function() {
+                openMobileMenu();
+            });
+
+            function openMobileMenu() {
+                hamburgerMenu.classList.add('active');
+                mobileNav.classList.add('active');
+                mobileNavOverlay.classList.add('active');
+                document.body.classList.add('mobile-menu-open');
+                document.body.style.overflow = 'hidden';
+                
+                // Focus first menu item for accessibility
+                const firstLink = mobileNav.querySelector('a');
+                if (firstLink) {
+                    setTimeout(() => firstLink.focus(), 100);
+                }
+            }
+
+            // ==================
+            // CLOSE MOBILE MENU
+            // ==================
+            function closeMobileMenu() {
+                hamburgerMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
+                mobileNavOverlay.classList.remove('active');
+                document.body.classList.remove('mobile-menu-open');
+                document.body.style.overflow = '';
+                
+                // Return focus to hamburger button
+                hamburgerMenu.focus();
+            }
+
+            // Close button click
+            if (mobileNavClose) {
+                mobileNavClose.addEventListener('click', function() {
+                    closeMobileMenu();
+                });
+            }
+
+            // Overlay click
+            mobileNavOverlay.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+
+            // ==================
+            // CLOSE ON LINK CLICK
+            // ==================
+            mobileNavLinks.forEach(function(link) {
+                link.addEventListener('click', function() {
+                    // Small delay for better UX
+                    setTimeout(function() {
+                        closeMobileMenu();
+                    }, 300);
+                });
+            });
+
+            // ==================
+            // KEYBOARD SUPPORT
+            // ==================
+            
+            // ESC key to close menu
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            });
+
+            // ==================
+            // WINDOW RESIZE HANDLER
+            // ==================
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function() {
+                    // If screen is resized to desktop size, close mobile menu
+                    if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
+                        closeMobileMenu();
+                    }
+                }, 250);
+            });
+
+            // ==================
+            // TOUCH SWIPE TO CLOSE
+            // ==================
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            mobileNav.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            mobileNav.addEventListener('touchend', function(e) {
+                touchEndX = e.changedTouches[0].screenX;
+                // Swipe left to close (distance > 50px)
+                if (touchStartX - touchEndX > 50) {
+                    closeMobileMenu();
+                }
+            }, { passive: true });
+
+            // ==================
+            // FOCUS TRAP (for accessibility)
+            // ==================
+            mobileNav.addEventListener('keydown', function(e) {
+                if (e.key === 'Tab') {
+                    const focusableElements = mobileNav.querySelectorAll(
+                        'a[href], button:not([disabled])'
+                    );
+                    const firstElement = focusableElements[0];
+                    const lastElement = focusableElements[focusableElements.length - 1];
+
+                    if (e.shiftKey) {
+                        // Shift + Tab
+                        if (document.activeElement === firstElement) {
+                            e.preventDefault();
+                            lastElement.focus();
+                        }
+                    } else {
+                        // Tab
+                        if (document.activeElement === lastElement) {
+                            e.preventDefault();
+                            firstElement.focus();
+                        }
+                    }
+                }
+            });
+
+            console.log(' Mobile menu initialized successfully');
         });
 
-        // Reset progress bar when audio ends
-        bgAudio.addEventListener('ended', () => {
-            progressBar.style.width = '0%';
+        // =============================================
+        // CART ICON KEYBOARD SUPPORT
+        // =============================================
+        document.addEventListener("DOMContentLoaded", function() {
+            const cartIcon = document.querySelector('.cart-icon');
+            if (cartIcon) {
+                cartIcon.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        window.location.href = 'cart.html';
+                    }
+                });
+            }
         });
     </script>
 </body>
