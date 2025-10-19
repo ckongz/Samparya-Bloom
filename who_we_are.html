@@ -5,310 +5,117 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel = "shortcun icon" href = "images/favicon.ico.jpg"/>
-    <link rel = "icon"  type = "image/png" sizes = "32x32" href = "images/favicon-32.png" />
-    <link rel = "apple-touch-icon" sizes = "180x180" href = "images/apple-touch-icon.png" />
-    <link rel = "icon"  sizes = "192X192" href = "images/android-chrome-192.png" />
-    <style>
-        /* Hero Section */
-        .sb-who-we-are .hero {
-            text-align: center;
-            padding: 60px 20px 50px;
-            background:#f5f5f0;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .sb-who-we-are .hero h1 {
-            font-size: 43px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            color: #1F211E;
-            letter-spacing: -0.5px;
-            position: relative;
-        }
-
-        .sb-who-we-are .hero h2 {
-            font-size: 28px;
-            font-weight: 500;
-            color: #434A3E;
-            letter-spacing: -0.3px;
-            position: relative;
-        }
-
-        /* Main Content */
-        .sb-who-we-are .content-section {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 80px 40px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-            background: #FFFFFF;
-        }
-
-        .sb-who-we-are .text-content h3 {
-            font-size: 14px;
-            color: #534948;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 25px;
-            font-weight: 600;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .sb-who-we-are .text-content h3::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 12px;
-            height: 2px;
-            background: linear-gradient(90deg, #534948, #434A3E);
-        }
-
-        .sb-who-we-are .text-content h4 {
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #1F211E;
-            line-height: 1.2;
-            letter-spacing: -0.5px;
-        }
-
-        .sb-who-we-are .text-content h5 {
-            font-size: 28px;
-            font-weight: 500;
-            margin-bottom: 25px;
-            color: #434A3E;
-            line-height: 1.3;
-        }
-
-        .sb-who-we-are .text-content h6 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            margin-top: 35px;
-            color: #1F211E;
-            position: relative;
-            padding-left: 15px;
-        }
-
-        .sb-who-we-are .text-content h6::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: #534948;
-            font-size: 14px;
-        }
-
-        .sb-who-we-are .text-content p {
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #534948;
-            font-weight: 500;
-        }
-
-        /*  Image Container */
-        .sb-who-we-are .image-container {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 20px 40px rgba(31, 33, 30, 0.1);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            background: linear-gradient(135deg, #F8F7F5, #F0EFEC);
-        }
-
-        .sb-who-we-are .image-container::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(83, 73, 72, 0.05), transparent);
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .sb-who-we-are .image-container:hover {
-            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.02);
-            box-shadow: 0 25px 50px rgba(31, 33, 30, 0.15);
-        }
-
-        .sb-who-we-are .image-container img {
-            width: 100%;
-            height: 500px;
-            object-fit: cover;
-            display: block;
-            transition: all 0.5s ease;
-            border-radius: 20px;
-        }
-
-
-        /* Commitment Section */
-        .sb-who-we-are .commitment-section {
-            background: linear-gradient(135deg, #fcfbfa99 0%, #F0EFEC 100%);
-            padding: 80px 40px;
-            position: relative;
-            border-top: 4px solid #f1f0ee;
-        }
-
-        .sb-who-we-are .commitment-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .sb-who-we-are .commitment-content h4 {
-            font-size: 36px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #1F211E;
-            text-align: center;
-            letter-spacing: -0.5px;
-        }
-
-        .sb-who-we-are .commitment-content h6 {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 25px;
-            color: #434A3E;
-            text-align: center;
-            position: relative;
-        }
-
-
-        .sb-who-we-are .commitment-content p {
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 20px;
-            color: #0a0a0aa2;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-            font-weight: 500;
-        }
-
-
-        /*  Responsive Design */
-        @media (max-width: 968px) {
-            .sb-who-we-are .content-section {
-                gap: 60px;
-                padding: 60px 30px;
-            }
-            
-            .sb-who-we-are .hero {
-                padding: 60px 20px 40px;
-            }
-            
-            .sb-who-we-are .hero h1 {
-                font-size: 38px;
-            }
-            
-            .sb-who-we-are .hero h2 {
-                font-size: 30px;
-            }
-            
-            .sb-who-we-are .text-content h4 {
-                font-size: 30px;
-            }
-            
-            .sb-who-we-are .text-content h5 {
-                font-size: 24px;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .sb-who-we-are .content-section {
-                grid-template-columns: 1fr;
-                gap: 40px;
-                padding: 40px 20px;
-            }
-            
-            .sb-who-we-are .hero h1 {
-                font-size: 32px;
-            }
-            
-            .sb-who-we-are .hero h2 {
-                font-size: 26px;
-            }
-            
-            .sb-who-we-are .image-container {
-                transform: none;
-                order: -1;
-            }
-            
-            .sb-who-we-are .image-container:hover {
-                transform: scale(1.02);
-            }
-            
-            .sb-who-we-are .image-container img {
-                height: 400px;
-            }
-            
-            .sb-who-we-are .commitment-section {
-                padding: 60px 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sb-who-we-are .hero {
-                padding: 50px 20px 30px;
-            }
-            
-            .sb-who-we-are .hero h1 {
-                font-size: 28px;
-            }
-            
-            .sb-who-we-are .hero h2 {
-                font-size: 22px;
-            }
-            
-            .sb-who-we-are .text-content h4 {
-                font-size: 26px;
-            }
-            
-            .sb-who-we-are .text-content h5 {
-                font-size: 20px;
-            }
-            
-            .sb-who-we-are .image-container img {
-                height: 300px;
-            }
-        }
-    </style>
+    
+    <!-- Favicon declarations for different devices and platforms -->
+    <link rel="shortcut icon" href="images/favicon.ico.jpg"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+    <link rel="icon" sizes="192X192" href="images/android-chrome-192.png" />
 </head>
 <body>
-    <!-- Top Banner -->
+    <!-- Top Banner for delivery information -->
     <div class="top-banner">
         We offer free delivery in Angeles City for orders Php 6,000 and up.
     </div>
 
-    <!-- Header -->
+    <!-- Header Section -->
     <header>
-        <nav>
+        <!-- Hamburger Menu Button (Mobile Only) -->
+        <button class="hamburger-menu" aria-label="Open navigation menu">
+            <div class="hamburger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+
+        <!-- Desktop Navigation (Hidden on Mobile ≤768px) -->
+        <div class="desktop-nav">
             <a href="index.html">HOME</a>
             <a href="contact_location.html">CONTACT US</a>
-        </nav>
+        </div>
+
+        <!-- Logo (Center) -->
         <div class="logo">
             <a href="index.html">
                 <img src="images/Logo.png" alt="Samparyá Bloom Logo">
             </a>
         </div>
+
+        <!-- Desktop Header Right (Hidden on Mobile ≤768px) -->
         <div class="header-right">
+            <!-- Dropdown navigation for quick links -->
+            <div class="dropdown-nav">
+                <button class="dropdown-toggle">Quick Links</button>
+                <div class="dropdown-menu">
+                    <a href="who_we_are.html">Who We Are</a>
+                    <a href="our_story.html">Our Story</a>
+                    <a href="contact_location.html">Locations</a>
+                    <a href="policy.html">Privacy Policy</a>
+                    <a href="feedback.html">Feedback</a>
+                    <a href="terms_of_service.html">Terms of Service</a>
+                </div>
+            </div>
             <a href="sign_in_register.html">SIGN IN / REGISTER</a>
-            <div class="cart-icon" onclick="window.location.href='cart.html'">
+            
+            <!-- Cart Icon for Desktop - Inside header-right -->
+            <div class="cart-icon cart-desktop" onclick="window.location.href='cart.html'" role="button" aria-label="Shopping cart" tabindex="0">
                 🛒
                 <span class="cart-count" id="cartCount">0</span>
             </div>
         </div>
+
+        <!-- Cart Icon for Mobile - Outside header-right -->
+        <div class="cart-icon cart-mobile" onclick="window.location.href='cart.html'" role="button" aria-label="Shopping cart" tabindex="0">
+            🛒
+            <span class="cart-count" id="cartCountMobile">0</span>
+        </div>
     </header>
+
+    <!-- Mobile Navigation Overlay (Dark background when menu is open) -->
+    <div class="mobile-nav-overlay" aria-hidden="true"></div>
+
+    <!-- Mobile Navigation Menu (Slide-in from left) -->
+    <div class="mobile-nav" aria-label="Mobile navigation">
+        <div class="mobile-nav-header">
+            <div class="mobile-nav-logo">
+                <img src="images/Logo.png" alt="Samparyá Bloom">
+            </div>
+            <button class="mobile-nav-close" aria-label="Close navigation menu">&times;</button>
+        </div>
+        
+        <div class="mobile-nav-content">
+            <!-- Main Menu Section -->
+            <div class="mobile-nav-section">
+                <h3>Main Menu</h3>
+                <a href="index.html">Home</a>
+                <a href="contact_location.html">Contact Us</a>
+            </div>
+
+            <!-- Shop Section -->
+            <div class="mobile-nav-section">
+                <h3>Products</h3>
+                <a href="flowers.html">Flowers</a>
+                <a href="ocassions.html">Occasions</a>
+            </div>
+
+            <!-- Quick Links Section -->
+            <div class="mobile-nav-section">
+                <h3>Quick Links</h3>
+                <a href="who_we_are.html">Who We Are</a>
+                <a href="our_story.html">Our Story</a>
+                <a href="contact_location.html">Locations</a>
+                <a href="policy.html">Privacy Policy</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="terms_of_service.html">Terms of Service</a>
+            </div>
+
+            <!-- Sign In Button (Featured) -->
+            <div class="mobile-nav-signin">
+                <a href="sign_in_register.html">Sign In / Register</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Category Navigation -->
     <div class="category-nav">
@@ -316,7 +123,7 @@
         <a href="ocassions.html">OCCASIONS</a>
     </div>
 
-    <!-- Who We Are Content -->
+    <!-- Who We Are Content Section -->
     <section class="sb-who-we-are">
         <!-- Hero Section -->
         <section class="hero">
@@ -326,6 +133,7 @@
 
         <!-- Main Content Section -->
         <section class="content-section">
+            <!-- Text Content -->
             <div class="text-content">
                 <h3>SAMPARYÁ BLOOM PHILIPPINES</h3>
                 <h4>Who We Are</h4>
@@ -334,6 +142,8 @@
                 <p>What started as a small family-run flower shop in Angeles City, Pampanga, has now blossomed into a trusted name in the region. We're known not just for our premium flowers and home decor selections.</p>
                 <p>Over the years, we've decorated everything from homes and intimate gatherings to large-scale celebrations and corporate events. We don't just sell flowers but unforgettable memories. Our carefully selected products include high-end, imported blooms and handpicked home accents that elevate any space.</p>
             </div>
+            
+            <!-- Image Container -->
             <div class="image-container">
                 <img src="images/who-we-are-girl.png" alt="Flower arrangement">
             </div>
@@ -350,9 +160,10 @@
         </section>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer Section -->
     <footer>
         <div class="footer-content">
+            <!-- Company Links -->
             <div class="footer-links">
                 <h5>SB PHILIPPINES</h5>
                 <ul>
@@ -364,6 +175,8 @@
                     <li><a href="terms_of_service.html">Terms of service</a></li>
                 </ul>
             </div>
+            
+            <!-- Newsletter Signup -->
             <div class="newsletter">
                 <h4>Gain Exclusive Access</h4>
                 <p>Sign up today and receive exclusive discounts, early sales, style tips, and more.</p>
@@ -371,38 +184,270 @@
                     <input type="email" placeholder="Your email">
                     <button>JOIN</button>
                 </div>
+                
+                <!-- Social Media Links -->
                 <div class="social-icons">
                     <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
                         <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
                     </a>
-                   <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
+                    <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
                         <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
                     </a>
                 </div>
             </div>
         </div>                                
+        
+        <!-- Footer Bottom -->
         <div class="footer-bottom">
-               &copy; ©2025 Samparyá Bloom. All rights reserved — Designed and created with grace by Sophia Ong
-              <p class="footer-mail">
-                 <a href="mailto:sbphilippines.net">sbphilippines.net</a>
-              </p>
+            &copy; ©2025 Samparyá Bloom. All rights reserved — Designed and created with grace by Sophia Ong
+            <p class="footer-mail">
+                <a href="mailto:sbphilippines.net">sbphilippines.net</a>
+            </p>
         </div>
     </footer>
-    <script>
-        const cartManager = {
-            cart: JSON.parse(localStorage.getItem("cart")) || [],
 
-            updateCartCount() {
+    <!-- Cart Management Script -->
+    <script>
+    // Cart Manager Object
+    const cartManager = {
+        // Retrieve cart from localStorage or initialize empty array
+        cart: JSON.parse(localStorage.getItem("cart")) || [],
+
+        // Save cart to localStorage and update count display
+        saveCart() {
+            localStorage.setItem("cart", JSON.stringify(this.cart));
+            this.updateCartCount();
+        },
+
+        // Update cart count in both desktop and mobile views
+        updateCartCount() {
+            try {
                 const count = this.cart.length;
+                
+                // Update desktop cart count
                 const cartCountEl = document.getElementById("cartCount");
                 if (cartCountEl) cartCountEl.textContent = count;
-            },
-        };
+                
+                // Update mobile cart count
+                const cartCountMobileEl = document.getElementById("cartCountMobile");
+                if (cartCountMobileEl) cartCountMobileEl.textContent = count;
+            } catch (error) {
+                console.error("Error updating cart count:", error);
+            }
+        }
+    };
 
-        // Initialize count on page load
-        document.addEventListener("DOMContentLoaded", () => {
-            cartManager.updateCartCount();
-        })
+    // Initialize cart count on page load
+    document.addEventListener("DOMContentLoaded", () => {
+        cartManager.updateCartCount();
+    });
+
+    // -------------------------
+    // PAGE SWITCHING FUNCTIONALITY
+    // -------------------------
+    function showPage(pageId) {
+        try {
+            const pages = document.querySelectorAll(".bloomify-page");
+            pages.forEach(page => page.classList.remove("active"));
+            
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add("active");
+                window.scrollTo(0, 0);
+            }
+        } catch (error) {
+            console.error("Error switching page:", error);
+        }
+    }
+
+    // Dropdown functionality for quick links
+    document.addEventListener("DOMContentLoaded", () => {
+        const dropdown = document.querySelector('.dropdown-nav');
+        const dropdownToggle = document.querySelector('.dropdown-toggle');
+        
+        if (dropdownToggle && dropdown) {
+            // Toggle dropdown on click
+            dropdownToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                dropdown.classList.toggle('active');
+            });
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!dropdown.contains(e.target)) {
+                    dropdown.classList.remove('active');
+                }
+            });
+        }
+    });
+    </script>
+
+    <!-- Mobile Navigation and UI Scripts -->
+    <script>
+    // =============================================
+    // MOBILE HAMBURGER MENU FUNCTIONALITY
+    // =============================================
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        // Get all necessary elements
+        const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const mobileNav = document.querySelector('.mobile-nav');
+        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+        const mobileNavClose = document.querySelector('.mobile-nav-close');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+        // Check if elements exist
+        if (!hamburgerMenu || !mobileNav || !mobileNavOverlay) {
+            console.warn('Mobile menu elements not found');
+            return;
+        }
+
+        // ==================
+        // OPEN MOBILE MENU
+        // ==================
+        hamburgerMenu.addEventListener('click', function() {
+            openMobileMenu();
+        });
+
+        function openMobileMenu() {
+            hamburgerMenu.classList.add('active');
+            mobileNav.classList.add('active');
+            mobileNavOverlay.classList.add('active');
+            document.body.classList.add('mobile-menu-open');
+            document.body.style.overflow = 'hidden';
+            
+            // Focus first menu item for accessibility
+            const firstLink = mobileNav.querySelector('a');
+            if (firstLink) {
+                setTimeout(() => firstLink.focus(), 100);
+            }
+        }
+
+        // ==================
+        // CLOSE MOBILE MENU
+        // ==================
+        function closeMobileMenu() {
+            hamburgerMenu.classList.remove('active');
+            mobileNav.classList.remove('active');
+            mobileNavOverlay.classList.remove('active');
+            document.body.classList.remove('mobile-menu-open');
+            document.body.style.overflow = '';
+            
+            // Return focus to hamburger button
+            hamburgerMenu.focus();
+        }
+
+        // Close button click
+        if (mobileNavClose) {
+            mobileNavClose.addEventListener('click', function() {
+                closeMobileMenu();
+            });
+        }
+
+        // Overlay click
+        mobileNavOverlay.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+
+        // ==================
+        // CLOSE ON LINK CLICK
+        // ==================
+        mobileNavLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                // Small delay for better UX
+                setTimeout(function() {
+                    closeMobileMenu();
+                }, 300);
+            });
+        });
+
+        // ==================
+        // KEYBOARD SUPPORT
+        // ==================
+        
+        // ESC key to close menu
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // ==================
+        // WINDOW RESIZE HANDLER
+        // ==================
+        let resizeTimer;
+        window.addEventListener('resize', function() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                // If screen is resized to desktop size, close mobile menu
+                if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
+                    closeMobileMenu();
+                }
+            }, 250);
+        });
+
+        // ==================
+        // TOUCH SWIPE TO CLOSE
+        // ==================
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        mobileNav.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        mobileNav.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            // Swipe left to close (distance > 50px)
+            if (touchStartX - touchEndX > 50) {
+                closeMobileMenu();
+            }
+        }, { passive: true });
+
+        // ==================
+        // FOCUS TRAP (for accessibility)
+        // ==================
+        mobileNav.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                const focusableElements = mobileNav.querySelectorAll(
+                    'a[href], button:not([disabled])'
+                );
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (e.shiftKey) {
+                    // Shift + Tab
+                    if (document.activeElement === firstElement) {
+                        e.preventDefault();
+                        lastElement.focus();
+                    }
+                } else {
+                    // Tab
+                    if (document.activeElement === lastElement) {
+                        e.preventDefault();
+                        firstElement.focus();
+                    }
+                }
+            }
+        });
+
+        console.log('Mobile menu initialized successfully');
+    });
+
+    // =============================================
+    // CART ICON KEYBOARD SUPPORT
+    // =============================================
+    document.addEventListener("DOMContentLoaded", function() {
+        const cartIcon = document.querySelector('.cart-icon');
+        if (cartIcon) {
+            cartIcon.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.location.href = 'cart.html';
+                }
+            });
+        }
+    });
     </script>
 </body>
 </html>
