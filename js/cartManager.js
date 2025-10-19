@@ -2,6 +2,13 @@
 // Samparyá Bloom Cart Manager
 // ==========================
 
+/* 
+   JS FOR SAMPARYA BLOOM
+   Author: Sophia Casey M. ong
+   Section: WD - 202
+   Date: OCTOBER 19, 2025
+*/
+
 const cartManager = {
     cart: [],
 
@@ -162,3 +169,4 @@ const cartManager = {
 document.addEventListener('DOMContentLoaded', () => {
     cartManager.loadCart();
 });
+
