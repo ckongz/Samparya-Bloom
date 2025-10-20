@@ -63,3 +63,6 @@ Special thanks to 🌺
                   License
 © 2025 Samparyá Bloom. All rights reserved.
 Designed and created with grace by Sophia Ong.
+
+              VIEW THE SITE
+  https://ckongz.github.io/Samparya-Bloom/index.html
