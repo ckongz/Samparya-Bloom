@@ -1962,10 +1962,10 @@ nav a:hover {
 
 /* Commitment Section */
 .sb-who-we-are .commitment-section {
-    background: linear-gradient(135deg, #fcfbfa99 0%, #F0EFEC 100%);
+    background: linear-gradient(135deg, #ffffff99 0%, #fafafa74 100%);
     padding: 80px 40px;
     position: relative;
-    border-top: 4px solid #f1f0ee;
+    border-top: 4px solid #f5f5f5;
 }
 
 .sb-who-we-are .commitment-content {
@@ -1996,13 +1996,659 @@ nav a:hover {
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 20px;
-    color: #0a0a0aa2;
+    color: #333333;
     max-width: 900px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     font-weight: 500;
 }
+/* =============================================
+   FOUNDER SECTION
+   Main container for founder showcase
+   ============================================= */
+.founder-section {
+    padding: 100px 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative background elements */
+.founder-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(67, 74, 62, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+.founder-section::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(83, 73, 72, 0.04) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* =============================================
+   FOUNDER CONTAINER
+   Two-column layout - CONTENT LEFT, IMAGE RIGHT
+   ============================================= */
+.founder-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr; /* Content column wider than image */
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+/* =============================================
+   FOUNDER CONTENT SECTION
+   LEFT COLUMN with text content
+   ============================================= */
+.founder-content {
+    padding: 20px;
+    order: 1; /* Ensures content appears first (left) */
+}
+
+/* Label above heading */
+.founder-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #534948;
+    margin-bottom: 15px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+/* Main heading */
+.founder-content h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 48px;
+    color: #1F211E;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+/* Founder name highlight */
+.founder-name {
+    color: #434A3E;
+    position: relative;
+    display: inline-block;
+}
+
+.founder-name::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #434A3E 0%, transparent 100%);
+}
+
+/* Role/title text */
+.founder-role {
+    font-size: 18px;
+    color: #534948;
+    margin-bottom: 30px;
+    font-style: italic;
+}
+
+/* Body paragraphs */
+.founder-content p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #534948;
+    margin-bottom: 20px;
+}
+
+/* =============================================
+   FOUNDER STATS
+   Achievement numbers display
+   ============================================= */
+.founder-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 2px solid rgba(67, 74, 62, 0.2);
+}
+
+/* Individual stat item */
+.stat-item {
+    text-align: center;
+}
+
+/* Large number display */
+.stat-number {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 36px;
+    color: #434A3E;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Stat description */
+.stat-label {
+    font-size: 13px;
+    color: #534948;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =============================================
+   SIGNATURE SECTION
+   Founder's signature display
+   ============================================= */
+.founder-signature {
+    margin-top: 40px;
+    padding-top: 30px;
+}
+
+.signature-image {
+    width: 200px;
+    height: auto;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.signature-text {
+    font-size: 14px;
+    color: #534948;
+    font-style: italic;
+}
+
+/* =============================================
+   FOUNDER IMAGE SECTION
+   RIGHT COLUMN with profile image
+   ============================================= */
+.founder-image-wrapper {
+    position: relative;
+    padding: 20px;
+    order: 2; /* Ensures image appears second (right) */
+}
+
+/* Decorative frame behind image */
+.founder-frame {
+    position: absolute;
+    top: 40px;
+    right: 40px; /* Changed from left to right */
+    left: -20px; /* Changed from right to left */
+    bottom: -20px;
+    border: 3px solid #434A3E;
+    border-radius: 15px;
+    z-index: 0;
+}
+
+/* Main founder image container */
+.founder-image {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(31, 33, 30, 0.2);
+    z-index: 1;
+}
+
+.founder-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.founder-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Decorative quote overlay */
+.founder-quote-badge {
+    position: absolute;
+    bottom: 30px;
+    right: 30px; /* Changed from left to right */
+    background: rgba(67, 74, 62, 0.95);
+    color: white;
+    padding: 20px 25px;
+    border-radius: 10px;
+    max-width: 80%;
+    z-index: 2;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.founder-quote-badge p {
+    font-family: 'Libre Baskerville', serif;
+    font-style: italic;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - TABLET
+   ============================================= */
+@media screen and (max-width: 992px) {
+    /* Switch to single column layout */
+    .founder-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    /* Reset order for mobile - content first, image second */
+    .founder-content {
+        order: 1;
+    }
+
+    .founder-image-wrapper {
+        order: 2;
+    }
+
+    /* Adjust image height */
+    .founder-image {
+        height: 400px;
+    }
+
+    /* Reduce heading size */
+    .founder-content h2 {
+        font-size: 36px;
+    }
+
+    /* Adjust stats grid */
+    .founder-stats {
+        gap: 20px;
+    }
+
+    .stat-number {
+        font-size: 28px;
+    }
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - MOBILE
+   ============================================= */
+@media screen and (max-width: 768px) {
+    /* Reduce section padding */
+    .founder-section {
+        padding: 60px 20px;
+    }
+
+    /* Adjust image wrapper */
+    .founder-image-wrapper {
+        padding: 10px;
+    }
+
+    /* Reduce frame offset */
+    .founder-frame {
+        top: 20px;
+        right: 20px;
+        left: -10px;
+        bottom: -10px;
+    }
+
+    /* Adjust image height for mobile */
+    .founder-image {
+        height: 350px;
+    }
+
+    /* Reduce quote badge size */
+    .founder-quote-badge {
+        padding: 15px 20px;
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .founder-quote-badge p {
+        font-size: 12px;
+    }
+
+    /* Adjust content padding */
+    .founder-content {
+        padding: 10px;
+    }
+
+    /* Reduce heading size */
+    .founder-content h2 {
+        font-size: 28px;
+    }
+
+    /* Adjust role text */
+    .founder-role {
+        font-size: 16px;
+    }
+
+    /* Change stats to 2-column on mobile */
+    .founder-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 30px;
+        padding-top: 30px;
+    }
+
+    /* Last stat spans full width */
+    .stat-item:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .stat-number {
+        font-size: 24px;
+    }
+
+    .stat-label {
+        font-size: 11px;
+    }
+
+    /* Adjust signature size */
+    .signature-image {
+        width: 150px;
+    }
+}
+
+/* =============================================
+   VALUES SECTION
+   Company values and mission showcase
+   ============================================= */
+.values-section {
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #F5F2EF 50%, #FFFFFF 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative pattern overlay */
+.values-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 20% 30%, rgba(106, 15, 35, 0.03) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(224, 217, 207, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+/* Values container */
+.values-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+/* =============================================
+   VALUES HEADER
+   Section title and description
+   ============================================= */
+.values-header {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.values-label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #6A0F23;
+    margin-bottom: 15px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.values-header h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 48px;
+    color: #1F211E;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.values-header p {
+    font-size: 18px;
+    color: #534948;
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* =============================================
+   VALUES GRID
+   Three-column values cards layout
+   ============================================= */
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    margin-bottom: 80px;
+}
+
+/* Individual value card */
+.value-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(224, 217, 207, 0.5);
+}
+
+/* Gradient overlay on hover */
+.value-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(106, 15, 35, 0.05) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 60px rgba(106, 15, 35, 0.15);
+}
+
+.value-card:hover::before {
+    opacity: 1;
+}
+
+/* Value icon container */
+.value-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: linear-gradient(135deg, #FFFFFF 0%, #f2e6d9 50%, #FFFFFF 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    transition: all 0.4s ease;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 8px 25px rgba(106, 15, 35, 0.2);
+    color: white;
+}
+
+.value-card:hover .value-icon {
+    transform: scale(1.1);
+}
+
+.value-card h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 24px;
+    color: #1F211E;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.value-card p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #534948;
+    position: relative;
+    z-index: 1;
+}
+
+/* =============================================
+   MISSION STATEMENT
+   Company mission quote section
+   ============================================= */
+.mission-statement {
+    background: linear-gradient(135deg, rgba(134, 147, 124, 0.3) 0%, rgba(106, 122, 92, 0.55) 100%);
+    padding: 60px 40px;
+    border-radius: 20px;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(106, 15, 35, 0.2);
+}
+
+/* Decorative quotation marks */
+.mission-statement::before {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    left: 40px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 120px;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+}
+
+.mission-statement::after {
+    content: '"';
+    position: absolute;
+    bottom: -20px;
+    right: 40px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 120px;
+    color: rgba(255, 255, 255, 0.1);
+    line-height: 1;
+}
+
+.mission-statement blockquote {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 28px;
+    line-height: 1.6;
+    font-style: italic;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.mission-statement cite {
+    display: block;
+    font-size: 16px;
+    margin-top: 20px;
+    font-style: normal;
+    opacity: 0.9;
+    letter-spacing: 1px;
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - TABLET
+   ============================================= */
+@media screen and (max-width: 992px) {
+    .values-header h2 {
+        font-size: 36px;
+    }
+
+    .values-header p {
+        font-size: 16px;
+    }
+
+    .values-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .mission-statement blockquote {
+        font-size: 24px;
+    }
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - MOBILE
+   ============================================= */
+@media screen and (max-width: 768px) {
+    .values-section {
+        padding: 60px 20px;
+    }
+
+    .values-header {
+        margin-bottom: 50px;
+    }
+
+    .values-header h2 {
+        font-size: 28px;
+    }
+
+    .values-header p {
+        font-size: 15px;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 50px;
+    }
+
+    .value-card {
+        padding: 30px 25px;
+    }
+
+    .value-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 32px;
+    }
+
+    .value-card h3 {
+        font-size: 20px;
+    }
+
+    .mission-statement {
+        padding: 40px 30px;
+    }
+
+    .mission-statement blockquote {
+        font-size: 20px;
+    }
+
+    .mission-statement cite {
+        font-size: 14px;
+    }
+
+    .mission-statement::before,
+    .mission-statement::after {
+        font-size: 80px;
+    }
+}
+
 /* ============================================
    TERMS OF SERVICE PAGE STYLES
 ============================================ */
@@ -3002,7 +3648,7 @@ nav a:hover {
     line-height: 1.8;
 }
 
-/* Video Section */
+ /* Video Section */
 .occasions-video-container {
     text-align: center;
     margin: 20px auto;
@@ -3051,6 +3697,7 @@ nav a:hover {
     box-shadow: 0 6px 20px rgba(139, 46, 62, 0.3);
 }
 
+
 /* Toast Notification */
 .toast {
     position: fixed;
@@ -3091,6 +3738,7 @@ nav a:hover {
     font-size: 14px;
 }
 
+
 /* ============================================
    HOME PAGE STYLES
 ============================================ */
@@ -3100,8 +3748,8 @@ nav a:hover {
     position: relative;
     height: 600px;
     display: flex;
-    align-items: center;       
-    padding-left: 100px;       
+    align-items: center;
+    padding-left: 100px;
     background-image: url('../images/hero-index.png');
     background-size: cover;
     background-position: center;
@@ -3109,7 +3757,7 @@ nav a:hover {
     overflow: hidden;
 }
 
-/* Gradient overlay for hero image */
+/* Lighten overlay for hero image */
 .home-hero-banner::before {
     content: '';
     position: absolute;
@@ -3117,8 +3765,95 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.05) 100%);
+    background: rgba(245, 234, 234, 0.13);
     pointer-events: none;
+    z-index: 0;
+}
+
+/* ========== PETALS ANIMATION STYLES ========== */
+/* Petals Background Container */
+.petals-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Individual Petal Styling*/
+.petal {
+    position: absolute;
+    width: 40px;
+    height: 55px;
+    background: #8b2e3e;
+    border-radius: 50% 50% 50% 0%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    transform-origin: center;
+    will-change: transform;
+}
+
+/* Petal Color Variations - NEON BURGUNDY */
+.petal:nth-child(4n+1) { background: #8b2e3e; }
+.petal:nth-child(4n+2) { background: #a14456; }
+.petal:nth-child(4n+3) { background: #c85d6f; }
+.petal:nth-child(4n) { background: #d97587; }
+
+/* Size Variations*/
+.petal:nth-child(3n) { width: 35px; height: 48px; }
+.petal:nth-child(5n) { width: 50px; height: 65px; }
+
+/* Falling Animation */
+@keyframes fall {
+    0% {
+        top: -10%;
+        opacity: 0.8;
+    }
+    10% { opacity: 1; }
+    90% { opacity: 0.8; }
+    100% {
+        top: 110%;
+        opacity: 0;
+    }
+}
+
+/* Swaying Animation */
+@keyframes sway {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    25% { transform: translateX(-30px) rotate(-15deg); }
+    50% { transform: translateX(0) rotate(0deg); }
+    75% { transform: translateX(30px) rotate(15deg); }
+}
+
+/* Spinning Animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Apply Animations */
+.petal:nth-child(odd) {
+    animation: fall linear infinite, sway ease-in-out infinite;
+}
+
+.petal:nth-child(even) {
+    animation: fall linear infinite, spin linear infinite;
+}
+
+/* Mobile Optimization */
+@media (max-width: 768px) {
+    .petal { width: 30px; height: 42px; }
+    .petal:nth-child(3n) { width: 25px; height: 35px; }
+    .petal:nth-child(5n) { width: 38px; height: 50px; }
+    .petal:nth-child(n+16) { display: none; }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .petal { animation: none; display: none; }
 }
 
 /* Hero Content Container */
@@ -3302,6 +4037,35 @@ nav a:hover {
     box-shadow: 0 20px 60px rgba(139, 46, 62, 0.2);
 }
 
+/* NUCLEAR OPTION: Remove ALL underlines from product card links */
+.home-product-card a,
+.home-product-card a:link,
+.home-product-card a:visited,
+.home-product-card a:hover,
+.home-product-card a:active,
+.home-product-card a:focus,
+.home-product-info a,
+.home-product-info a:link,
+.home-product-info a:visited,
+.home-product-info a:hover,
+.home-product-info a:active,
+.home-product-info a:focus {
+    text-decoration: none !important;
+    text-decoration-line: none !important;
+    text-decoration-style: none !important;
+    text-underline-offset: 0 !important;
+    color: inherit !important;
+    outline: none !important;
+    border-bottom: none !important;
+}
+
+/* Remove underlines from all child elements too */
+.home-product-card a *,
+.home-product-info a * {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
 /* Product Image Container */
 .home-product-image {
     width: 100%;
@@ -3413,6 +4177,272 @@ nav a:hover {
     line-height: 1.9;
     margin-bottom: 20px;
     color: #666;
+}
+
+/* =============================================
+   FLOWER EXPERTS SECTION
+   Team showcase section featuring flower experts
+   ============================================= */
+.flower-experts-section {
+    padding: 80px 20px;
+    background: #fff;
+    text-align: center;
+}
+
+/* Main section heading */
+.flower-experts-section h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 42px;
+    color: #2c2c2c;
+    margin-bottom: 15px;
+}
+
+/* Section subtitle/description */
+.flower-experts-section .subtitle {
+    font-size: 16px;
+    color: #6b6b6b;
+    margin-bottom: 60px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* =============================================
+   EXPERTS GRID
+   Responsive grid layout for team members
+   ============================================= */
+.experts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Individual expert card */
+.expert-card {
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.expert-card:hover {
+    transform: translateY(-10px);
+}
+
+/* Expert profile image container */
+.expert-image {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border: 5px solid #fff;
+    transition: all 0.3s ease;
+}
+
+.expert-card:hover .expert-image {
+    box-shadow: 0 12px 35px rgba(139, 46, 62, 0.2);
+    border-color: #8b2e3e;
+}
+
+.expert-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Expert name styling */
+.expert-name {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    color: #2c2c2c;
+    margin-bottom: 5px;
+}
+
+/* Expert role/title styling */
+.expert-role {
+    font-size: 14px;
+    color: #8b2e3e;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* =============================================
+   DESKTOP CONTENT
+   Additional content visible only on desktop
+   ============================================= */
+.desktop-content {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+/* Desktop content image container */
+.desktop-content-image {
+    width: 100%;
+    height: 400px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.desktop-content-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Desktop text content */
+.desktop-content-text {
+    padding: 20px;
+}
+
+.desktop-content-text h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 32px;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+.desktop-content-text p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+/* =============================================
+   MOBILE-ONLY CONTENT
+   Content visible only on mobile devices
+   ============================================= */
+.mobile-only-content {
+    display: none; /* Hidden by default, shown on mobile */
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.mobile-only-content h3 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 28px;
+    color: #2c2c2c;
+    margin-bottom: 20px;
+}
+
+/* Mobile gallery grid */
+.mobile-gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+/* Mobile gallery items */
+.mobile-gallery-item {
+    width: 100%;
+    height: 250px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Mobile call-to-action section */
+.mobile-cta {
+    margin-top: 30px;
+}
+
+.mobile-cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background-color: #8b2e3e;
+    color: white;
+    text-decoration: none;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.mobile-cta-button:hover {
+    background-color: #434A3E;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(139, 46, 62, 0.3);
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - TABLET & MOBILE
+   ============================================= */
+@media screen and (max-width: 768px) {
+    /* Adjust section typography for mobile */
+    .flower-experts-section h2 {
+        font-size: 32px;
+    }
+
+    .flower-experts-section .subtitle {
+        font-size: 14px;
+    }
+
+    /* Adjust experts grid for tablet */
+    .experts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    /* Scale down expert images */
+    .expert-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    /* Adjust expert text sizes */
+    .expert-name {
+        font-size: 16px;
+    }
+
+    .expert-role {
+        font-size: 12px;
+    }
+
+    /* Hide desktop content on mobile */
+    .desktop-content {
+        display: none;
+    }
+
+    /* Show mobile-only content */
+    .mobile-only-content {
+        display: block;
+    }
+}
+
+/* =============================================
+   RESPONSIVE DESIGN - SMALL MOBILE
+   ============================================= */
+@media screen and (max-width: 480px) {
+    /* Switch to single column layout */
+    .experts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Slightly larger images for single column */
+    .expert-image {
+        width: 180px;
+        height: 180px;
+    }
 }
 
 /* Story Button */
@@ -4779,56 +5809,69 @@ body.mobile-menu-open {
         padding: 9px 20px;
     }
 
-    /* Header - Stack layout for tablet landscape */
+/* Header - Horizontal layout with smaller fonts for tablet landscape */
+/* Header - Horizontal layout with centered logo for tablet landscape */
     header {
-        padding: 15px 30px;
-        min-height: auto;
+        padding: 10px 20px;
+        min-height: 60px;
         display: flex;
-        flex-direction: column;
-        gap: 20px;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
     }
 
     .logo {
-        position: static;
-        transform: none;
-        order: 1;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-shrink: 0;
     }
 
     .logo img {
-        max-height: 70px;
+        max-height: 45px;
     }
 
     .desktop-nav {
-        order: 2;
-        gap: 25px;
-        justify-content: center;
+        display: flex;
+        gap: 12px;
+        flex: 0 0 auto;
     }
 
     .desktop-nav a {
-        font-size: 11px;
-        letter-spacing: 1.5px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        white-space: nowrap;
     }
 
     .header-right {
-        order: 3;
-        gap: 20px;
-        justify-content: center;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-shrink: 0;
+        margin-left: auto;
     }
 
     .dropdown-toggle {
-        font-size: 11px;
-        padding: 9px 18px;
+        font-size: 10px;
+        padding: 6px 12px;
+        white-space: nowrap;
+    }
+
+    .cart-icon {
+        width: 35px;
+        height: 35px;
     }
 
     /* Category navigation */
     .category-nav {
-        padding: 14px 30px;
+        padding: 10px 20px;
     }
 
     .category-nav a {
-        padding: 10px 20px;
-        margin: 0 5px;
-        font-size: 11px;
+        padding: 8px 12px;
+        margin: 0 3px;
+        font-size: 10px;
     }
 
     /* Cart Page */
@@ -6345,7 +7388,7 @@ body.mobile-menu-open {
         gap: 6px;
     }
 
-    /* =============================================
+ /* =============================================
        FLOWERS PAGE MOBILE FIXES
     ============================================= */
     
@@ -6431,15 +7474,9 @@ body.mobile-menu-open {
         font-size: 13px;
         padding: 8px 0;
         display: block;
-        color: #333;
         text-decoration: none;
         transition: color 0.3s ease;
         cursor: pointer;
-    }
-
-    .bloomify-sidebar ul li a:hover,
-    .occasions-sidebar ul li a:hover {
-        color: #8b7355;
     }
 
     .bloomify-collection-title,
@@ -6476,7 +7513,6 @@ body.mobile-menu-open {
 
     .bloomify-product-card,
     .occasions-product-card {
-        border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         transition: transform 0.3s ease;
@@ -6513,6 +7549,7 @@ body.mobile-menu-open {
         margin: 0 15px 15px;
     }
 
+    /* Cart badge colors - keep hover from desktop */
     .bloomify-cart-badge,
     .occasions-cart-badge {
         position: absolute;
@@ -6520,21 +7557,12 @@ body.mobile-menu-open {
         right: 12px;
         width: 40px;
         height: 40px;
-        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 16px;
-        border: none;
-        cursor: pointer;
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-        transition: all 0.3s ease;
         z-index: 10;
-    }
-
-    .bloomify-cart-badge:active,
-    .occasions-cart-badge:active {
-        transform: scale(0.95);
     }
 
     /* Collection Products Grid - Single Column */
@@ -6600,6 +7628,7 @@ body.mobile-menu-open {
         padding-left: 20px;
     }
 
+    /* Collection cart badge position only */
     .bloomify-collection-content .bloomify-cart-badge {
         position: absolute;
         top: 20px;
@@ -6617,7 +7646,6 @@ body.mobile-menu-open {
 
     .occasions-product-detail-card {
         background: #fff;
-        border-radius: 12px;
         overflow: hidden;
         box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
@@ -6644,25 +7672,15 @@ body.mobile-menu-open {
     .occasions-option-btn {
         padding: 8px 16px;
         font-size: 11px;
-        background: #f5f5f5;
         border: 1px solid #ddd;
-        border-radius: 20px;
         cursor: pointer;
         transition: all 0.3s ease;
         white-space: nowrap;
     }
 
-    .occasions-option-btn.active {
-        background: #8b7355;
-        color: #fff;
-        border-color: #8b7355;
-    }
-
     .occasions-price-display {
         margin: 20px 0;
         padding: 15px;
-        background: #f9f9f9;
-        border-radius: 8px;
         text-align: center;
     }
 
@@ -6670,16 +7688,14 @@ body.mobile-menu-open {
         font-size: 10px;
         text-transform: uppercase;
         letter-spacing: 1.5px;
-        color: #999;
         margin-bottom: 5px;
     }
 
     .occasions-price-display .occasions-amount {
         font-size: 24px;
-        font-weight: 600;
-        color: #333;
     }
 
+    /* Add to cart button - mobile sizing only */
     .occasions-add-to-cart-btn {
         width: 100%;
         padding: 13px;
@@ -6687,25 +7703,13 @@ body.mobile-menu-open {
         font-weight: 600;
         letter-spacing: 1.5px;
         text-transform: uppercase;
-        background: #8b7355;
-        color: #fff;
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .occasions-add-to-cart-btn:active {
-        background: #6d5a42;
-        transform: scale(0.98);
+        border-radius: 5px;
     }
 
     /* Promo Banner */
     .occasions-promo-banner {
-        background: #f9f9f9;
         padding: 30px 20px;
         margin: 30px 0;
-        border-radius: 12px;
         text-align: center;
     }
 
@@ -6713,18 +7717,15 @@ body.mobile-menu-open {
         font-size: 20px;
         font-weight: 600;
         margin-bottom: 10px;
-        color: #8b7355;
     }
 
     .occasions-promo-banner p {
         font-size: 13px;
-        color: #666;
         line-height: 1.6;
     }
 
     /* More Details Section */
     .occasions-more-details {
-        background: #f9f9f9;
         padding: 35px 20px;
         margin: 30px 0 0 0;
         border-radius: 12px;
@@ -6739,7 +7740,6 @@ body.mobile-menu-open {
 
     .occasions-more-details p {
         font-size: 13px;
-        color: #666;
         line-height: 1.7;
         margin-bottom: 20px;
     }
@@ -6783,6 +7783,7 @@ body.mobile-menu-open {
         text-align: center;
     }
 
+    /* Back button - mobile sizing only */
     .bloomify-back-btn,
     .occasions-back-btn {
         padding: 10px 25px;
@@ -6790,19 +7791,7 @@ body.mobile-menu-open {
         font-weight: 600;
         letter-spacing: 1.5px;
         text-transform: uppercase;
-        background: #fff;
-        color: #8b7355;
-        border: 1px solid #8b7355;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: all 0.3s ease;
         display: inline-block;
-    }
-
-    .bloomify-back-btn:active,
-    .occasions-back-btn:active {
-        background: #8b7355;
-        color: #fff;
     }
 
     /* Page Visibility Control */
