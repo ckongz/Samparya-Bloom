@@ -9,9 +9,10 @@
     -->
     <title>Samparyá Bloom - Petals at Your Doorstep</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="stylesheet" href="css/styles.min.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    
     <!-- Favicon declarations for different devices and platforms -->
     <link rel="shortcut icon" href="images/favicon.ico.jpg"/>
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
@@ -19,12 +20,16 @@
     <link rel="icon" sizes="192X192" href="images/android-chrome-192.png" />
 </head>
 <body>
-    <!-- Top Banner -->
+    <!-- =============================================
+         TOP BANNER SECTION
+    ============================================= -->
     <div class="top-banner">
         We offer free delivery in Angeles City for orders Php 6,000 and up.
     </div>
 
-    <!-- Header -->
+    <!-- =============================================
+         HEADER SECTION
+    ============================================= -->
     <header>
         <!-- Hamburger Menu Button (Mobile Only) -->
         <button class="hamburger-menu" aria-label="Open navigation menu">
@@ -77,10 +82,14 @@
         </div>
     </header>
 
-    <!-- Mobile Navigation Overlay (Dark background when menu is open) -->
+    <!-- =============================================
+         MOBILE NAVIGATION OVERLAY
+    ============================================= -->
     <div class="mobile-nav-overlay" aria-hidden="true"></div>
 
-    <!-- Mobile Navigation Menu (Slide-in from left) -->
+    <!-- =============================================
+         MOBILE NAVIGATION MENU (Slide-in from left)
+    ============================================= -->
     <div class="mobile-nav" aria-label="Mobile navigation">
         <div class="mobile-nav-header">
             <div class="mobile-nav-logo">
@@ -122,24 +131,32 @@
         </div>
     </div>
 
-    <!-- Category Navigation -->
+    <!-- =============================================
+         CATEGORY NAVIGATION
+    ============================================= -->
     <div class="category-nav">
         <a href="flowers.html">FLOWERS</a>
         <a href="ocassions.html">OCCASIONS</a>
     </div>
 
-    <!-- Hero Banner -->
+    <!-- =============================================
+         HERO BANNER SECTION
+    ============================================= -->
     <section class="home-hero-banner">
+        <div class="petals-background" id="petalsContainer"></div>
+        <!-- Hero Content -->
         <div class="home-hero-content">
             <p class="home-hero-label">SHOP ELEGANT PETALS TODAY!</p>
             <h1>Petals at Your Doorstep</h1>
             <p>Same day delivery available in Angeles City and nearby areas. Place your order before 9 AM to receive it the same day.</p>
-            <p>Orders after the cut-off will arrive the next day or on your chosen date.</p>
+            <p>Orders after the cut-off will arrive the next day or on your chosen date.</p> 
             <a href="flowers.html" class="home-hero-btn">FLOWERS</a>
         </div>
     </section>
 
-    <!-- Bestsellers Section -->
+    <!-- =============================================
+         BESTSELLERS SECTION
+    ============================================= -->
     <section class="home-bestsellers">
         <div class="home-container">
             <p class="home-section-label">CHECK OUT OUR</p>
@@ -185,9 +202,12 @@
                     </a>
                 </div>
             </div>
+        </div>
     </section>
 
-    <!-- Our Story Section -->
+    <!-- =============================================
+         OUR STORY SECTION
+    ============================================= -->
     <section class="home-our-story">
         <div class="home-story-content">
             <p class="home-section-label">OUR STORY</p>
@@ -200,7 +220,9 @@
         </div>
     </section>
 
-    <!-- Reviews Section -->
+    <!-- =============================================
+         REVIEWS SECTION
+    ============================================= -->
     <section class="home-reviews">
         <div class="home-container">
             <h2>Love Notes From Our Customers</h2>
@@ -250,7 +272,9 @@
         </div>
     </section>
 
-    <!-- Instagram Section -->
+    <!-- =============================================
+         INSTAGRAM SECTION
+    ============================================= -->
     <section class="home-instagram-section">
         <div class="home-container">
             <p class="home-instagram-handle">@SAMPARYABLOOM</p>
@@ -278,7 +302,9 @@
         </div>
     </section>
 
-    <!-- Audio Player -->
+    <!-- =============================================
+         AUDIO PLAYER
+    ============================================= -->
     <div class="home-audio-player">
         <button class="home-play-button" id="playButton">
             <span class="home-play-icon">▶</span>
@@ -295,7 +321,9 @@
         </audio>
     </div>
 
-    <!-- Footer -->
+    <!-- =============================================
+         FOOTER SECTION
+    ============================================= -->
     <footer>
         <div class="footer-content">
             <div class="footer-links">
@@ -317,10 +345,10 @@
                     <button>JOIN</button>
                 </div>
                 <div class="social-icons">
-                    <a href="https://www.instagram.com/sbphilippines" class="social-link instagram" target="_blank">
+                    <a href="https://www.instagram.com/christructure/#" class="social-link instagram" target="_blank">
                         <img src="images/ig-logo.png" alt="Instagram" style="width: 24px; height: 24px; object-fit: contain;">
                     </a>
-                    <a href="https://www.facebook.com/sbphilippines" class="social-link facebook" target="_blank">
+                    <a href="https://www.facebook.com/christructure" class="social-link facebook" target="_blank">
                         <img src="images/fb-logo.png" alt="Facebook" style="width: 24px; height: 24px; object-fit: contain;">
                     </a>
                 </div>
@@ -334,7 +362,9 @@
         </div>
     </footer>
 
-    <!-- JavaScript Section -->
+    <!-- =============================================
+         JAVASCRIPT SECTION
+    ============================================= -->
     <script>
         // =============================================
         // CART MANAGEMENT SYSTEM
@@ -451,7 +481,9 @@
         }
     </script>
 
-    <!-- Mobile Menu JavaScript -->
+    <!-- =============================================
+         MOBILE MENU JAVASCRIPT
+    ============================================= -->
     <script>
         // =============================================
         // MOBILE HAMBURGER MENU FUNCTIONALITY
@@ -617,6 +649,47 @@
                 });
             }
         });
+    </script>
+
+    <!-- =============================================
+         ANIMATIONS INITIALIZATION
+    ============================================= -->
+    <script>
+        // Create falling petals with random properties
+        function createPetals() {
+            const container = document.getElementById('petalsContainer');
+            if (!container) return;
+            
+            // Adjust number based on screen size
+            const isMobile = window.innerWidth < 768;
+            const petalCount = isMobile ? 15 : 25;
+            
+            for (let i = 0; i < petalCount; i++) {
+                const petal = document.createElement('div');
+                petal.classList.add('petal');
+                
+                // Random position
+                petal.style.left = `${Math.random() * 100}%`;
+                
+                // Random duration (8-15 seconds)
+                const fallDuration = 8 + Math.random() * 7;
+                petal.style.animationDuration = `${fallDuration}s, ${fallDuration * 0.5}s`;
+                
+                // Random delay
+                petal.style.animationDelay = `${Math.random() * 10}s`;
+                
+                // Depth effect
+                if (Math.random() > 0.5) {
+                    petal.style.filter = 'blur(0.5px)';
+                    petal.style.opacity = '0.6';
+                }
+                
+                container.appendChild(petal);
+            }
+        }
+
+        // Initialize
+        window.addEventListener('load', createPetals);
     </script>
 </body>
 </html>
