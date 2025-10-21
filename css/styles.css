@@ -7186,12 +7186,17 @@ body.mobile-menu-open {
         margin-bottom: 12px;
     }
 
-    .home-hero-btn {
-        padding: 11px 25px;
-        font-size: 9px;
-        letter-spacing: 1.5px;
-        border-radius: 25px;
-        margin-top: 15px;
+    .home-hero-btn  {
+    padding: 13px 30px;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+    border-radius: 30px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1;
     }
 
     .home-container {
@@ -7661,6 +7666,7 @@ body.mobile-menu-open {
         margin-bottom: 10px;
         text-transform: uppercase;
         letter-spacing: 1px;
+        color: #000;
     }
 
     .occasions-option-buttons {
@@ -7794,6 +7800,14 @@ body.mobile-menu-open {
         display: inline-block;
     }
 
+   /* MOBILE/TOUCH: Active state when clicking/tapping */
+    .bloomify-back-btn:active,
+    .occasions-back-btn:active {
+        background-color: #8b2e3e;
+        transform: translateY(-1px) scale(0.98);
+        box-shadow: 0 4px 15px rgba(139, 46, 62, 0.4);
+    }
+
     /* Page Visibility Control */
     .bloomify-page,
     .occasions-page {
@@ -7803,6 +7817,24 @@ body.mobile-menu-open {
     .bloomify-page.active,
     .occasions-page.active {
         display: block;
+    }
+
+    .occasions-option-btn {
+        padding: 8px 16px;
+        font-size: 11px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+        color: #000;
+        background-color: #fff;
+        text-decoration: none;
+    }
+    
+    .occasions-option-btn.selected {
+        background-color: #3d4f3d;
+        color: #fff;
+        border-color: #3d4f3d;
     }
 
     /* Toast notification */
@@ -7939,9 +7971,12 @@ body.mobile-menu-open {
         height: 42px;
     }
 
+    
+
     .home-play-icon,
     .home-pause-icon {
         font-size: 18px;
+        color: white;
     }
 
     .home-audio-info {
