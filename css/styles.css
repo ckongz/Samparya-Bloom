@@ -7957,7 +7957,7 @@ body.mobile-menu-open {
         font-size: 10px;
     }
 
-  /* Audio player */
+    /* Audio player */
     .home-audio-player {
         bottom: 15px;
         right: 15px;
@@ -7971,9 +7971,6 @@ body.mobile-menu-open {
         height: 42px;
         background-color: transparent;
         border: none;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         cursor: pointer;
     }
 
@@ -7981,7 +7978,22 @@ body.mobile-menu-open {
     .home-pause-icon {
         font-size: 18px;
         color: white !important;
-        display: block;
+    }
+
+    /* Target SVG icons specifically */
+    .home-play-button svg,
+    .home-play-icon svg,
+    .home-pause-icon svg {
+        fill: white !important;
+        color: white !important;
+    }
+
+    /* Target paths inside SVG */
+    .home-play-button svg path,
+    .home-play-icon svg path,
+    .home-pause-icon svg path {
+        fill: white !important;
+        stroke: white !important;
     }
 
     .home-audio-info {
@@ -7990,7 +8002,6 @@ body.mobile-menu-open {
 
     .home-audio-title {
         font-size: 11px;
-        color: white;
     }
 
     .home-audio-progress {
