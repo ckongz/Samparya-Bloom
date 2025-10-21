@@ -5812,8 +5812,8 @@ body.mobile-menu-open {
 /* Header - Horizontal layout with smaller fonts for tablet landscape */
 /* Header - Horizontal layout with centered logo for tablet landscape */
     header {
-        padding: 10px 20px;
-        min-height: 60px;
+        padding: 20px 20px;
+        min-height: 85px;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -5826,54 +5826,62 @@ body.mobile-menu-open {
         left: 50%;
         transform: translateX(-50%);
         flex-shrink: 0;
+        z-index: 10;
     }
 
     .logo img {
-        max-height: 45px;
+        max-height: 50px;
     }
 
     .desktop-nav {
         display: flex;
-        gap: 12px;
+        gap: 15px;
         flex: 0 0 auto;
+        align-items: center;
     }
 
     .desktop-nav a {
         font-size: 12px;
         letter-spacing: 1px;
         white-space: nowrap;
+        padding: 8px 0;
     }
 
     .header-right {
         display: flex;
-        gap: 12px;
+        gap: 15px;
         align-items: center;
         flex-shrink: 0;
         margin-left: auto;
+        z-index: 10;
     }
 
     .dropdown-toggle {
-        font-size: 10px;
-        padding: 6px 12px;
+        font-size: 11px;
+        padding: 10px 16px;
         white-space: nowrap;
     }
 
     .cart-icon {
-        width: 35px;
-        height: 35px;
+        width: 32px;
+        height: 32px;
     }
 
     /* Category navigation */
     .category-nav {
-        padding: 10px 20px;
+        padding: 12px 20px;
+        min-height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     .category-nav a {
         padding: 8px 12px;
-        margin: 0 3px;
-        font-size: 10px;
+        margin: 0 4px;
+        font-size: 11px;
+        display: inline-block;
     }
-
     /* Cart Page */
     .cart-container {
         max-width: 95%;
