@@ -7,7 +7,7 @@
         Activity: SAMPARYA BLOOM FINALS
         Date: OCTOBER 19, 2025
     -->
-    <title>Contact/Location - Samparyá Bloom</title>
+    <title>Feedback - Samparyá Bloom</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styles.min.css" type="text/css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,7 +24,7 @@
         We offer free delivery in Angeles City for orders Php 6,000 and up.
     </div>
 
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
         <!-- Hamburger Menu Button (Mobile Only) -->
         <button class="hamburger-menu" aria-label="Open navigation menu">
@@ -50,7 +50,6 @@
 
         <!-- Desktop Header Right (Hidden on Mobile ≤768px) -->
         <div class="header-right">
-            <!-- Dropdown navigation for quick links -->
             <div class="dropdown-nav">
                 <button class="dropdown-toggle">Quick Links</button>
                 <div class="dropdown-menu">
@@ -129,92 +128,162 @@
         <a href="occasions.html">OCCASIONS</a>
     </div>
 
-    <!-- Contact Content Section -->
-    <section class="sb-contact-location">
+    <!-- Feedback Content Section -->
+    <section class="sb-feedback">
         <!-- Hero Section -->
-        <div class="hero">
-            <h1>Contact Us</h1>
-            <p>We're here to help with all your floral needs. Reach out to us through any of the channels below or visit our beautiful flower shop in Angeles City.</p>
-        </div>
-        
-        <!-- Main Contact Content -->
-        <div class="contact-content">
-            <!-- Contact Info Cards -->
-            <div class="contact-info">
-                <!-- Location Info -->
-                <div class="info-block">
-                    <div class="icon">📍</div>
-                    <h3>Location</h3>
-                    <p>Angeles City</p>
-                    <p>Pampanga, Philippines</p>
+        <section class="hero">
+            <h1>Share Your Experience</h1>
+            <p>Help us improve our flowers and service by sharing your honest feedback about your recent purchases.</p>
+        </section>
+
+        <!-- Form Section -->
+        <section class="form-section">
+            <form id="feedbackForm">
+                <!-- Contact Information Fieldset -->
+                <fieldset>
+                    <legend>Contact Information</legend>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Your Name*</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="date">Purchase Date</label>
+                            <input type="date" id="date" name="date">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="purchase">Flower/Arrangement Purchased*</label>
+                        <input type="text" id="purchase" name="purchase" placeholder="e.g., red roses bouquet, money bouquets" required>
+                    </div>
+                </fieldset>
+
+                <!-- Rating Section Fieldset -->
+                <fieldset>
+                    <legend>Rate Your Experience</legend>
+                    
+                    <!-- Overall Satisfaction Rating -->
+                    <div class="rating-row">
+                        <label for="overall">Overall Satisfaction</label>
+                        <select id="overall" name="overall">
+                            <option value="">Select Rating</option>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="3">3 - Good</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                    </div>
+
+                    <!-- Flower Quality Rating -->
+                    <div class="rating-row">
+                        <label for="quality">Flower Quality</label>
+                        <select id="quality" name="quality">
+                            <option value="">Select Rating</option>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="3">3 - Good</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                    </div>
+
+                    <!-- Customer Service Rating -->
+                    <div class="rating-row">
+                        <label for="service">Customer Service</label>
+                        <select id="service" name="service">
+                            <option value="">Select Rating</option>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="3">3 - Good</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                    </div>
+
+                    <!-- Delivery Experience Rating -->
+                    <div class="rating-row">
+                        <label for="delivery">Delivery/Pickup Experience</label>
+                        <select id="delivery" name="delivery">
+                            <option value="">Select Rating</option>
+                            <option value="5">5 - Excellent</option>
+                            <option value="4">4 - Very Good</option>
+                            <option value="3">3 - Good</option>
+                            <option value="2">2 - Fair</option>
+                            <option value="1">1 - Poor</option>
+                        </select>
+                    </div>
+                </fieldset>
+
+                <!-- Features Fieldset - What customers loved -->
+                <fieldset>
+                    <legend>What Did You Love Most?</legend>
+                    <div class="checkbox-grid">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="freshness" name="feature" value="freshness">
+                            <label for="freshness">Freshness</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="arrangement" name="feature" value="arrangement">
+                            <label for="arrangement">Beautiful Arrangement</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="variety" name="feature" value="variety">
+                            <label for="variety">Great Variety</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="longlasting" name="feature" value="longlasting">
+                            <label for="longlasting">Long-lasting</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="value" name="feature" value="value">
+                            <label for="value">Great Value</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="packaging" name="feature" value="packaging">
+                            <label for="packaging">Beautiful Packaging</label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <!-- Additional Comments Section -->
+                <div class="comments-section">
+                    <label for="comments">Additional Comments</label>
+                    <textarea id="comments" name="comments" placeholder="Tell us more about your experience, suggestions for improvement, or anything else you'd like us to know..."></textarea>
                 </div>
 
-                <!-- Mobile Numbers -->
-                <div class="info-block">
-                    <div class="icon">📱</div>
-                    <h3>Mobile</h3>
-                    <p><a href="tel:+639260951504">(+63) 926 095 1504</a></p>
-                    <p><a href="tel:+639177023431">(+63) 917 702 3431</a></p>
+                <!-- Recommendation Section -->
+                <div class="recommend-section">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="recommend" name="recommend" value="yes">
+                        <label for="recommend">I would recommend Samparya Bloom to friends and family</label>
+                    </div>
                 </div>
 
-                <!-- Landline Numbers -->
-                <div class="info-block">
-                    <div class="icon">📞</div>
-                    <h3>Landline</h3>
-                    <p><a href="tel:+63458815731">(632) 8881 5731</a></p>
-                    <p><a href="tel:+63458793073">(632) 8879 3073</a></p>
+                <!-- Submit and Reset Buttons -->
+                <div class="button-container">
+                    <button type="submit" class="submit-btn">Submit Feedback</button>
+                    <button type="reset" class="reset-btn">Reset Form</button>
                 </div>
-
-                <!-- Email Address -->
-                <div class="info-block">
-                    <div class="icon">✉️</div>
-                    <h3>Email</h3>
-                    <p><a href="mailto:support@samparyabloom.com">support@samparyabloom.com</a></p>
-                </div>
-            </div>
-
-            <!-- Shop Hours Section -->
-            <div class="hours-section">
-                <h2>Shop Hours & Flower Delivery</h2>
-                <div class="hours-table">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>DAY</th>
-                                <th>Shop Hours</th>
-                                <th>Delivery</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>Monday</td><td>8:00 AM - 6:00 PM</td><td>9:00 AM - 5:00 PM</td></tr>
-                            <tr><td>Tuesday</td><td>8:00 AM - 6:00 PM</td><td>9:00 AM - 5:00 PM</td></tr>
-                            <tr><td>Wednesday</td><td>8:00 AM - 6:00 PM</td><td>9:00 AM - 5:00 PM</td></tr>
-                            <tr><td>Thursday</td><td>8:00 AM - 6:00 PM</td><td>9:00 AM - 5:00 PM</td></tr>
-                            <tr><td>Friday</td><td>8:00 AM - 6:00 PM</td><td>9:00 AM - 5:00 PM</td></tr>
-                            <tr><td>Saturday</td><td>8:00 AM - 5:00 PM</td><td>9:00 AM - 5:00 PM</td></tr>
-                            <tr><td>Sunday</td><td>8:00 AM - 4:00 PM</td><td>9:00 AM - 5:00 PM</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-                <figcaption>Our weekly schedule for store operations and delivery services</figcaption>
-            </div>
-
-            <!-- Map Section -->
-            <section class="map-section">
-                <h2>Find Our Flower Shop</h2>
-                <figure class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15404.070036220499!2d120.57282488715818!3d15.157383100000006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3396f344a0745329%3A0x9456ee355fb480a6!2sHanna%E2%80%99s%20Flower%20Garden!5e0!3m2!1sen!2sph!4v1760295447154!5m2!1sen!2sph" 
-                        allowfullscreen 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    <figcaption>Visit our flower shop in Angeles City, Pampanga. Walk-ins and pickup orders are always welcome!</figcaption>
-                </figure>
-            </section>
-        </div>
+            </form>
+        </section>
     </section>
 
+    <!-- Thank You Modal (Shown after form submission) -->
+    <div class="thank-you-overlay" id="thankYouOverlay">
+        <div class="thank-you-modal">
+            <div class="thank-you-icon"></div>
+            <h1>Thank You!</h1>
+            <p>Thank you for your feedback! We appreciate your time and input.</p>
+            <p class="redirect-message">Redirecting you back to the homepage in <span id="countdown">3</span> seconds...</p>
+        </div>
+    </div>
         <!-- =============================================
          AUDIO PLAYER
     ============================================= -->
@@ -225,9 +294,9 @@
         
         <div class="home-audio-info">
             <div class="home-song-info">
-                <div class="home-song-name">Fallingforyou</div>
+                <div class="home-song-name">Coastline</div>
                 <div class="home-artist-name">
-                    The 1975
+                    Hallow Caves
                     <span class="home-sound-wave" id="soundWave">
                         <span class="home-wave-bar"></span>
                         <span class="home-wave-bar"></span>
@@ -256,7 +325,7 @@
         </div>
         
         <audio id="bgAudio" loop>
-            <source src="media/Fallingforyou.mp3" type="audio/mpeg">
+            <source src="media/Hollow Coves - Coastline.mp3" type="audio/mpeg">
         </audio>
     </div>
 
@@ -311,83 +380,288 @@
             </p>
         </div>
     </footer>
+    
+<!-- Cart Management and Form Handling Script -->
+<script>
+// =============================================
+// CART MANAGER
+// =============================================
+const cartManager = {
+    // Retrieve cart from localStorage or initialize empty array
+    cart: JSON.parse(localStorage.getItem("cart")) || [],
 
-    <!-- Cart Management Script -->
-    <script>
-    // Cart Manager Object
-    const cartManager = {
-        // Retrieve cart from localStorage or initialize empty array
-        cart: JSON.parse(localStorage.getItem("cart")) || [],
+    // Save cart to localStorage and update count display
+    saveCart() {
+        localStorage.setItem("cart", JSON.stringify(this.cart));
+        this.updateCartCount();
+    },
 
-        // Save cart to localStorage and update count display
-        saveCart() {
-            localStorage.setItem("cart", JSON.stringify(this.cart));
-            this.updateCartCount();
-        },
+    // Update cart count in both desktop and mobile views
+    updateCartCount() {
+        try {
+            const count = this.cart.length;
+            
+            // Update desktop cart count
+            const cartCountEl = document.getElementById("cartCount");
+            if (cartCountEl) cartCountEl.textContent = count;
+            
+            // Update mobile cart count
+            const cartCountMobileEl = document.getElementById("cartCountMobile");
+            if (cartCountMobileEl) cartCountMobileEl.textContent = count;
+        } catch (error) {
+            console.error("Error updating cart count:", error);
+        }
+    },
 
-        // Update cart count in both desktop and mobile views
-        updateCartCount() {
-            try {
-                const count = this.cart.length;
-                
-                // Update desktop cart count
-                const cartCountEl = document.getElementById("cartCount");
-                if (cartCountEl) cartCountEl.textContent = count;
-                
-                // Update mobile cart count
-                const cartCountMobileEl = document.getElementById("cartCountMobile");
-                if (cartCountMobileEl) cartCountMobileEl.textContent = count;
-            } catch (error) {
-                console.error("Error updating cart count:", error);
+    // Show toast notification for cart actions
+    showToast(message = "Added to cart!") {
+        const toast = document.getElementById("toast");
+        if (toast) {
+            const toastMessage = toast.querySelector(".toast-message");
+            if (toastMessage) {
+                toastMessage.textContent = message;
+                toast.classList.add("show");
+                setTimeout(() => toast.classList.remove("show"), 2500);
             }
         }
-    };
+    },
 
-    // Initialize cart count on page load
-    document.addEventListener("DOMContentLoaded", () => {
-        cartManager.updateCartCount();
-    });
+    // Add item to cart
+    addToCart(name, price, image) {
+        this.cart.push({ name, price, image });
+        this.saveCart();
+        this.showToast(`${name} added to cart!`);
+    }
+};
 
-    // -------------------------
-    // PAGE SWITCHING FUNCTIONALITY
-    // -------------------------
-    function showPage(pageId) {
-        try {
-            const pages = document.querySelectorAll(".bloomify-page");
-            pages.forEach(page => page.classList.remove("active"));
-            
-            const targetPage = document.getElementById(pageId);
-            if (targetPage) {
-                targetPage.classList.add("active");
-                window.scrollTo(0, 0);
+// =============================================
+// PAGE SWITCHING FUNCTIONALITY
+// =============================================
+function showPage(pageId) {
+    try {
+        const pages = document.querySelectorAll(".bloomify-page, .occasions-page");
+        pages.forEach(page => page.classList.remove("active"));
+        
+        const targetPage = document.getElementById(pageId);
+        if (targetPage) {
+            targetPage.classList.add("active");
+            window.scrollTo(0, 0);
+        }
+    } catch (error) {
+        console.error("Error switching page:", error);
+    }
+}
+
+// =============================================
+// INITIALIZATION ON PAGE LOAD
+// =============================================
+document.addEventListener("DOMContentLoaded", () => {
+    // Initialize cart count
+    cartManager.updateCartCount();
+
+    // =============================================
+    // DROPDOWN FUNCTIONALITY
+    // =============================================
+    const dropdown = document.querySelector('.dropdown-nav');
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    
+    if (dropdownToggle && dropdown) {
+        // Toggle dropdown on click
+        dropdownToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdown.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
             }
-        } catch (error) {
-            console.error("Error switching page:", error);
+        });
+
+        // Close dropdown on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && dropdown.classList.contains('active')) {
+                dropdown.classList.remove('active');
+            }
+        });
+    }
+
+    // =============================================
+    // FEEDBACK FORM SUBMISSION
+    // =============================================
+    const form = document.getElementById("feedbackForm");
+    const thankYouOverlay = document.getElementById("thankYouOverlay");
+    const countdownElement = document.getElementById("countdown");
+
+    if (form && thankYouOverlay && countdownElement) {
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            
+            // Show thank you modal
+            thankYouOverlay.style.display = 'flex';
+            
+            // Start countdown for redirect
+            let countdown = 3;
+            countdownElement.textContent = countdown;
+            
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+                
+                // Redirect when countdown reaches 0
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = 'index.html';
+                }
+            }, 1000);
+        });
+    }
+    
+
+    // =============================================
+    // MOBILE HAMBURGER MENU FUNCTIONALITY
+    // =============================================
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
+    const mobileNavClose = document.querySelector('.mobile-nav-close');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+
+    // Check if elements exist
+    if (!hamburgerMenu || !mobileNav || !mobileNavOverlay) {
+        console.warn('Mobile menu elements not found');
+        return;
+    }
+
+    // Open Mobile Menu Function
+    function openMobileMenu() {
+        hamburgerMenu.classList.add('active');
+        mobileNav.classList.add('active');
+        mobileNavOverlay.classList.add('active');
+        document.body.classList.add('mobile-menu-open');
+        document.body.style.overflow = 'hidden';
+        
+        // Focus first menu item for accessibility
+        const firstLink = mobileNav.querySelector('a');
+        if (firstLink) {
+            setTimeout(() => firstLink.focus(), 100);
         }
     }
 
-    // Dropdown functionality for quick links
-    document.addEventListener("DOMContentLoaded", () => {
-        const dropdown = document.querySelector('.dropdown-nav');
-        const dropdownToggle = document.querySelector('.dropdown-toggle');
+    // Close Mobile Menu Function
+    function closeMobileMenu() {
+        hamburgerMenu.classList.remove('active');
+        mobileNav.classList.remove('active');
+        mobileNavOverlay.classList.remove('active');
+        document.body.classList.remove('mobile-menu-open');
+        document.body.style.overflow = '';
         
-        if (dropdownToggle && dropdown) {
-            // Toggle dropdown on click
-            dropdownToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                dropdown.classList.toggle('active');
-            });
+        // Return focus to hamburger button
+        hamburgerMenu.focus();
+    }
 
-            // Close dropdown when clicking outside
-            document.addEventListener('click', (e) => {
-                if (!dropdown.contains(e.target)) {
-                    dropdown.classList.remove('active');
+    // Hamburger menu click
+    hamburgerMenu.addEventListener('click', function() {
+        openMobileMenu();
+    });
+
+    // Close button click
+    if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+    }
+
+    // Overlay click
+    mobileNavOverlay.addEventListener('click', function() {
+        closeMobileMenu();
+    });
+
+    // Close on link click
+    mobileNavLinks.forEach(function(link) {
+        link.addEventListener('click', function() {
+            setTimeout(function() {
+                closeMobileMenu();
+            }, 300);
+        });
+    });
+
+    // ESC key to close menu
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+
+    // Window resize handler
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        }, 250);
+    });
+
+    // Touch swipe to close
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    mobileNav.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    mobileNav.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 50) {
+            closeMobileMenu();
+        }
+    }, { passive: true });
+
+    // Focus trap for accessibility
+    mobileNav.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            const focusableElements = mobileNav.querySelectorAll(
+                'a[href], button:not([disabled])'
+            );
+            const firstElement = focusableElements[0];
+            const lastElement = focusableElements[focusableElements.length - 1];
+
+            if (e.shiftKey) {
+                if (document.activeElement === firstElement) {
+                    e.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                if (document.activeElement === lastElement) {
+                    e.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        }
+    });
+
+    // =============================================
+    // CART ICON KEYBOARD SUPPORT
+    // =============================================
+    const cartIcons = document.querySelectorAll('.cart-icon');
+    cartIcons.forEach(cartIcon => {
+        if (cartIcon) {
+            cartIcon.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    window.location.href = 'cart.html';
                 }
             });
         }
     });
-    </script>
-        <!-- =============================================
+
+    console.log(' All scripts initialized successfully');
+});
+  </script>
+      <!-- =============================================
                      AUDIO PLAYER 
     ============================================= -->
     <script>
@@ -610,174 +884,6 @@
             console.log('   - toggleLike()');
             console.log('   - toggleAudioPlayer()');
         }, 1000);
-    });
-    </script>
-
-    <!-- Mobile Navigation Script -->
-    <script>
-    // =============================================
-    // MOBILE HAMBURGER MENU FUNCTIONALITY
-    // =============================================
-    document.addEventListener('DOMContentLoaded', function() {
-        
-        // Get all necessary elements
-        const hamburgerMenu = document.querySelector('.hamburger-menu');
-        const mobileNav = document.querySelector('.mobile-nav');
-        const mobileNavOverlay = document.querySelector('.mobile-nav-overlay');
-        const mobileNavClose = document.querySelector('.mobile-nav-close');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
-
-        // Check if elements exist
-        if (!hamburgerMenu || !mobileNav || !mobileNavOverlay) {
-            console.warn('Mobile menu elements not found');
-            return;
-        }
-
-        // ==================
-        // OPEN MOBILE MENU
-        // ==================
-        hamburgerMenu.addEventListener('click', function() {
-            openMobileMenu();
-        });
-
-        function openMobileMenu() {
-            hamburgerMenu.classList.add('active');
-            mobileNav.classList.add('active');
-            mobileNavOverlay.classList.add('active');
-            document.body.classList.add('mobile-menu-open');
-            document.body.style.overflow = 'hidden';
-            
-            // Focus first menu item for accessibility
-            const firstLink = mobileNav.querySelector('a');
-            if (firstLink) {
-                setTimeout(() => firstLink.focus(), 100);
-            }
-        }
-
-        // ==================
-        // CLOSE MOBILE MENU
-        // ==================
-        function closeMobileMenu() {
-            hamburgerMenu.classList.remove('active');
-            mobileNav.classList.remove('active');
-            mobileNavOverlay.classList.remove('active');
-            document.body.classList.remove('mobile-menu-open');
-            document.body.style.overflow = '';
-            
-            // Return focus to hamburger button
-            hamburgerMenu.focus();
-        }
-
-        // Close button click
-        if (mobileNavClose) {
-            mobileNavClose.addEventListener('click', function() {
-                closeMobileMenu();
-            });
-        }
-
-        // Overlay click
-        mobileNavOverlay.addEventListener('click', function() {
-            closeMobileMenu();
-        });
-
-        // ==================
-        // CLOSE ON LINK CLICK
-        // ==================
-        mobileNavLinks.forEach(function(link) {
-            link.addEventListener('click', function() {
-                // Small delay for better UX
-                setTimeout(function() {
-                    closeMobileMenu();
-                }, 300);
-            });
-        });
-
-        // ==================
-        // KEYBOARD SUPPORT
-        // ==================
-        
-        // ESC key to close menu
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-                closeMobileMenu();
-            }
-        });
-
-        // ==================
-        // WINDOW RESIZE HANDLER
-        // ==================
-        let resizeTimer;
-        window.addEventListener('resize', function() {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(function() {
-                // If screen is resized to desktop size, close mobile menu
-                if (window.innerWidth > 768 && mobileNav.classList.contains('active')) {
-                    closeMobileMenu();
-                }
-            }, 250);
-        });
-
-        // ==================
-        // TOUCH SWIPE TO CLOSE
-        // ==================
-        let touchStartX = 0;
-        let touchEndX = 0;
-
-        mobileNav.addEventListener('touchstart', function(e) {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
-
-        mobileNav.addEventListener('touchend', function(e) {
-            touchEndX = e.changedTouches[0].screenX;
-            // Swipe left to close (distance > 50px)
-            if (touchStartX - touchEndX > 50) {
-                closeMobileMenu();
-            }
-        }, { passive: true });
-
-        // ==================
-        // FOCUS TRAP (for accessibility)
-        // ==================
-        mobileNav.addEventListener('keydown', function(e) {
-            if (e.key === 'Tab') {
-                const focusableElements = mobileNav.querySelectorAll(
-                    'a[href], button:not([disabled])'
-                );
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-
-                if (e.shiftKey) {
-                    // Shift + Tab
-                    if (document.activeElement === firstElement) {
-                        e.preventDefault();
-                        lastElement.focus();
-                    }
-                } else {
-                    // Tab
-                    if (document.activeElement === lastElement) {
-                        e.preventDefault();
-                        firstElement.focus();
-                    }
-                }
-            }
-        });
-
-        console.log('Mobile menu initialized successfully');
-    });
-
-    // =============================================
-    // CART ICON KEYBOARD SUPPORT
-    // =============================================
-    document.addEventListener("DOMContentLoaded", function() {
-        const cartIcon = document.querySelector('.cart-icon');
-        if (cartIcon) {
-            cartIcon.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    window.location.href = 'cart.html';
-                }
-            });
-        }
     });
     </script>
 </body>
