@@ -638,6 +638,57 @@
         </div>
     </div>
 
+        <!-- =============================================
+         AUDIO PLAYER
+    ============================================= -->
+    <div class="home-audio-player" id="audioPlayer">
+        <button class="home-close-button" id="closeButton" onclick="toggleAudioPlayer()" title="Close player">×</button>
+        
+        <div class="home-album-art" id="albumArt">🎵</div>
+        
+        <div class="home-audio-info">
+            <div class="home-song-info">
+                <div class="home-song-name">Say Yes To Heaven</div>
+                <div class="home-artist-name">
+                    Lana Del Rey
+                    <span class="home-sound-wave" id="soundWave">
+                        <span class="home-wave-bar"></span>
+                        <span class="home-wave-bar"></span>
+                        <span class="home-wave-bar"></span>
+                        <span class="home-wave-bar"></span>
+                    </span>
+                </div>
+            </div>
+            
+            <div class="home-progress-section">
+                <span class="home-time" id="currentTime">0:00</span>
+                <div class="home-audio-progress" id="progressContainer">
+                    <div class="home-audio-progress-bar" id="progressBar"></div>
+                </div>
+                <span class="home-time" id="totalTime">0:00</span>
+            </div>
+        </div>
+
+        <div class="home-controls">
+            <button class="home-like-button" id="likeButton" onclick="toggleLike()"></button>
+            <button class="home-play-button" id="playButton" onclick="togglePlay()">
+                <span class="home-play-icon">▶</span>
+                <span class="home-pause-icon">⏸</span>
+            </button>
+            <button class="home-volume-button" id="volumeButton" onclick="toggleMute()">🔊</button>
+        </div>
+        
+        <audio id="bgAudio" loop>
+            <source src="media/Lana Del Rey - Say Yes To Heaven (Official Audio).mp3" type="audio/mpeg">
+        </audio>
+    </div>
+
+    <!-- (will appear when main player is closed) -->
+    <div class="home-audio-minimized" id="minimizedPlayer" onclick="toggleAudioPlayer()" title="Open music player">
+        <div class="home-minimized-icon">🎵</div>
+        <span class="home-minimized-text">Music</span>
+    </div>
+
     <!-- Footer -->
     <footer>
         <div class="footer-content">
@@ -816,6 +867,232 @@
                 dropdown.classList.remove('active');
             }
         });
+    </script>
+
+    <!-- =============================================
+                     AUDIO PLAYER 
+    ============================================= -->
+    <script>
+    // Audio player state
+    let isAudioPlayerVisible = true;
+
+    // SIMPLE GLOBAL FUNCTIONS - NO CONFLICTS
+    function togglePlay(event) {
+        if (event) event.stopPropagation();
+        console.log('🎵 PLAY button clicked');
+        
+        const audio = document.getElementById('bgAudio');
+        const playButton = document.getElementById('playButton');
+        const albumArt = document.getElementById('albumArt');
+        const soundWave = document.getElementById('soundWave');
+        
+        if (audio && playButton) {
+            if (audio.paused) {
+                audio.play().catch(error => {
+                    console.error('Audio play failed:', error);
+                });
+                playButton.classList.add('playing');
+                if (albumArt) albumArt.classList.add('playing');
+                if (soundWave) soundWave.classList.add('active');
+            } else {
+                audio.pause();
+                playButton.classList.remove('playing');
+                if (albumArt) albumArt.classList.remove('playing');
+                if (soundWave) soundWave.classList.remove('active');
+            }
+        }
+    }
+
+    function toggleMute(event) {
+        if (event) event.stopPropagation();
+        console.log('🔇 MUTE button clicked');
+        
+        const audio = document.getElementById('bgAudio');
+        const volumeButton = document.getElementById('volumeButton');
+        
+        if (audio && volumeButton) {
+            audio.muted = !audio.muted;
+            volumeButton.textContent = audio.muted ? '🔇' : '🔊';
+        }
+    }
+
+    function toggleLike(event) {
+        if (event) event.stopPropagation();
+        console.log('❤️ LIKE button clicked');
+        
+        const likeButton = document.getElementById('likeButton');
+        if (likeButton) {
+            likeButton.classList.toggle('liked');
+        }
+    }
+
+    function toggleAudioPlayer(event) {
+        if (event) event.stopPropagation();
+        console.log('🔄 TOGGLE player visibility');
+        
+        const audioPlayer = document.getElementById('audioPlayer');
+        const minimizedPlayer = document.getElementById('minimizedPlayer');
+        
+        if (audioPlayer && minimizedPlayer) {
+            isAudioPlayerVisible = !isAudioPlayerVisible;
+            
+            if (isAudioPlayerVisible) {
+                // Show full player, hide minimized
+                audioPlayer.style.display = 'grid';
+                minimizedPlayer.style.display = 'none';
+            } else {
+                // Hide full player, show minimized
+                audioPlayer.style.display = 'none';
+                minimizedPlayer.style.display = 'flex';
+            }
+        }
+    }
+
+    // Initialize audio functionality
+    function initializeAudioPlayer() {
+        console.log('🚀 Initializing audio player...');
+        
+        const audio = document.getElementById('bgAudio');
+        const playButton = document.getElementById('playButton');
+        const volumeButton = document.getElementById('volumeButton');
+        const likeButton = document.getElementById('likeButton');
+        const progressBar = document.getElementById('progressBar');
+        const progressContainer = document.getElementById('progressContainer');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationEl = document.getElementById('totalTime');
+        const soundWave = document.getElementById('soundWave');
+        const albumArt = document.getElementById('albumArt');
+        const closeButton = document.getElementById('closeButton');
+        const minimizedPlayer = document.getElementById('minimizedPlayer');
+        
+        // Set initial states
+        if (minimizedPlayer) {
+            minimizedPlayer.style.display = 'none';
+        }
+        
+        if (volumeButton && audio) {
+            volumeButton.textContent = audio.muted ? '🔇' : '🔊';
+        }
+        
+        // Progress bar functionality
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            const mins = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+        
+        function updateProgress() {
+            if (audio && audio.duration) {
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                if (progressBar) {
+                    progressBar.style.width = `${progressPercent}%`;
+                }
+                if (currentTimeEl) {
+                    currentTimeEl.textContent = formatTime(audio.currentTime);
+                }
+            }
+        }
+        
+        function setProgress(e) {
+            if (audio && audio.duration) {
+                const width = this.clientWidth;
+                const clickX = e.offsetX;
+                audio.currentTime = (clickX / width) * audio.duration;
+            }
+        }
+        
+        // Audio event listeners
+        if (audio) {
+            audio.addEventListener('loadedmetadata', function() {
+                if (durationEl) {
+                    durationEl.textContent = formatTime(audio.duration);
+                }
+            });
+            
+            audio.addEventListener('timeupdate', updateProgress);
+            
+            audio.addEventListener('play', function() {
+                console.log('🔊 Audio playing');
+                if (playButton) playButton.classList.add('playing');
+                if (albumArt) albumArt.classList.add('playing');
+                if (soundWave) soundWave.classList.add('active');
+            });
+            
+            audio.addEventListener('pause', function() {
+                console.log('⏸️ Audio paused');
+                if (playButton) playButton.classList.remove('playing');
+                if (albumArt) albumArt.classList.remove('playing');
+                if (soundWave) soundWave.classList.remove('active');
+            });
+        }
+        
+        // Progress bar click
+        if (progressContainer) {
+            progressContainer.addEventListener('click', setProgress);
+        }
+        
+        console.log('✅ Audio player initialized');
+    }
+
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('📄 Page loaded, initializing audio...');
+        
+        // Initialize audio player
+        initializeAudioPlayer();
+        
+        // Add single event listeners to prevent conflicts
+        const playBtn = document.getElementById('playButton');
+        const volumeBtn = document.getElementById('volumeButton');
+        const likeBtn = document.getElementById('likeButton');
+        const closeBtn = document.getElementById('closeButton');
+        const minimizedBtn = document.getElementById('minimizedPlayer');
+        
+        // Remove any existing inline handlers and add clean ones
+        if (playBtn) {
+            playBtn.onclick = togglePlay;
+        }
+        
+        if (volumeBtn) {
+            volumeBtn.onclick = toggleMute;
+        }
+        
+        if (likeBtn) {
+            likeBtn.onclick = toggleLike;
+        }
+        
+        if (closeBtn) {
+            closeBtn.onclick = toggleAudioPlayer;
+        }
+        
+        if (minimizedBtn) {
+            minimizedBtn.onclick = toggleAudioPlayer;
+        }
+        
+        console.log('🎉 All audio controls ready!');
+    });
+
+    // Keyboard shortcut
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'm' || event.key === 'M') {
+            toggleAudioPlayer();
+        }
+    });
+
+    // Emergency fallback
+    window.addEventListener('load', function() {
+        console.log('🔄 Final audio check...');
+        
+        // Test if buttons work
+        setTimeout(function() {
+            console.log('💡 Test commands:');
+            console.log('   - togglePlay()');
+            console.log('   - toggleMute()'); 
+            console.log('   - toggleLike()');
+            console.log('   - toggleAudioPlayer()');
+        }, 1000);
+    });
     </script>
 
     <!-- Mobile Menu JavaScript -->
